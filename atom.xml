@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Title 还没想好</title>
+  
+  <subtitle>subtitle 也没想好</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://momingcoder.github.io/"/>
+  <updated>2017-11-05T10:04:15.263Z</updated>
+  <id>https://momingcoder.github.io/</id>
+  
+  <author>
+    <name>Moming</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>无聊写博客</title>
+    <link href="https://momingcoder.github.io/2017/11/05/%E6%97%A0%E8%81%8A%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://momingcoder.github.io/2017/11/05/无聊写博客/</id>
+    <published>2017-11-05T08:47:30.000Z</published>
+    <updated>2017-11-05T10:04:15.263Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>大概一年多没有写博客了。这一年间，多多少少接触了很多工业界的东西，不少东西还是值得记下的。更重要的是，很多东西不记下来自己就忘了，用的时候查资料也不方便，毕竟不是每个开源项目的文档都写得那么好用，也只有自己写出来的才最适合自己。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h2&gt;&lt;p&gt;大概一年多没有写博客了。这一年间，多多少少接触了很多工业界的东西，不少东西还是值得记下的。更重要的是，很多东西不记下来自己就忘了，用的时候查
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="https://momingcoder.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="琐事" scheme="https://momingcoder.github.io/categories/%E7%94%9F%E6%B4%BB/%E7%90%90%E4%BA%8B/"/>
+    
+    
+      <category term="琐事" scheme="https://momingcoder.github.io/tags/%E7%90%90%E4%BA%8B/"/>
+    
+  </entry>
+  
+</feed>
