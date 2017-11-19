@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://momingcoder.github.io/"/>
-  <updated>2017-11-16T09:16:50.585Z</updated>
+  <updated>2017-11-19T15:17:27.627Z</updated>
   <id>https://momingcoder.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker 常用命令</title>
+    <link href="https://momingcoder.github.io/2017/11/18/Docker-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://momingcoder.github.io/2017/11/18/Docker-常用命令/</id>
+    <published>2017-11-18T12:55:39.000Z</published>
+    <updated>2017-11-19T15:17:27.627Z</updated>
+    
+    <content type="html"><![CDATA[<p>Docker 这几年非常火，只不过对于我这种基本不接触业务的人而言，平时很少会用到 Docker，自己写项目愿意用 Python 的 <code>virtualenv</code> 就不错了。</p><p>对于 Docker，个人了解很肤浅，这里不过是想记录一下自己偶尔需要用到的命令，方便自己使用而已。</p><hr><h3 id="docker"><a class="markdownIt-Anchor" href="#docker"></a> Docker</h3><p><code>Dockerfile</code> 基本配置如下：</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> docker-images</div><div class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></div><div class="line"><span class="bash">ADD . /app</span></div><div class="line"><span class="bash">RUN pip install -r requirements.txt</span></div><div class="line"><span class="bash">EXPOSE 5000</span></div><div class="line"><span class="bash">ENV NUM_WORKS 4</span></div><div class="line"><span class="bash">CMD [<span class="string">'python3'</span>, <span class="string">'main.py'</span>]</span></div></pre></td></tr></table></figure><p>通过 <code>Dockerfile</code> 来创建 Docker image：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t my-image</div></pre></td></tr></table></figure><p>运行：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -p 4000:80 my-image</div></pre></td></tr></table></figure><p>Docker 里面各种带 <code>:</code> 的，前面表示的是外部的，后面是镜像里面的。</p><p>停止：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker container stop container_id</div></pre></td></tr></table></figure><p>其他相关命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker container ls</div><div class="line">docker container rm</div><div class="line">docker image ls -a</div><div class="line">docker tag &lt;image&gt; username/repository:tag</div><div class="line">docker push username/repository:tag</div><div class="line">docker run username/repository:tag</div></pre></td></tr></table></figure><h3 id="service"><a class="markdownIt-Anchor" href="#service"></a> Service</h3><p><code>docker-compose.yml</code> 基本配置如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="attr">version:</span> <span class="string">"3"</span></div><div class="line"><span class="attr">services:</span></div><div class="line"><span class="attr">web:</span></div><div class="line"><span class="attr">image:</span> <span class="string">username/repository:tag</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">replicas:</span> <span class="number">5</span></div><div class="line"><span class="attr">resources:</span></div><div class="line"><span class="attr">limits:</span></div><div class="line"><span class="attr">cpus:</span> <span class="string">"0.1"</span></div><div class="line"><span class="attr">memory:</span> <span class="number">50</span><span class="string">M</span></div><div class="line"><span class="attr">restart_policy:</span></div><div class="line"><span class="attr">condition:</span> <span class="string">on-failure</span></div><div class="line"><span class="attr">ports:</span></div><div class="line"><span class="bullet">-</span> <span class="string">"80:80"</span></div><div class="line"><span class="attr">volumes:</span></div><div class="line"><span class="bullet">-</span> <span class="string">"/home/username/data:/data"</span></div><div class="line"><span class="attr">redis:</span></div><div class="line"><span class="attr">image:</span> <span class="string">redis</span></div><div class="line"><span class="attr">ports:</span></div><div class="line"><span class="bullet">-</span> <span class="string">"6379:6379"</span></div><div class="line"><span class="attr">volumes:</span></div><div class="line"><span class="bullet">-</span> <span class="string">"/home/docker/data:/data"</span></div><div class="line"><span class="attr">command:</span> <span class="string">redis-server</span> <span class="bullet">--appendonly</span> <span class="literal">yes</span></div></pre></td></tr></table></figure><p>初始化：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker swarm init</div></pre></td></tr></table></figure><p>运行：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker stack deploy -c docker-compose.yml your_app_name</div></pre></td></tr></table></figure><p>其他：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker service ls</div><div class="line">docker service ps your_app_name</div><div class="line">docker stack rm your_app_name</div><div class="line">docker swarm leave --force</div></pre></td></tr></table></figure><h3 id="compose"><a class="markdownIt-Anchor" href="#compose"></a> Compose</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker-compose up -d --build</div><div class="line">docker-compose stop</div></pre></td></tr></table></figure><p>启动镜像，在镜像里面修改并提交：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker run --name ubuntu_bash -i -t ubuntu-python35 /bin/bash</div><div class="line"><span class="comment"># do something in cmd</span></div><div class="line">docker commit container_id username/repository:tag</div></pre></td></tr></table></figure><p>还有 Swarm 管理和监控等，因为我平时也不用，所以就不写了。</p><p>我发现官方文档比以前好一点了，起码 Tutorial 写得能看了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Docker 这几年非常火，只不过对于我这种基本不接触业务的人而言，平时很少会用到 Docker，自己写项目愿意用 Python 的 &lt;code&gt;virtualenv&lt;/code&gt; 就不错了。&lt;/p&gt;
+&lt;p&gt;对于 Docker，个人了解很肤浅，这里不过是想记录一下自己偶尔需
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://momingcoder.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="笔记" scheme="https://momingcoder.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="https://momingcoder.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>折腾各种工具</title>
