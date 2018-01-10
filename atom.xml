@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://momingcoder.github.io/"/>
-  <updated>2018-01-09T10:02:54.816Z</updated>
+  <updated>2018-01-10T05:30:29.489Z</updated>
   <id>https://momingcoder.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub 骗星星指南</title>
+    <link href="https://momingcoder.github.io/2018/01/10/GitHub-%E9%AA%97%E6%98%9F%E6%98%9F%E6%8C%87%E5%8D%97/"/>
+    <id>https://momingcoder.github.io/2018/01/10/GitHub-骗星星指南/</id>
+    <published>2018-01-09T16:40:41.000Z</published>
+    <updated>2018-01-10T05:30:29.489Z</updated>
+    
+    <content type="html"><![CDATA[<p>Star 对 GitHuber 来说还是很重要的，以至于淘宝都有代刷的业务了，就是不知道有没有发生过刷太多上了 Trending 的。</p><p>找人代刷毕竟太 low 了，我们还是要走别的路线，这样显得好像也是个正规军。</p><h3 id="什么最火"><a class="markdownIt-Anchor" href="#什么最火"></a> 什么最火</h3><p>GitHub 上 star 最多的语言无疑是 JavaScript，基本上你造点前端的轮子，总还是容易拿到 star 的。</p><p>再看内容，awesome list 和各种教程无疑是最招人喜欢的。如果你觉得热门的语言都被人写的差不多了，那你可以挑别人没写过的方向，比如 2017 年自然语言处理进展，区块链从入门到被骗光之类的，写完往微博，知乎，推特，Facebook 上面一发，然后坐等 star 就可以了。</p><p>再说热点，前后端不是很清楚，反正我知道 TensorFlow 已经无数次上 Trending 榜了，深度学习就是这么火。当然，现在区块链相关的，也是非常容易上榜的。</p><p>还有一些老实人，写点有意思东西，造造轮子，或者重新发明了轮子，优秀的话也是可以的。</p><h3 id="星星背后是无尽的黑暗"><a class="markdownIt-Anchor" href="#星星背后是无尽的黑暗"></a> 星星背后是无尽的黑暗</h3><p>并不是说 star 多的项目有多牛逼。</p><p>某某项目，吹的飞起，号称比正则库快了 1000 倍，看了下提供的论文，基本就是一篇大学生的课堂作业的形式，看了下原理，完全跟正则没关系。但是该作者依旧靠吹赢得了上千的 star，还有国内各种公众号轮流爆料，说什么年度十大机器学习项目，真的都是瞎子吗？</p><p>某某项目，上来就说什么不是最快也是最准确的分词模型，一个 LSTM ，没有论文，没有源代码，没有给出任何测评，Python 装一个 50M 多的模型，代码写的很烂，怎么看都是学生时代的产物。然而，几百 star 不要太随意。</p><p>社会，社会。</p><p>问了下周围的人，star 可能就跟 fork 一样当收藏用的。可以，这个我理解。但是你们点 star 之前真的就不仔细看看吗？你们的 star 真的很廉价啊。收藏这么多乱七八糟的东西，到时候也没法找吧？</p><p>真的，现在已经有了一定的免疫力了，看到项目会冷静分析下，确定真的是好东西再下手点 star 也不迟吧。</p><h3 id="老实人该干嘛"><a class="markdownIt-Anchor" href="#老实人该干嘛"></a> 老实人该干嘛</h3><p>优秀的项目理应获得 star，良币应当驱除劣币。</p><p>一份高质量的 README 是非常重要的。最好是有一个容易记住的名字，一个有趣的 logo ，比较详细的介绍和使用方法，有简单的例子帮助用户快速上手。</p><p>各种渠道的推广。再好的东西也怕巷子深。社交网络发动态，@ 各种同行业的牛人，自己写高质量的博客推广，提交搜索引擎。</p><p>当然最重要的是项目本身的质量。做人要有原则，是什么就写什么，吹牛逼总会被识破的，骗傻子有什么用，一个专业的技术分享网站，是要拿真本事说事儿的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Star 对 GitHuber 来说还是很重要的，以至于淘宝都有代刷的业务了，就是不知道有没有发生过刷太多上了 Trending 的。&lt;/p&gt;
+&lt;p&gt;找人代刷毕竟太 low 了，我们还是要走别的路线，这样显得好像也是个正规军。&lt;/p&gt;
+&lt;h3 id=&quot;什么最火&quot;&gt;&lt;a cl
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="https://momingcoder.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="GitHub" scheme="https://momingcoder.github.io/tags/GitHub/"/>
+    
+      <category term="吐槽" scheme="https://momingcoder.github.io/tags/%E5%90%90%E6%A7%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>通向财富自由之路</title>
