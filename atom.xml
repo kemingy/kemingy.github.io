@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://momingcoder.github.io/"/>
-  <updated>2018-01-16T03:28:22.702Z</updated>
+  <updated>2018-01-23T16:13:47.701Z</updated>
   <id>https://momingcoder.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习应用总结</title>
+    <link href="https://momingcoder.github.io/2018/01/23/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>https://momingcoder.github.io/2018/01/23/深度学习应用总结/</id>
+    <published>2018-01-23T15:52:52.000Z</published>
+    <updated>2018-01-23T16:13:47.701Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="deep-learning-applications"><a class="markdownIt-Anchor" href="#deep-learning-applications"></a> Deep Learning Applications</h1><h2 id="natural-language-processing"><a class="markdownIt-Anchor" href="#natural-language-processing"></a> Natural Language Processing</h2><ul><li>Machine Translation<ul><li><a href="https://github.com/tensorflow/nmt" target="_blank" rel="external">Google Neural Machine Translation</a></li><li><a href="https://github.com/facebookresearch/fairseq" target="_blank" rel="external">Facebook Fairseq</a></li></ul></li><li>Sentiment Analysis<ul><li><a href="https://nlp.stanford.edu/sentiment/index.html" target="_blank" rel="external">Sentiment Analysis</a></li></ul></li><li>Question Answering &amp; Chatbot<ul><li><a href="https://github.com/Conchylicultor/DeepQA" target="_blank" rel="external">DeepQA</a></li><li><a href="https://github.com/jiweil/Neural-Dialogue-Generation" target="_blank" rel="external">Neural Dialogue Generation</a></li><li><a href="https://github.com/gunthercox/ChatterBot" target="_blank" rel="external">ChatterBot</a></li></ul></li><li>Sentences Generation<ul><li><a href="https://arxiv.org/pdf/1511.06349.pdf" target="_blank" rel="external">Generating Sentences from a Continuous Space [pdf]</a></li><li><a href="https://ai.binwang.me/couplet/" target="_blank" rel="external">对对联</a></li></ul></li><li>Code Generation<ul><li><a href="https://github.com/tonybeltramelli/pix2code" target="_blank" rel="external">Pix2Code</a></li></ul></li><li>Reading Comprehension<ul><li><a href="https://arxiv.org/pdf/1607.04423.pdf" target="_blank" rel="external">Attention over Attention [pdf]</a></li></ul></li><li>Identify Duplicate Questions<ul><li><a href="https://www.kaggle.com/c/quora-question-pairs" target="_blank" rel="external">Kaggle: Quora Question Pairs</a></li></ul></li></ul><h2 id="computer-vision"><a class="markdownIt-Anchor" href="#computer-vision"></a> Computer Vision</h2><ul><li>Image Style Transfer<ul><li><a href="https://github.com/luanfujun/deep-photo-styletransfer" target="_blank" rel="external">Deep Photo Style Transfer</a></li><li><a href="https://github.com/lengstrom/fast-style-transfer" target="_blank" rel="external">Fast Style Transfer</a></li><li><a href="https://github.com/anishathalye/neural-style" target="_blank" rel="external">Neural Style</a></li><li><a href="https://github.com/google/deepdream" target="_blank" rel="external">Google Deep Dream</a></li><li><a href="https://github.com/awentzonline/image-analogies" target="_blank" rel="external">Neural Image Analogies</a></li></ul></li><li>Image Generation<ul><li><a href="https://github.com/alexjc/neural-doodle" target="_blank" rel="external">Neural Doodle</a></li><li><a href="https://github.com/makegirlsmoe/makegirlsmoe_web" target="_blank" rel="external">Make Girls Moe</a></li><li><a href="https://github.com/AlexiaJM/Deep-learning-with-cats" target="_blank" rel="external">Deep Learning with Cats</a></li></ul></li><li>Fonts Generation<ul><li><a href="https://github.com/erikbern/deep-fonts" target="_blank" rel="external">Deep Fonts</a></li><li><a href="https://github.com/patrickgadd/feel-the-kern" target="_blank" rel="external">Feel the Kern</a></li></ul></li><li>Colorize Grayscale Images<ul><li><a href="https://github.com/pavelgonchar/colornet" target="_blank" rel="external">ColorNet</a></li></ul></li><li>Automatic Coloring<ul><li><a href="https://github.com/kvfrans/deepcolor" target="_blank" rel="external">Deep Color</a></li></ul></li><li>Denoise<ul><li><a href="https://github.com/cszn/DnCNN" target="_blank" rel="external">DnCNN</a></li></ul></li><li>Inpaiting<ul><li><a href="https://github.com/Yijunmaverick/GenerativeFaceCompletion" target="_blank" rel="external">Generative Face Completion</a></li><li><a href="https://github.com/leehomyc/Faster-High-Res-Neural-Inpainting" target="_blank" rel="external">High-Resolution Image Inpainting using Multi-Scale Neural Patch Synthesis</a></li><li><a href="https://github.com/pathak22/context-encoder" target="_blank" rel="external">Context Encoder</a></li></ul></li><li>Super Resolution<ul><li><a href="https://github.com/alexjc/neural-enhance" target="_blank" rel="external">Neural Enhance</a></li><li><a href="https://github.com/david-gpu/srez" target="_blank" rel="external">srez</a></li><li><a href="http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html" target="_blank" rel="external">SRCNN</a></li></ul></li><li>Image Description<ul><li><a href="https://github.com/karpathy/neuraltalk" target="_blank" rel="external">NeuralTalk</a></li><li><a href="https://github.com/karpathy/neuraltalk2" target="_blank" rel="external">NeuralTalk2</a></li><li><a href="https://github.com/ryankiros/neural-storyteller" target="_blank" rel="external">StoryTeller</a></li></ul></li></ul><h2 id="audio-signal-processing"><a class="markdownIt-Anchor" href="#audio-signal-processing"></a> Audio Signal Processing</h2><ul><li>Music Generation<ul><li><a href="https://github.com/jisungk/deepjazz" target="_blank" rel="external">Deep Jazz</a></li><li><a href="https://github.com/feynmanliang/bachbot" target="_blank" rel="external">Bach Bot</a></li></ul></li><li>Voice Style Transfer<ul><li><a href="https://github.com/andabi/deep-voice-conversion" target="_blank" rel="external">Deep voice conversion</a></li></ul></li><li>Speech Recognition<ul><li><a href="https://arxiv.org/pdf/1707.07413.pdf" target="_blank" rel="external">Baidu Deep Speech 3 [pdf]</a>    <a href="https://github.com/mozilla/DeepSpeech" target="_blank" rel="external">Code</a></li><li><a href="https://github.com/pannous/tensorflow-speech-recognition" target="_blank" rel="external">Seq2Seq</a></li></ul></li><li>Text to Speech<ul><li><a href="https://arxiv.org/pdf/1702.07825v2.pdf" target="_blank" rel="external">Baidu Deep Voice [pdf]</a></li></ul></li></ul><h2 id="reinforcement-learning"><a class="markdownIt-Anchor" href="#reinforcement-learning"></a> Reinforcement Learning</h2><ul><li>Game<ul><li><a href="https://github.com/openai/gym" target="_blank" rel="external">OpenAI Gym</a></li><li><a href="https://github.com/openai/universe" target="_blank" rel="external">OpenAI Universe</a></li><li><a href="https://github.com/deepmind/lab" target="_blank" rel="external">DeepMind Lab</a></li><li><a href="https://www.nature.com/articles/nature24270" target="_blank" rel="external">AlphaGo Zero</a></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;deep-learning-applications&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#deep-learning-applications&quot;&gt;&lt;/a&gt; Deep Learning Applications&lt;/h1&gt;
+&lt;h2
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="https://momingcoder.github.io/categories/Deep-Learning/"/>
+    
+    
+      <category term="总结" scheme="https://momingcoder.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="GitHub" scheme="https://momingcoder.github.io/tags/GitHub/"/>
+    
+      <category term="Kaggle" scheme="https://momingcoder.github.io/tags/Kaggle/"/>
+    
+      <category term="Paper" scheme="https://momingcoder.github.io/tags/Paper/"/>
+    
+  </entry>
   
   <entry>
     <title>Pytorch 踩到的坑</title>
@@ -39,9 +71,9 @@
     
       <category term="笔记" scheme="https://momingcoder.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="吐槽" scheme="https://momingcoder.github.io/tags/%E5%90%90%E6%A7%BD/"/>
-    
       <category term="Pytorch" scheme="https://momingcoder.github.io/tags/Pytorch/"/>
+    
+      <category term="吐槽" scheme="https://momingcoder.github.io/tags/%E5%90%90%E6%A7%BD/"/>
     
   </entry>
   
@@ -68,9 +100,9 @@
       <category term="生活" scheme="https://momingcoder.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="GitHub" scheme="https://momingcoder.github.io/tags/GitHub/"/>
-    
       <category term="吐槽" scheme="https://momingcoder.github.io/tags/%E5%90%90%E6%A7%BD/"/>
+    
+      <category term="GitHub" scheme="https://momingcoder.github.io/tags/GitHub/"/>
     
   </entry>
   
