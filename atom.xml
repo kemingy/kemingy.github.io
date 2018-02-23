@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://momingcoder.github.io/"/>
-  <updated>2018-01-27T16:23:52.296Z</updated>
+  <updated>2018-02-23T16:28:54.967Z</updated>
   <id>https://momingcoder.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 编码</title>
+    <link href="https://momingcoder.github.io/2018/02/24/Python-%E7%BC%96%E7%A0%81/"/>
+    <id>https://momingcoder.github.io/2018/02/24/Python-编码/</id>
+    <published>2018-02-23T16:26:32.000Z</published>
+    <updated>2018-02-23T16:28:54.967Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="python-encodedecode"><a class="markdownIt-Anchor" href="#python-encodedecode"></a> Python encode/decode</h1><p>毫不客气地说，编码真的是 Python 使用者遇到的最多的问题之一。新手看了会崩溃，老手遇到会流泪（感叹以前踩过的坑）。</p><p>在踩过很多很多坑之后，已经对这个问题麻木了，反正我现在基本上只用 Python 3 了，问题也比较少了。</p><h2 id="unicode"><a class="markdownIt-Anchor" href="#unicode"></a> Unicode</h2><p>在讲问题之前先来看两个官方的 HOWTO 文档：<a href="https://docs.python.org/2/howto/unicode.html" target="_blank" rel="external">Unicode HOWTO Python 2</a> 和 <a href="https://docs.python.org/3/howto/unicode.html" target="_blank" rel="external">Unicode HOWTO Python 3</a> 。这两篇前面讲的内容基本一致，就是说美国人一开始搞了 ASCII 编码，只有 0 - 127，后来不断增加新的字符，发现 8-bit 不够用了，然后就搞了一种 16-bit 的 Unicode，Unicode 的一种映射方法就是 UTF (Unicode Transformation Format)，大家都很熟悉 UTF-8 了。文档后面就分别是 Python 2 和 3 中的 Unicode 了，其他模块也就是 Regex 需要注意一下，Python 2 中匹配的是 ASCII，而 Python 3 中默认是匹配 Unicode，如果需要切换到 ASCII，需要设置 <code>flag=re.A</code> 。</p><h2 id="python-2"><a class="markdownIt-Anchor" href="#python-2"></a> Python 2</h2><p>在 Python 2 中编码算是一个老大难的问题了，无数新手栽在这里，想当初搜一下这个问题，博客里面基本都是说在 py 文件的开头加上 <code># -*- coding: utf-8 -*-</code> 来保平安，如果这么简单就解决了那真是该烧高香了。</p><h3 id="encode-decode-utf-8"><a class="markdownIt-Anchor" href="#encode-decode-utf-8"></a> encode / decode utf-8</h3><p>Python 2 默认编码是 ASCII，要使用 Unicode String 还必须写成 <code>u'string'</code> 的形式，真的是非常蛋疼了。</p><p>当需要向终端输出字符串，或者将字符串写入文件，或者调用第三方包处理的时候，就可能会遇到编码问题了，这时候通常可以简单的通过 <code>string.encode('utf-8')</code> 和 <code>string.decode('utf-8')</code> 来解决。</p><h3 id="sys-reload"><a class="markdownIt-Anchor" href="#sys-reload"></a> sys reload</h3><p>有时候问题很顽固，有的环境上就是出问题，那就可以考虑在文件开头加上下面这几行，重置运行环境的编码。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(<span class="string">'UTF8'</span>)</div></pre></td></tr></table></figure><h3 id="latin"><a class="markdownIt-Anchor" href="#latin"></a> latin</h3><p>有时候爬取的网页文本，不管怎么 <code>encode</code> 、<code>decode</code> 都总是在报错，这时候可以考虑把 <code>latin</code> 编码当做中间编码，先转 <code>latin</code> 再转 <code>unicode</code> 。还有问题就 <code>ignore</code> 。</p><h3 id="codecs"><a class="markdownIt-Anchor" href="#codecs"></a> codecs</h3><p>Python 有专门的 <code>codecs</code> 这么一个包，提供更多编码方面的接口，可以参考官方文档 <a href="https://docs.python.org/3.6/library/codecs.html" target="_blank" rel="external">codecs</a> 。</p><h2 id="python-3"><a class="markdownIt-Anchor" href="#python-3"></a> Python 3</h2><p>到了 Python 3 之后编码问题会少很多，但是并不意味着你就可以高枕无忧了。</p><h3 id="encoding"><a class="markdownIt-Anchor" href="#encoding"></a> encoding</h3><p>为了保证不出问题，读取文件的时候最好明确指定编码方式：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'README.md'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">    readme = f.read()</div></pre></td></tr></table></figure><p>不要怕麻烦，有时候因为机器或者容器本身的环境，就可能踩到很多坑。</p><h3 id="environment-variable"><a class="markdownIt-Anchor" href="#environment-variable"></a> Environment Variable</h3><p>有时候用 Docker 的时候会遇到这种问题，明明是 Python 3，还指明了 encoding 方式，为什么还出问题呢？通常是因为容器本身的环境变量有问题。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LC_ALL=en_US.UTF-8</div><div class="line">LANG=en_US.UTF-8</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;python-encodedecode&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#python-encodedecode&quot;&gt;&lt;/a&gt; Python encode/decode&lt;/h1&gt;
+&lt;p&gt;毫不客气地说，编码真的是 Python 
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://momingcoder.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="编程语言" scheme="https://momingcoder.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="Python" scheme="https://momingcoder.github.io/tags/Python/"/>
+    
+      <category term="编码" scheme="https://momingcoder.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>面具</title>
@@ -99,9 +129,9 @@
     
       <category term="笔记" scheme="https://momingcoder.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="吐槽" scheme="https://momingcoder.github.io/tags/%E5%90%90%E6%A7%BD/"/>
-    
       <category term="Pytorch" scheme="https://momingcoder.github.io/tags/Pytorch/"/>
+    
+      <category term="吐槽" scheme="https://momingcoder.github.io/tags/%E5%90%90%E6%A7%BD/"/>
     
   </entry>
   
@@ -190,9 +220,9 @@
       <category term="生活" scheme="https://momingcoder.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="总结" scheme="https://momingcoder.github.io/tags/%E6%80%BB%E7%BB%93/"/>
-    
       <category term="TODO" scheme="https://momingcoder.github.io/tags/TODO/"/>
+    
+      <category term="总结" scheme="https://momingcoder.github.io/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
