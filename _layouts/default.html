@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" media="screen">
+    <title>{{ site.title }}</title>
+</head>
+<body>
+    <!-- sidebar -->
+    {% include sidebar.html %}
+
+    <header class="">
+        <div class="menu content-wrapper">
+            <p class="button" onclick="open_sidebar()">☰</p>
+            <p class="title"><a href="/">{{ site.title }}</a></p>
+            <p></p>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="content">
+            {{ content }}
+        </div>
+    </div>
+
+    <footer>
+        {% include footer.html %}
+    </footer>
+
+    {% if site.mathjax.enable %}
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                }
+            });
+        </script>
+        <script src="{{ site.mathjax.cdn }}"></script>
+    {% endif %}
+
+    <script src="{{ '/assets/js/base.js' | relative_url }}"></script>
+</body>
+</html>
