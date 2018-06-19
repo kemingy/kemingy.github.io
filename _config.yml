@@ -10,7 +10,7 @@ github_username: Momingcoder
 paginate: 15
 paginate_path: "/blog/page:num/"
 
-permalink: /:title
+permalink: /blog/:title
 
 plugins:
   - jekyll-sitemap
