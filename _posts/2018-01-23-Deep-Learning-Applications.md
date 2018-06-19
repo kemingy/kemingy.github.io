@@ -5,7 +5,9 @@ tags: [总结, GitHub, Kaggle, Paper]
 categories: [Deep Learning]
 ---
 
-# Deep Learning Applications
+Deep Learning Applications in NLP, CV and RL etc.
+
+<!--more-->
 
 ## Natural Language Processing
 
