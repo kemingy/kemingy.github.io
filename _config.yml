@@ -1,11 +1,11 @@
 title: 显然，同理，略......
 description: Personal blog
 theme_author: Momingcoder
-theme: jekyll-theme-poor
+# theme: jekyll-theme-poor
 author: Keming
 
 email: kemingy94@gmail.com
-github_username: Momingcoder
+github_username: kemingy
 
 paginate: 15
 paginate_path: "/blog/page:num/"
