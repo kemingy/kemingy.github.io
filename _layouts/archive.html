@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<h2 style="text-align: center">{{ page.date | date: "%Y" }}</h2>
+
+{%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+{%- for post in page.posts -%}
+    <div class="post-card" style="display: block">
+        <span class="post-date">{{ post.date | date: date_format }}</span>
+        <span class="post-name">
+            <a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a>
+        </span>
+    </div>
+{%- endfor -%}
+

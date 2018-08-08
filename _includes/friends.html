@@ -1,0 +1,10 @@
+<div class="site">
+    <h2>Friends Links</h2>
+    <ul>
+        {% for person in site.data.friends %}
+        <li>
+            <a href="{{ person.url }}" target="_blank">{{ person.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

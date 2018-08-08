@@ -2,12 +2,12 @@
 title: 'Relevance: from TFIDF to BM25'
 date: 2018-03-12 23:40:50
 tags: Elasticsearch
-categories:
+categories: [技术, 笔记]
 ---
 
 在信息检索系统中，TFIDF 和 BM25 函数都可以用来计算文档的相关度并进行排序。其中，TFIDF 也经常被用在自然语言处理中，BM25 则可以看做是 TFIDF 的进一步演化。在处理搜索字符串的时候，它们采用的都是 Bag-of-Word 方式，也就是说会忽略掉词的出现顺序，只考虑词出现与否和词频。
 
-<!--more-->
+<!-- more -->
 
 ## TFIDF
 
@@ -47,7 +47,7 @@ $$BM25(D, Q) = \sum_{i=1}^{n}IDF(q_i) \cdot \frac{f(q_i, D) \cdot (k_1 + 1)}{f(q
 
 ### IDF
 
-[![idf]({{ "assets/img/idf.png" | absolute_url }})](https://www.desmos.com/calculator/hg5tuporhs)
+[![tf]({{ "assets/img/tf.png" | relative_url }})](https://www.desmos.com/calculator/hg5tuporhs)
 
 红色为经典的 BM25 IDF 函数曲线，蓝色为 ES 中使用的 IDF 曲线。（N=200）
 
@@ -57,13 +57,13 @@ $$BM25(D, Q) = \sum_{i=1}^{n}IDF(q_i) \cdot \frac{f(q_i, D) \cdot (k_1 + 1)}{f(q
 
 首先，令 $b = 0$ ，观察函数的走势。
 
-[![tf]({{ "assets/img/tf.png" | absolute_url }})](https://www.desmos.com/calculator/i700nwzj68)
+[![tf]({{ "assets/img/tf.png" | relative_url }})](https://www.desmos.com/calculator/i700nwzj68)
 
 红色为 ES 中 TFIDF 的 TF 曲线，蓝色为 ES 中 BM25 的 TF 曲线。TFIDF 的 TF 是没有上界的，而 BM25 的 TF 上界为 $k_1$ ，通常取 $k_1 = 1.2$ 。也就是说，到达一定频率后，再增加也不会对结果产生太大影响。
 
 之后考虑不同的文本长度对函数的影响。
 
-[![tfd]({{ "assets/img/tfd.png" | absolute_url }})](https://www.desmos.com/calculator/p9babkz6p8)
+[![tfd]({{ "assets/img/tfd.png" | relative_url }})](https://www.desmos.com/calculator/p9babkz6p8)
 
 三条线从上到下依次是平均文档长度的 0.1，1，10 倍，取 $k_1 = 1.2, b = 0.75$ 。三条线趋于饱和的速度跟平均文档的长度相关，平均文档长度越长，趋于饱和的速度越慢。也就是说，如果是长文本的搜索，需要较高的词频才能使 TF 值接近饱和，这一点比较符合人们的认知。
 

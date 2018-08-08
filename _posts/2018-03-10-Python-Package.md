@@ -7,7 +7,7 @@ categories: [笔记]
 
 偶尔手痒了会撸一个 Python 的项目打包发布到 PyPI 上，方便以后安装使用。即使不是打算发布的，如果考虑把文档写在代码的注释里然后用 Sphinx 生成的，通常也是打包安装到本地，然后在一个地方集中生成文档，方便管理。
 
-<!--more-->
+<!-- more -->
 
 今天就来记录一下 Python 项目打包的流程。（其实是怕自己又犯傻折腾半天找不到原因）[官方文档](https://packaging.python.org/tutorials/distributing-packages/) 改了几次之后明显质量好多了。
 

@@ -1,8 +1,28 @@
-<div class="footer text-center">
-    <hr>
-    <p class="post-info">
-        Copyright © 2018 {{ site.title }}.
-        Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
-        Theme by <a href="https://github.com/{{ site.theme_author }}" target="_blank">{{ site.theme_author }}</a>.
-    </p>
-</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col footer-col-1">
+            <ul class="contact-list">
+                <li class="p-name">
+                    {%- if site.author -%}
+                        {{ site.author | escape }}
+                    {%- else -%}
+                        {{ site.title | escape }}
+                    {%- endif -%}
+                </li>
+                <li>
+                    <a href="mailto:{{ site.email }}">
+                        {{ site.email }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-col footer-col-2">
+            {%- include social.html -%}
+        </div>
+
+        <div class="footer-col footer-col-3">
+            <p>{{- site.description | escape -}}</p>
+        </div>
+    </div>
+</footer>

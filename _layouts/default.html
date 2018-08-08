@@ -1,48 +1,21 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en" }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" media="screen">
-    {% include google_analytics.html %}
-    <title>{{ site.title }}</title>
-</head>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{%- include head.html -%}
 <body>
-    <!-- sidebar -->
-    {% include sidebar.html %}
+    {%- include header.html -%}
 
-    <header class="">
-        <div class="menu content-wrapper">
-            <p class="button" onclick="open_sidebar()">☰</p>
-            <p class="title"><a href="/">{{ site.title }}</a></p>
-            <p></p>
-        </div>
-    </header>
-
-    <div class="content-wrapper">
-        <div class="content">
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
             {{ content }}
         </div>
-    </div>
+    </main>
 
-    <footer>
-        {% include footer.html %}
-    </footer>
+    {%- include back-to-top.html -%}
+
+    {%- include footer.html -%}
 
     {% if site.mathjax.enable %}
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-                    processEscapes: true,
-                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-                }
-            });
-        </script>
-        <script src="{{ site.mathjax.cdn }}"></script>
+        {%- include mathjax.html -%}
     {% endif %}
-
-    <script src="{{ '/assets/js/base.js' | relative_url }}"></script>
 </body>
 </html>
