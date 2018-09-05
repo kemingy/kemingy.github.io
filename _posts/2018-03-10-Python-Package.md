@@ -49,14 +49,21 @@ setup(
     author_email='pypa-dev@googlegroups.com',  # Optional
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
     install_requires=['peppercorn'],  # Optional
+    entry_points={
+      'console_scripts': [
+        'my_func=sampleproject:main',  # Optional
+      ]
+    }
 )
 ```
 
 看名字就知道是干嘛的了，就不多解释了。
 
-如果需要包含模型数据之类的，可以查阅文档看相关的配置。
+如果需要包含模型数据之类的，或者需要在安装后执行一个脚本的，可以查阅文档看相关的配置。
 
 `version` 是比较需要注意的，一定要按照规范的格式来。
+
+`entry_points` 可以在安装的时候注册一个命令行函数，上面的例子中，函数名是 `my_func`，对应的执行函数是 `sampleproject` 下面的 `main` 函数。
 
 ### `setup.cfg`
 
@@ -110,6 +117,12 @@ script:
 
 ```sh
 python setup.py install
+```
+
+或者安装到当前路径下，适合做调试的时候使用：
+
+```sh
+pip3 install -e .
 ```
 
 执行之后会生成几个文件夹，暂时不用管。
