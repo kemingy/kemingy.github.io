@@ -38,3 +38,15 @@ Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊�
 
 基于 Flask 的 spam filter 框架，集成了 Wu-Manber 多模匹配、Naive Bayes 和基于统计规
 律的过滤。
+
+## [jekyll-theme-ink](https://github.com/kemingy/jekyll-theme-ink)
+
+![Gem](https://img.shields.io/gem/dt/jekyll-theme-ink.svg)
+
+Jekyll 主题，基于 minima，风格简洁。
+
+## [jekyll-theme-poor](https://github.com/kemingy/jekyll-theme-poor)
+
+![Gem](https://img.shields.io/gem/dt/jekyll-theme-poor.svg)
+
+Jekyll 破产版黑白主题……
