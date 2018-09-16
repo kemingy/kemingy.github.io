@@ -5,19 +5,21 @@ title: Projects
 
 ## [Caver](https://github.com/guokr/Caver)
 
-用 Pytorch 实现的 multilabel text classification，包括模型训练、模型调用、Ensemble
-等。
+用 Pytorch 实现的 multilabel text classification，包括模型训练、模型调用、Ensemble等。
 
 目前已有 CNN、LSTM、SWEN、HAN 这些模型。
 
 [Document](https://guokr.github.io/Caver)
 
+## [ime](https://github.com/kemingy/ime)
+
+一个中文输入法引擎，有待完善。
+
 ## [Plane](https://github.com/kemingy/Plane)
 
 [![Downloads](http://pepy.tech/badge/plane)](http://pepy.tech/project/plane)
 
-一个文本处理的 Python 包，主要用到正则表达式来处理 Email、URL、HTML、Chinese、标点等，
-支持自定义。
+一个文本处理的 Python 包，主要用到正则表达式来处理 Email、URL、HTML、Chinese、标点等，支持自定义。
 
 [Document](https://kemingy.github.io/Plane/)
 
@@ -25,8 +27,7 @@ title: Projects
 
 [![Downloads](http://pepy.tech/badge/cnprep)](http://pepy.tech/project/cnprep)
 
-Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊词，比如“①Ⅰ壹”这种也能识别，连续
-的模糊音数字也可以，比如“伊尔散寺”能识别出“1234”。
+Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊词，比如“①Ⅰ壹”这种也能识别，连续的模糊音数字也可以，比如“伊尔散寺”能识别出“1234”。
 
 ## [via](https://github.com/kemingy/via)
 
@@ -36,8 +37,7 @@ Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊�
 
 ## [Hachi](https://github.com/guokr/Hachi)
 
-基于 Flask 的 spam filter 框架，集成了 Wu-Manber 多模匹配、Naive Bayes 和基于统计规
-律的过滤。
+基于 Flask 的 spam filter 框架，集成了 Wu-Manber 多模匹配、Naive Bayes 和基于统计规律的过滤。
 
 ## [jekyll-theme-ink](https://github.com/kemingy/jekyll-theme-ink)
 
