@@ -35,6 +35,12 @@ Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊�
 
 一个命令行工具，用于给项目添加 `.gitignore` 和 `License`，使用的是 GitHub 的接口。
 
+## [Cellular](https://github.com/kemingy/cellular)
+
+[![Downloads](https://pepy.tech/badge/cellular)](https://pepy.tech/project/cellular)
+
+一个在命令行中模拟 Cellular Automate 的工具。
+
 ## [Hachi](https://github.com/guokr/Hachi)
 
 基于 Flask 的 spam filter 框架，集成了 Wu-Manber 多模匹配、Naive Bayes 和基于统计规律的过滤。
