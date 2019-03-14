@@ -1,30 +1,10 @@
 <div class="">
-    <a href="#" id="back-to-top">
+    <a href="" id="back-to-top">
         &#10148;
     </a>
 </div>
 
 <script type="text/javascript">
-    function scrollToTop() {
-        let cosParameter = window.scrollY / 2,
-            scrollCount = 0,
-            scrollDuration = 500,
-            oldTimestamp = performance.now();
-        function step(newTimestamp) {
-            scrollCount += Math.PI / (scrollDuration / newTimestamp - oldTimestamp);
-            if (scrollCount >= Math.PI) window.scrollTo(0, 0);
-            if (window.scrollY === 0) return;
-            window.scrollTo(0, Math.round(cosParameter + cosParameter * Math.cos(scrollCount)));
-            oldTimestamp = newTimestamp;
-            window.requestAnimationFrame(step);
-            console.log('step...');
-        }
-        window.requestAnimationFrame(step);
-        document.getElementById('back-to-top').style.display = 'none';
-    }
-
-    document.getElementById('back-to-top').click(scrollToTop);
-
     document.onscroll = function() {
         if (window.scrollY >= 500) {
             document.getElementById('back-to-top').style.display = 'block';
@@ -32,6 +12,4 @@
             document.getElementById('back-to-top').style.display = 'none';
         }
     }
-
-
 </script>
