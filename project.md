@@ -29,6 +29,12 @@ title: Projects
 
 Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊词，比如“①Ⅰ壹”这种也能识别，连续的模糊音数字也可以，比如“伊尔散寺”能识别出“1234”。
 
+## [blogist](https://github.com/kemingy/blogist)
+
+[![Downloads](https://pepy.tech/badge/blogist)](https://pepy.tech/project/blogist)
+
+用来从 GitHub Gist 上下载所有标记过的文章来生成 Blog，需要配合 Jekyll 一类工具使用。
+
 ## [via](https://github.com/kemingy/via)
 
 [![Downloads](http://pepy.tech/badge/via)](http://pepy.tech/project/via)
