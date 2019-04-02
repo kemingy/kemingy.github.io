@@ -61,7 +61,7 @@ I'll pull down your code and deploy it. Wait, it's 2.33 GB? Are you kidding me? 
 
 I know there is large file system for data store. But apparently, these files should be ignored.
 
-### Leave README file black
+### Leave README file blank
 
 > Actually, I don't have README file :) Very mysterious, right?
 
