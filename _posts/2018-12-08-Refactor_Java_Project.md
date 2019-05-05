@@ -1,6 +1,6 @@
 ---
 title: 填坑一个 Java 项目
-categories: [Design Pattern, 技术, 编程语言]
+categories: [Design Pattern, Technology, Programming Language]
 ---
 
 重构是不可能重构的，这辈子都不可能重构的……

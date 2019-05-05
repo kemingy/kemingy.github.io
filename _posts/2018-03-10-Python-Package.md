@@ -2,7 +2,7 @@
 title: Python Package
 date: 2018-03-10 16:28:17
 tags: [Python]
-categories: [笔记]
+categories: [Note]
 ---
 
 偶尔手痒了会撸一个 Python 的项目打包发布到 PyPI 上，方便以后安装使用。即使不是打算发布的，如果考虑把文档写在代码的注释里然后用 Sphinx 生成的，通常也是打包安装到本地，然后在一个地方集中生成文档，方便管理。

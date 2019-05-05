@@ -1,6 +1,6 @@
 ---
 title: 变量命名规则
-categories: [笔记, 技术, 翻译]
+categories: [Note, Technology, Translation]
 ---
 
 原文：[Variable name](http://a-nickels-worth.blogspot.com/2016/04/a-guide-to-naming-variables.html?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=email)

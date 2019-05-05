@@ -1,6 +1,6 @@
 ---
 title: Basic NLP Knowledge
-categories: [笔记, Deep Learning, NLP]
+categories: [Note, Deep Learning, NLP]
 ---
 
 [_Notes of Stanford NLP course_](http://web.stanford.edu/~jurafsky/NLPCourseraSlides.html)

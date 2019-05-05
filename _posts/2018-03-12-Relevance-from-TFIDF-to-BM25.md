@@ -2,7 +2,7 @@
 title: 'Relevance: from TFIDF to BM25'
 date: 2018-03-12 23:40:50
 tags: Elasticsearch
-categories: [技术, 笔记]
+categories: [Technology, Note]
 ---
 
 在信息检索系统中，TFIDF 和 BM25 函数都可以用来计算文档的相关度并进行排序。其中，TFIDF 也经常被用在自然语言处理中，BM25 则可以看做是 TFIDF 的进一步演化。在处理搜索字符串的时候，它们采用的都是 Bag-of-Word 方式，也就是说会忽略掉词的出现顺序，只考虑词出现与否和词频。

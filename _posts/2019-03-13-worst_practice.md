@@ -1,6 +1,6 @@
 ---
 title: The worst practice for software engineering
-categories: [技术]
+categories: [Technology]
 ---
 
 People will suffer a lot from bad design or bad code in software engineering. Today I'd like to share a number of the worst practices.

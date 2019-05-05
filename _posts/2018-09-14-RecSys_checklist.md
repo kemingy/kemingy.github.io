@@ -1,6 +1,6 @@
 ---
 title: Recommendation System Checklist
-categories: [笔记, Deep Learning, NLP]
+categories: [Note, Deep Learning, NLP]
 ---
 
 Notes of ["36 strokes of recommended system"](https://time.geekbang.org/column/74)

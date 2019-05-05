@@ -1,6 +1,6 @@
 ---
 title: NLP with Deep Learning
-categories: [笔记, Deep Learning, NLP]
+categories: [Note, Deep Learning, NLP]
 ---
 
 Notes of [CS224n: Natural Language Processing with Deep Learning](http://web.stanford.edu/class/cs224n/)
