@@ -4,6 +4,7 @@ title: Projects
 ---
 
 ## [Caver](https://github.com/guokr/Caver)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/caver)
 
 用 Pytorch 实现的 multilabel text classification，包括模型训练、模型调用、Ensemble等。
 
@@ -11,43 +12,40 @@ title: Projects
 
 [Document](https://guokr.github.io/Caver)
 
-## [ime](https://github.com/kemingy/ime)
+## [flaskerk](https://github.com/kemingy/flaskerk)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/flaskerk)
 
-一个中文输入法引擎，有待完善。
+Flask 的一个插件，用来验证 request&response 的类型，并生成相应的 OpenAPI doc。
 
 ## [Plane](https://github.com/kemingy/Plane)
-
-[![Downloads](http://pepy.tech/badge/plane)](http://pepy.tech/project/plane)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/plane)
 
 一个文本处理的 Python 包，主要用到正则表达式来处理 Email、URL、HTML、Chinese、标点等，支持自定义。
 
 [Document](https://kemingy.github.io/Plane/)
 
 ## [cnprep](https://github.com/kemingy/cnprep)
-
-[![Downloads](http://pepy.tech/badge/cnprep)](http://pepy.tech/project/cnprep)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/cnprep)
 
 Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊词，比如“①Ⅰ壹”这种也能识别，连续的模糊音数字也可以，比如“伊尔散寺”能识别出“1234”。
 
 ## [blogist](https://github.com/kemingy/blogist)
-
-[![Downloads](https://pepy.tech/badge/blogist)](https://pepy.tech/project/blogist)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/blogist)
 
 用来从 GitHub Gist 上下载所有标记过的文章来生成 Blog，需要配合 Jekyll 一类工具使用。
 
 ## [via](https://github.com/kemingy/via)
-
-[![Downloads](http://pepy.tech/badge/via)](http://pepy.tech/project/via)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/via)
 
 一个命令行工具，用于给项目添加 `.gitignore` 和 `License`，使用的是 GitHub 的接口。
 
 ## [Cellular](https://github.com/kemingy/cellular)
-
-[![Downloads](https://pepy.tech/badge/cellular)](https://pepy.tech/project/cellular)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/cellular)
 
 一个在命令行中模拟 Cellular Automate 的工具。
 
 ## [Hachi](https://github.com/guokr/Hachi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/hachi)
 
 基于 Flask 的 spam filter 框架，集成了 Wu-Manber 多模匹配、Naive Bayes 和基于统计规律的过滤。
 
