@@ -12,10 +12,15 @@ title: Projects
 
 [Document](https://guokr.github.io/Caver)
 
-## [flaskerk](https://github.com/kemingy/flaskerk)
+## [Flaskerk](https://github.com/kemingy/flaskerk)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/flaskerk)
 
 Flask 的一个插件，用来验证 request&response 的类型，并生成相应的 OpenAPI doc。
+
+## [Falibrary](https://github.com/kemingy/falibrary)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/falibrary)
+
+Falcon addon，跟上面的 flaskerk 类似。
 
 ## [Plane](https://github.com/kemingy/Plane)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/plane)
@@ -29,7 +34,7 @@ Flask 的一个插件，用来验证 request&response 的类型，并生成相�
 
 Plane 的前身，虽然写得烂，但是多了一些功能，主要是模糊词，比如“①Ⅰ壹”这种也能识别，连续的模糊音数字也可以，比如“伊尔散寺”能识别出“1234”。
 
-## [blogist](https://github.com/kemingy/blogist)
+## [Blogist](https://github.com/kemingy/blogist)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/blogist)
 
 用来从 GitHub Gist 上下载所有标记过的文章来生成 Blog，需要配合 Jekyll 一类工具使用。
