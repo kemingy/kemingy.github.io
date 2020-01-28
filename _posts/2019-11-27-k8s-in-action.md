@@ -132,11 +132,15 @@ Dashes in the service name will be converted to underscores and all letters are 
 
 FQDN (fully qualified domain name):
 
-<pre><span style="text-decoration: underline;"><service_name>.<namespace>.svc.cluster.local</span></pre>
+```
+<span style="text-decoration: underline;"><service_name>.<namespace>.svc.cluster.local</span>
+```
 
 "svc.cluster.local" can be omitted. If they are in the same namespace, it can also be omitted.
 
-<pre>spec.type</pre>
+```
+spec.type
+```
 
 *   ExternalName: pods connect to this service will directly connect to an external endpoint
 *   NodePort: each node opens a port and redirects traffic to the underlying service
@@ -254,21 +258,26 @@ A Deployment is backed by a ReplicaSet.
 
 When rolling update, it will create a new ReplicaSet to handle the new version pods. So it will create a ReplicaSet for each new version. (revisionHistoryLimit is 2 by default)
 
-<pre>kubectl rollout undo deployment <name> --to-revision=1  
-kubectl rollout history deployment <name></pre>
+```
+kubectl rollout undo deployment <name> --to-revision=1  
+kubectl rollout history deployment <name>
+```
 
 *   maxSurge: how many pod instances allow to exist above the desired replica count
 *   maxUnavailable: how many pod instances allow to be unavailable relative to the desired replica count
 
-<pre>kubectl rollout pause deployment <name>  
-kubectl rollout resume deployment <name></pre>
+```
+kubectl rollout pause deployment <name>  
+kubectl rollout resume deployment <name>
+```
 
 ## Useful CMD
 
 kubelet explain pod  
 kubelet explain pod.spec
 
-<pre>kubectl exec <pod> -- <cmd>  
+```
+kubectl exec <pod> -- <cmd>  
 kubectl exec -it <pod> /bin/bash  
 
 kubectl run <name> --image=<> --generator=run-pod/v1 --command -- sleep infinity  
@@ -282,13 +291,14 @@ kubectl exec downward ls -1L /etc/downward
 
 kubectl proxy  
 
-kubectl patch deployment <name> -p '{"spec": {"minReadySeconds": 10}}'  
-
-</pre>
+kubectl patch deployment <name> -p '{"spec": {"minReadySeconds": 10}}'
+```
 
 ## Details
 
 **GPU schedual**
 
-<pre>kubectl label node gpu-node gpu=true  
-pod.spec.nodeSelector: gpu: "true"</pre>
+```
+kubectl label node gpu-node gpu=true  
+pod.spec.nodeSelector: gpu: "true"
+```
