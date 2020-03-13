@@ -1,0 +1,3 @@
+[submodule "themes/nutshell"]
+	path = themes/nutshell
+	url = git@github.com:kemingy/nutshell.git
