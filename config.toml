@@ -14,6 +14,7 @@ build_search_index = false
 title = "Cyanide"
 theme = "nutshell"
 highlight_theme = "Tomorrow"
+generate_rss = true
 
 taxonomies = [
     {name = "categories", rss = true},
