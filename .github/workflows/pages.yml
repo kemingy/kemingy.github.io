@@ -6,9 +6,9 @@ name: pages
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ blog ]
   pull_request:
-    branches: [ master ]
+    branches: [ blog ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,7 +36,7 @@ jobs:
         git config --global url."https://github.com/".insteadOf git@github.com:
         git submodule update --init --recursive
         remote_repo="https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-        remote_branch=gh-pages
+        remote_branch=master
         
         zola build
         cd public
