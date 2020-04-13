@@ -7,8 +7,9 @@ template = "blank.html"
 悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。
 
 * [GitHub](https://github.com/kemingy)
-* [RSS](/rss.xml)
 * [Email](mailto:kemingy94@gmail.com)
+* [Twitter](https://twitter.com/urcyanide)
+* [RSS](/rss.xml)
 
 ## Recommend Blogs
 
