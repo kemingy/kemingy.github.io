@@ -1,5 +1,6 @@
 +++
 title = "极简流浪生活"
+[taxonomies]
 categories = ["Life"]
 +++
 
