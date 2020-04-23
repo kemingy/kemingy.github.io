@@ -50,7 +50,7 @@ All the code can be found in this [gist](https://gist.github.com/kemingy/a382528
 | Falcon + msgpack + Tensorflow | ResNet50 | TF Savedmodel  | 32000 | 32 | 115.686 |
 | Falcon + msgpack + Tensorflow | ResNet50 | TF Savedmodel  | 32000 | 10 | 115.572 |
 
-According to the benchmark, Triton is not ready for production, TF Serving is a good option for TensorFlow models, and self-host service is also quite good.
+According to the benchmark, Triton is not ready for production, TF Serving is a good option for TensorFlow models, and self-host service is also quite good (you may need to implement dynamic batching for production).
 
 ## Comparing
 
