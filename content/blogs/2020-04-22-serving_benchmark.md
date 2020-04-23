@@ -1,7 +1,7 @@
 +++
 title = "Deep Learning Serving Benchmark"
 [taxonomies]
-categories = ["Life", "Technology"]
+categories = ["Deep Learning", "Technology"]
 +++
 
 There is no black magic, everything follows the rules.
