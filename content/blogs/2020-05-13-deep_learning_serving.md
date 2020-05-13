@@ -4,7 +4,7 @@ title = "Deep Learning Serving Framework"
 categories = ["Deep Learning", "Technology"]
 +++
 
-Yet another deep learning framework that is easy to use.
+Yet another deep learning serving framework that is easy to use.
 
 <!-- more -->
 
