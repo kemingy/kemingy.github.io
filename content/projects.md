@@ -2,6 +2,10 @@
 template = "blank.html"
 +++
 
+## [Ventu](https://github.com/kemingy/ventu)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/ventu)
+
+Yet another deep learning serving framework.
 
 ## [Caver](https://github.com/guokr/Caver)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/caver)
