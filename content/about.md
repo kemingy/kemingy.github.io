@@ -8,7 +8,7 @@ template = "blank.html"
 
 * [GitHub](https://github.com/kemingy)
 * [Email](mailto:kemingy94@gmail.com)
-* [Twitter](https://twitter.com/urcyanide)
+* [Telegram](https://t.me/abcyanide)
 * [RSS](/rss.xml)
 
 ## Recommend Blogs
@@ -30,3 +30,10 @@ template = "blank.html"
 | 面向信仰编程 | [https://draveness.me/](https://draveness.me/) |
 | Gee Law’s Blog | [https://geelaw.blog/](https://geelaw.blog/) |
 | amos loves to tinker | [https://fasterthanli.me/](https://fasterthanli.me/) |
+| 科学空间 | [https://spaces.ac.cn/](https://spaces.ac.cn/) |
+| Python⇒Speed | [https://pythonspeed.com/](https://pythonspeed.com/) |
+| Lil’Log | [https://lilianweng.github.io/lil-log/](https://lilianweng.github.io/lil-log/) |
+| Julia Evans | [https://jvns.ca/](https://jvns.ca/) |
+| 卡瓦邦噶 | [https://www.kawabangga.com/](https://www.kawabangga.com/) |
+| 云风的 BLOG | [https://blog.codingnow.com/](https://blog.codingnow.com/) |
+| Frost's blog | [https://frostming.com/](https://frostming.com/) |
