@@ -8,7 +8,6 @@ template = "blank.html"
 
 * [GitHub](https://github.com/kemingy)
 * [Email](mailto:kemingy94@gmail.com)
-* [Telegram](https://t.me/abcyanide)
 * [RSS](/rss.xml)
 
 ## Recommend Blogs
