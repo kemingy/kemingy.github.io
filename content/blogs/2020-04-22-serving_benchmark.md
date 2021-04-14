@@ -1,7 +1,7 @@
 +++
 title = "Deep Learning Serving Benchmark"
 [taxonomies]
-categories = ["Deep Learning", "Technology"]
+categories = ["Deep Learning", "Technology", "Data Science"]
 +++
 
 There is no black magic, everything follows the rules.

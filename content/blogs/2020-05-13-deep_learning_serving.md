@@ -1,7 +1,7 @@
 +++
 title = "Deep Learning Serving Framework"
 [taxonomies]
-categories = ["Deep Learning", "Technology"]
+categories = ["Deep Learning", "Technology", "Data Science"]
 +++
 
 Yet another deep learning serving framework that is easy to use.
