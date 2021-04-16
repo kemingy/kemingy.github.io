@@ -34,5 +34,6 @@ template = "blank.html"
 | Lil’Log | [https://lilianweng.github.io/lil-log/](https://lilianweng.github.io/lil-log/) |
 | Julia Evans | [https://jvns.ca/](https://jvns.ca/) |
 | 卡瓦邦噶 | [https://www.kawabangga.com/](https://www.kawabangga.com/) |
+| laike9m | [https://laike9m.com/blog/](https://laike9m.com/blog/) |
 | 云风的 BLOG | [https://blog.codingnow.com/](https://blog.codingnow.com/) |
 | Frost's blog | [https://frostming.com/](https://frostming.com/) |
