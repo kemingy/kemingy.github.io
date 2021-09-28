@@ -2,6 +2,11 @@
 template = "blank.html"
 +++
 
+## [MOSEC](https://github.com/mosecorg/mosec)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/mosec)
+
+A high performance and flexible machine learning serving framework.
+
 ## [SpecTree](https://github.com/0b01001001/spectree)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/spectree)
 
