@@ -13,7 +13,7 @@ Previously, I tested the performance of some [deep learning serving frameworks](
 * [ventu](https://github.com/kemingy/ventu)
 * [batching](https://github.com/kemingy/batching)
 
-Feel free to give it a try.
+~~Feel free to give it a try.~~ For production usage, check the [MOSEC](https://github.com/mosecorg/mosec).
 
 ## Basic features
 
