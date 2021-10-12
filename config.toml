@@ -27,3 +27,4 @@ taxonomies = [
 # When set to "true", all code blocks are highlighted.
 highlight_code = true
 highlight_theme = "Tomorrow"
+render_emoji = true
