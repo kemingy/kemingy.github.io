@@ -37,3 +37,5 @@ template = "blank.html"
 | laike9m | [https://laike9m.com/blog/](https://laike9m.com/blog/) |
 | 云风的 BLOG | [https://blog.codingnow.com/](https://blog.codingnow.com/) |
 | Frost's blog | [https://frostming.com/](https://frostming.com/) |
+| drdr.xp Blog | [https://drmingdrmer.github.io](https://drmingdrmer.github.io) |
+| njs blog | [https://vorpus.org/blog](https://vorpus.org/blog) |
