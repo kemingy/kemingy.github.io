@@ -89,29 +89,47 @@ if __name__ == "__main__":
 
 In the above code snippet, if the *spawn* process tries to access the variable `x`, it will trigger the initialization of both `Dummy()` and `x = None`. So you can see the terminal will print two "init in pid" with different PIDs.
 
-So what kind of problem can the *fork* cause? Let's take a look at this article: [pythonspeed: Python multiprocessing](https://pythonspeed.com/articles/python-multiprocessing/). 
-
-> This code snippet is copied from the above article and changed to make it clear to explain.
+So what kind of problem can the *fork* cause? Let's take a look at this article: [Why your multiprocessing Pool is stuck (it’s full of sharks!)](https://pythonspeed.com/articles/python-multiprocessing/). 
 
 ```python
-from os import fork
-from time import sleep
-from threading import Lock
+import threading
+import os
+import time
+import multiprocessing as mp
 
-# Lock is acquired in the parent process:
-lock = Lock()
-lock.acquire()
 
-if fork() == 0:
-    # In the child process, try to grab the lock:
-    print("Child process: Acquiring lock...")
-    lock.acquire()
-    print("Lock acquired! (This code will never run)")
-else:
-    lock.release()
-    print("Parent process: release the lock")
-    sleep(1)
-    print("exit the parent process")
+class AreYouOK:
+    def __init__(self):
+        print("init in:", os.getpid())
+        self.lock = threading.Lock()
+
+    def check(self):
+        if self.lock.locked():
+            return False
+        return True
+
+    def acquire(self):
+        self.lock.acquire()
+
+    def delay_release(self):
+        time.sleep(1)
+        self.lock.release()
+
+
+greeter = AreYouOK()
+greeter.acquire()
+
+threading.Thread(target=greeter.delay_release, daemon=True).start()
+
+
+def greeting():
+    time.sleep(1)
+    print(os.getpid(), greeter.check())
+
+
+if __name__ == "__main__":
+    mp.get_context("fork").Process(target=greeting).start()
+    greeting()
 ```
 
 In the above example, after the lock is released, the child process still cannot acquire the lock. Why?
@@ -124,9 +142,9 @@ Let's check the [man page of fork](https://man7.org/linux/man-pages/man2/fork.2.
 
 > The child does not inherit semaphore adjustments from its parent
 
-So what happens here is that the child process has a lock already been acquired, but no thread will release the lock. These two locks are not the same as we can see in the parent process.
+So what happens here is that the child process has a lock already been acquired, but no thread will release the lock because that running thread won't be copied to the *fork* process. These two locks are not the same (copied not shared). Here, the `threading.Lock` is obviously not process-safe and should be handled with cautions when it's used in some other libraries (`queue.Queue`).
 
-The solution is to use *spawn* instead of *fork*:
+If we use *spawn* instead of *fork*, everything related will be **rebuilt** in the new process (including the Thread). That's why  we should use *spawn* instead of *fork*:
 
 ```python
 from multiprocessing import set_start_method
