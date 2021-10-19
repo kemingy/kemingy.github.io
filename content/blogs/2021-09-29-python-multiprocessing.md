@@ -200,7 +200,7 @@ Usually, we believe that Python runs one line at a time. But that's not true.
 
 So when we try to `q.put(2)`, the queue needs to acquire the lock. Meanwhile, the GC will try to call the `__del__` which also does the `q.put(1)`. The `q.put(2)` is blocked by the GC, but the GC cannot acquire the lock because `q.put(2)` won't release it. Deadlock happens!
 
-Thanks to the Python-dev team, this has been fixed in Python 3.7.
+Thanks to the Python-dev team, this has been fixed in Python 3.7 by introducing the `SimpleQueue`.
 
 ## Copy on write
 
