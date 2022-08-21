@@ -1,5 +1,5 @@
 +++
-title = "Ansible tutorail for human"
+title = "Ansible tutorial for human"
 [taxonomies]
 categories = ["Technology", "DevOps"]
 +++
