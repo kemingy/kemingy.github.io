@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://kemingy.github.io"
+base_url = "https://blog.mapotofu.org"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -10,15 +10,17 @@ highlight_code = true
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
+
+# RSS
 generate_feed = true
+generate_rss = true
 
 title = "Cyanide"
 theme = "nutshell"
 highlight_theme = "Tomorrow"
-generate_rss = true
 
 taxonomies = [
-    {name = "categories", rss = true},
+    {name = "categories"},
 ]
 
 [extra]
