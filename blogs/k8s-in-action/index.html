@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Kubernetes in action note
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#how-linux-make-container-possible" class="toc-link">How Linux make container possible</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#notes" class="toc-link">Notes</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#kubernetes" class="toc-link">Kubernetes</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#components" class="toc-link">Components</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#type" class="toc-link">Type</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#services" class="toc-link">Services</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#when-to-use-multiple-containers-in-a-pod" class="toc-link">When to use multiple containers in a Pod?</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#useful-cmd" class="toc-link">Useful CMD</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/k8s-in-action/#details" class="toc-link">Details</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;k8s-in-action&#x2F;">Kubernetes in action note</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2019-11-27
+        </span>
+        <span class="post-reading-time">
+            ⌛ 5 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>k8s is really complex...</p>
+<span id="continue-reading"></span><h3 id="how-linux-make-container-possible">How Linux make container possible</h3>
+<ul>
+<li>Linux namespace</li>
+<li>Linux control groups (cgroups) [=systemd]</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Container images are composed of layers, which can be shared and reused across multiple images.</li>
+</ul>
+<p><strong>Docker command and arguments</strong></p>
+<ul>
+<li>ENTRYPOINT: [&quot;python&quot;, &quot;app.py&quot;]</li>
+<li>CMD: [&quot;-w&quot;, &quot;4&quot;]</li>
+</ul>
+<p>entrypoint is the default part, cmd can be override.</p>
+<h2 id="kubernetes">Kubernetes</h2>
+<h3 id="components">Components</h3>
+<h4 id="master">Master</h4>
+<ul>
+<li>API server</li>
+<li>Scheduler</li>
+<li>Controller manager</li>
+<li>etcd</li>
+</ul>
+<h4 id="worker">Worker</h4>
+<ul>
+<li>Container runtime</li>
+<li>Kubelet</li>
+<li>kube-proxy</li>
+</ul>
+<h3 id="type">Type</h3>
+<ul>
+<li>ClusterIP: internal network</li>
+<li>LoadBalancer: external access</li>
+</ul>
+<h3 id="services">Services</h3>
+<ul>
+<li>solve pods' IP problem</li>
+</ul>
+<h3 id="when-to-use-multiple-containers-in-a-pod">When to use multiple containers in a Pod?</h3>
+<ul>
+<li>Do they need to be run together or can they run on different hosts?</li>
+<li>Do they represent a single whole or are they independent components?</li>
+<li>Must they be scaled together or individually?</li>
+</ul>
+<p><strong>Namespace</strong></p>
+<p>Does <strong>not</strong> offer isolation for nodes or network(depends on the networking solution deployed with k8s).</p>
+<p><strong>Liveness Probes</strong></p>
+<p>spec.containers[0].livenessProbe</p>
+<ul>
+<li>HTTP GET probe</li>
+<li>TCP Socket probe</li>
+<li>Exec probe</li>
+</ul>
+<p>If liveness probe failed, the pod will be terminated.</p>
+<p><strong>Readiness Probes</strong></p>
+<ul>
+<li>Exec</li>
+<li>HTTP GET</li>
+<li>TCP Socekt</li>
+</ul>
+<p>If Readiness probe failed, the pod will be removed from endpoints.</p>
+<p><strong>ReplicationController</strong></p>
+<p>keep pods running</p>
+<ul>
+<li>label selector</li>
+<li>replica count</li>
+<li>pod template</li>
+</ul>
+<p>pods can be removed from the controller by changing the label</p>
+<p><strong>ReplicaSet</strong></p>
+<p>similar to ReplicationController but more powerful in labels matching</p>
+<p>Always use ReplicaSet instead of ReplicationController.</p>
+<p><strong>DaemonSet</strong></p>
+<p>To run a pod on all cluster nodes. (even the unschedulable node)</p>
+<p><strong>Job</strong></p>
+<p>Terminate the pod when job is done successfully.</p>
+<p>spec.template.spec.restartPolicy:</p>
+<ul>
+<li>Always (default, need to change)</li>
+<li>OnFailure</li>
+<li>Never</li>
+</ul>
+<p>sequentially: spec.completions: n (run n jobs)</p>
+<p>parallel: spec.parallelism: n (run n jobs parallel)</p>
+<p><strong>CronJob</strong></p>
+<p>cron job for k8s.</p>
+<p>spec.schedule: &quot;minute, hour, day of month, month, day of week&quot;</p>
+<p><strong>Service</strong></p>
+<p>Create a single, constant point of entry to a group of pods. ( TCP/UDP level)</p>
+<p>redirect by IP: spec.sessionAffinity: ClientIP (default: None) (keep-alive connection will always hit the same pod even it set to None)</p>
+<p>Pods start after Service can get the IP:PORT from environment variables.</p>
+<ul>
+<li>&lt;SERVICE_NAME&gt;_SERVICE_HOST</li>
+<li>&lt;SERVICE_NAME&gt;_SERVICE_PORT</li>
+</ul>
+<p>Dashes in the service name will be converted to underscores and all letters are uppercased.</p>
+<p>FQDN (fully qualified domain name):</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;service_name&gt;.&lt;namespace&gt;.svc.cluster.local&lt;/span&gt;
+</span></code></pre>
+<p>&quot;svc.cluster.local&quot; can be omitted. If they are in the same namespace, it can also be omitted.</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>spec.type
+</span></code></pre>
+<ul>
+<li>ExternalName: pods connect to this service will directly connect to an external endpoint</li>
+<li>NodePort: each node opens a port and redirects traffic to the underlying service</li>
+<li>LoadBalancer: provided by cloud infrastructure k8s is running on</li>
+</ul>
+<p>spec.externalTrafficPolicy</p>
+<ul>
+<li>Local: the traffic will only be redirected to the Pod on the Node it hits (if no local pod can be found, it will hang) (also load balance will be node locally)</li>
+</ul>
+<p><strong>EndPoints</strong></p>
+<p>This can expose service to external endpoints.</p>
+<p>metadata.name must match service name</p>
+<p>IPs are list in subsets.addresses.</p>
+<p><strong>Ingress</strong></p>
+<p>HTTP level (cookie-based or header-based session affinity). (L4 is also planned)</p>
+<p>Ingress needs a ingress controller to do the load balance, like Nginx.</p>
+<p>The Ingress controller doesn't forward the request to the service. It only use it to select a pod.</p>
+<p><strong>Headless Service</strong></p>
+<p>set &quot;spec.clusterIP: None&quot; to get a headless service.</p>
+<p>With headless services, DNS will return the pods' IPs directly. It still provides load balancing across pods, but through the DNS round-robin mechanism instead of through the service proxy.</p>
+<p><strong>Volumes</strong></p>
+<p>types:</p>
+<ul>
+<li>emptyDir: lifetime is tied to the pod (disk or memory)</li>
+<li>hostPath: mount directories from the worker node's filesystem (DaemonSet)</li>
+<li>gitRepo: init by checking out the contents of a Git repo</li>
+<li>nfs: NFS share mounted into the pod</li>
+<li>gcePersistentDisk(GCE), awsElasticBlockStore(AWS), azureDisk(Azure)</li>
+<li>cinder, cephfs, iscsi, flocker, glusterfs, quobyte, rbd, flexVolume, vsphereVolume, photonPersistentDisk, scaleIO: other types of network storage</li>
+<li>configMap, secret, downwardAPI: used to expose certain K8s resources and cluster information (metadata not data)</li>
+<li>persistentVolumeClaim: pre- or dynamically provisioned persistent storage</li>
+</ul>
+<p><strong>PersistentVolume</strong></p>
+<p>ask the admin to setup this volume storage.</p>
+<p>Still need Volume as a backup.</p>
+<ul>
+<li>capacity</li>
+<li>accessModes</li>
+<li>persistemtVolumeRecalimPolicy (Retain or Delete)</li>
+</ul>
+<p>PV don't belong to any namespace.</p>
+<p>Mode:</p>
+<ul>
+<li>RWO: ReadWriteOnce</li>
+<li>ROX: ReadOnlyMany</li>
+<li>RWX: ReadWriteMany</li>
+</ul>
+<p><strong>PersistentVolumeClaim</strong></p>
+<ul>
+<li>resources</li>
+<li>accessModes</li>
+<li>storageClassName</li>
+</ul>
+<p>PVC can only be created in a specific namespace.</p>
+<p><strong>StorageClass</strong></p>
+<p>StorageClass resources aren't namespaced. It's dynamic. So it's impossible to run out of PV(but storage space).</p>
+<p><strong>Enveronment Variables</strong></p>
+<p>spec.container[*].image:</p>
+<ul>
+<li>command: override ENTRYPOINT</li>
+<li>args: override CMD</li>
+<li>env[*]{name:value}: environment variables</li>
+</ul>
+<p><strong>ConfigMap</strong></p>
+<p>define: key-value pairs in metadata</p>
+<p>usage:</p>
+<ul>
+<li>spec.containers[<em>].env[</em>].valueFrom.configMapKeyRef</li>
+<li>spec.containers[*].envFrom.configMapRef</li>
+</ul>
+<p>This can also be used in volume.</p>
+<p>Mounting a directory hides existing files in that directory. (unless you use volumeMount.subPath)</p>
+<p>Changes in ConfigMap will be updated in pods without reload. (exclude mounted files in volume)</p>
+<p><strong>Secrets</strong></p>
+<p>The contents of a Secret's entries are shown as base64 encoded strings.</p>
+<p>Maximum size is limited to 1MB.</p>
+<p><strong>Downward API for metadata</strong></p>
+<ul>
+<li>pod's name, IP, namespace, labels, annotations,</li>
+<li>name of node, name of service account</li>
+<li>CPU and memory requests/limits for each container</li>
+</ul>
+<p>These can be passed into pods with environment variables or volumes.</p>
+<p><strong>Deployment</strong></p>
+<p>A Deployment is backed by a ReplicaSet.</p>
+<p>When rolling update, it will create a new ReplicaSet to handle the new version pods. So it will create a ReplicaSet for each new version. (revisionHistoryLimit is 2 by default)</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>kubectl rollout undo deployment &lt;name&gt; --to-revision=1
+</span><span>kubectl rollout history deployment &lt;name&gt;
+</span></code></pre>
+<ul>
+<li>maxSurge: how many pod instances allow to exist above the desired replica count</li>
+<li>maxUnavailable: how many pod instances allow to be unavailable relative to the desired replica count</li>
+</ul>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>kubectl rollout pause deployment &lt;name&gt;
+</span><span>kubectl rollout resume deployment &lt;name&gt;
+</span></code></pre>
+<h2 id="useful-cmd">Useful CMD</h2>
+<p>kubelet explain pod
+kubelet explain pod.spec</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>kubectl exec &lt;pod&gt; -- &lt;cmd&gt;
+</span><span>kubectl exec -it &lt;pod&gt; /bin/bash
+</span><span>
+</span><span>kubectl run &lt;name&gt; --image=&lt;&gt; --generator=run-pod/v1 --command -- sleep infinity
+</span><span>
+</span><span>kubectl get endpoints
+</span><span>
+</span><span>kubectl port-forward &lt;name&gt; &lt;port_client&gt;:&lt;port_pod&gt;
+</span><span>
+</span><span>kubectl exec downward env
+</span><span>kubectl exec downward ls -1L /etc/downward
+</span><span>
+</span><span>kubectl proxy
+</span><span>
+</span><span>kubectl patch deployment &lt;name&gt; -p &#39;{&quot;spec&quot;: {&quot;minReadySeconds&quot;: 10}}&#39;
+</span></code></pre>
+<h2 id="details">Details</h2>
+<p><strong>GPU schedual</strong></p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>kubectl label node gpu-node gpu=true
+</span><span>pod.spec.nodeSelector: gpu: &quot;true&quot;
+</span></code></pre>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;systemd&#x2F;">‹ systemd command cheatsheet</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2019recap&#x2F;">2019 回顾 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

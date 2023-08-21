@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - My journey with envd
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#why-we-need-this-tool" class="toc-link">Why we need this tool</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#infrastructure-as-code-iac" class="toc-link">Infrastructure as code (IaC)</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#naming" class="toc-link">Naming</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#logo" class="toc-link">Logo</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#installation" class="toc-link">Installation</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#rootless" class="toc-link">Rootless</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#starlark" class="toc-link">Starlark</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#vscode-support" class="toc-link">VSCode support</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#buildkit" class="toc-link">BuildKit</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/envd/#parallel-build" class="toc-link">Parallel build</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/envd/#distributable-workers" class="toc-link">Distributable workers</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/envd/#better-cache" class="toc-link">Better cache</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#moby" class="toc-link">Moby</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#cache" class="toc-link">Cache</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#horust" class="toc-link">Horust</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#shell-prompt" class="toc-link">Shell prompt</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#coding-in-jupyter-notebook-and-vscode" class="toc-link">Coding in Jupyter Notebook and VSCode</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#develop-in-the-kubernetes-cluster" class="toc-link">Develop in the Kubernetes cluster</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#use-pointer-receivers" class="toc-link">Use pointer receivers</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#progress-bar" class="toc-link">Progress bar</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#ssh-agent-forwarding" class="toc-link">SSH agent forwarding</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#envd-v1" class="toc-link">envd v1</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#make-it-faster" class="toc-link">Make it faster</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#regrets" class="toc-link">Regrets</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/envd/#summary" class="toc-link">Summary</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;envd&#x2F;">My journey with envd</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2023-08-18
+        </span>
+        <span class="post-reading-time">
+            ⌛ 11 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/python/">
+                Python
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p><code>envd</code> is a frontend of <a href="https://github.com/moby/buildkit">BuildKit</a>. Just like the Dockerfile. It has been more than a year since I started working on this project. Since the features are relatively stable, I'd like to write a blog about my journey with <code>envd</code>.</p>
+<span id="continue-reading"></span><h2 id="why-we-need-this-tool">Why we need this tool</h2>
+<p>The machine learning development environment has been a pain point for a while. &quot;Which Python are you using now?&quot; is definitely a newbie slayer. It's even worse if you need to use CUDA. &quot;It works on my machine!&quot; happens a lot.</p>
+<p><code>envd</code> was created to solve the problem of the machine learning development environment. However, it goes far beyond that.</p>
+<h2 id="infrastructure-as-code-iac">Infrastructure as code (IaC)</h2>
+<p>What a fancy name! Here it means by using the <code>envd</code> config file, you will be able to get the same environment on different machines, whether it's a local machine, a remote server, or a Kubernetes cluster.</p>
+<h2 id="naming">Naming</h2>
+<p>It was named <code>MIDI</code> in the beginning. But that is not friendly for SEO.</p>
+<p>The <code>d</code> in <code>envd</code> has no official meaning (as far as I know). It can be &quot;docker&quot;, &quot;deep learning&quot;, &quot;dev&quot;, etc.</p>
+<p>For more information, check this <a href="https://github.com/tensorchord/envd/issues/2#issuecomment-1119175904">issue</a>.</p>
+<h2 id="logo">Logo</h2>
+<p>We have a cute logo designed by <a href="https://github.com/lilylee1874">Lily</a>. It's a cat face with the <code>envd</code> characters.</p>
+<p><img src="https://user-images.githubusercontent.com/12974685/200007223-cd94fe9a-266d-4bbd-ac23-e71043d0c3dc.svg" alt="envd" /></p>
+<p>Actually, the cat only blinked once when we created the GIF. The recording tool on macOS is tricky to use. That's why it ends up blinking twice. By the way, we replaced it with SVG to make the animation clear and smooth. Writing the SVG animation from scratch is not that hard.</p>
+<p>You can find the drafts <a href="https://github.com/tensorchord/envd/issues/326">here</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>Obviously, <code>envd</code> is a Golang project. However, our target audiences are mainly using Python. That's why we spend a lot of effort to support installation through <code>pip</code>.</p>
+<p>As we know, Python has never done a good job of distributing pre-compiled binaries. I didn't find any good document about how to create a Python pre-compiled binary distribution. People just copy &amp; paste the code from other projects. So does <code>envd</code>. The code is mainly copied from <a href="https://github.com/mosecorg/mosec"><code>mosec</code></a>.</p>
+<p>I do learn something new from others' contributions:</p>
+<ul>
+<li><a href="https://github.com/pypa/cibuildwheel">cibuildwheel</a> has become mature nowadays. It's a great tool for setting up the multi-platform distribution pipeline in CI.</li>
+<li>You can <a href="https://github.com/tensorchord/envd/pull/1254">package a binary file without any Python code</a>. (by <a href="https://github.com/frostming">frostming</a>)</li>
+<li>You can create the Python <a href="https://github.com/tensorchord/envd/pull/1324">ABI-agnostic wheel</a>. (by <a href="https://github.com/frostming">frostming</a>)</li>
+</ul>
+<p>Of course, you can use <code>conda-forge</code>. I have tried to create <a href="https://github.com/conda-forge/staged-recipes/pull/22367">a recipe for <code>mosec</code></a>. It has a totally different packaging logic.</p>
+<h2 id="rootless">Rootless</h2>
+<p>As a developer, I don't like to run the command with <code>sudo</code> unless I have to. When I was trying to debug with the <code>buildkit</code> daemon, I found that we can run it <a href="https://github.com/moby/buildkit/blob/master/docs/rootless.md">in rootless mode</a>.</p>
+<h2 id="starlark">Starlark</h2>
+<p>Starlark is a dialect of Python, which makes it easy to use for machine learning engineers and data scientists.</p>
+<p>I know that lots of configuration files are written in YAML. I personally don't like it. You may also heard lots of complaints about the YAML format. I think the configuration file should be able to validate itself.</p>
+<p>You can use if-condition, for-loop, etc. in Starlark. The following code works:</p>
+<pre data-lang="python" style="background-color:#ffffff;color:#4d4d4c;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#8959a8;">def </span><span style="color:#4271ae;">build</span><span>(</span><span style="color:#f5871f;">libs</span><span>, </span><span style="color:#f5871f;">gpu</span><span style="color:#3e999f;">=</span><span style="color:#f5871f;">True</span><span>):
+</span><span>    base </span><span style="color:#3e999f;">= </span><span style="color:#718c00;">&quot;ubuntu:20.04&quot;
+</span><span>    </span><span style="color:#8959a8;">if </span><span>gpu:
+</span><span>        base </span><span style="color:#3e999f;">= </span><span style="color:#718c00;">&quot;nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04&quot;
+</span><span>    </span><span style="color:#8959a8;">for </span><span>lib </span><span style="color:#8959a8;">in </span><span style="color:#4271ae;">sorted(libs)</span><span>:
+</span><span>        </span><span style="color:#4271ae;">install.</span><span style="color:#c82829;">python_packages</span><span style="color:#4271ae;">(</span><span style="color:#f5871f;">name</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">[lib])
+</span></code></pre>
+<p>For more information, check the <a href="https://github.com/bazelbuild/starlark/blob/master/spec.md">Starlark spec</a>.</p>
+<p>Although Starlark has an interpreting order, we don't rely on that. We will parse the file to an internal graph and construct the BuildKit Low-Level Build (LLB) graph on top of it. This tradeoff makes it easy to cache the layers.</p>
+<p>Starlark is also easy to extend. We added lots of <code>envd</code> specific functions to make it more powerful. You can find them in the <a href="https://envd.tensorchord.ai/api/starlark/v1/global.html">reference</a>. It has a <code>load</code> function which is similar to <code>import</code> in Python to load another file. We create a new one called <a href="https://envd.tensorchord.ai/api/starlark/v1/global.html#include"><code>include</code></a> (because <code>import</code> is reserved) to import functions from a git repository. People can create their own <code>envd</code> build functions and share them with others.</p>
+<h2 id="vscode-support">VSCode support</h2>
+<p>To make it more user-friendly, we have a VSCode <a href="https://github.com/tensorchord/vscode-envd">extension</a> for <code>envd</code>, which provides the following features:</p>
+<ul>
+<li><a href="https://github.com/tensorchord/envd-lsp">LSP</a>: this enables the Starlark auto-completion.</li>
+<li>manage <code>envd</code> environment</li>
+</ul>
+<h2 id="buildkit">BuildKit</h2>
+<p>This is the backend of <code>envd</code>. Integrating with it is troublesome. Mainly because it doesn't have any documentation. The only way to learn it is to read the <a href="https://github.com/moby/buildkit/tree/master/examples">examples</a>. Since the source code is written in a functional style, it's a bit hard to understand. Once you get used to it, things will be easier.</p>
+<p>There are some nice features in BuildKit:</p>
+<ul>
+<li>Parallel build</li>
+<li>Distributable workers</li>
+<li>Better cache</li>
+<li>Advanced operators</li>
+</ul>
+<p>We will go through them one by one.</p>
+<h3 id="parallel-build">Parallel build</h3>
+<p>The main idea is to split the build graph into multiple sub-graphs and run them in parallel if possible. This is a great feature when some steps take a long time to finish while there is no overlap among them. For example, we can install the system packages and Conda environments in parallel.</p>
+<p>The related operators are <code>diff</code> and <code>merge</code>. In the <code>merge</code> list, the later state will override the previous stats if they change the same directories. Sometimes, it may take longer than you expect to get the diff and merge them together. This should be used when you're sure that the parallelism will save time.</p>
+<h3 id="distributable-workers">Distributable workers</h3>
+<p>Basically, the frontend will construct the build graph and serialize it in a Protocol Buffer format, then send it to the backend workers through TCP or Unix Domain Socket.</p>
+<p>It's recommended to set up a long-running BuildKit daemon and use it as a remote worker since in this way it can benefit from the cache.</p>
+<p>By default, we will create a <code>buildkitd</code> container for <code>envd</code> to build the image.</p>
+<h3 id="better-cache">Better cache</h3>
+<p>BuildKit can import/export the cache from/to the local/inline/registry. You can choose to export the intermediate layer or not.</p>
+<p>By default, the cache limit is 10% of your disk space. You can configure this through the <a href="https://docs.docker.com/build/buildkit/toml-configuration/">buildkit config</a>.</p>
+<p><code>envd</code> v0 will download a pre-build base image that contains the basic development tools and Python environment. This image can be used as the cache layer if none of the dependencies change. This is a great way to speed up the build process. You can check the nightly build <a href="https://github.com/tensorchord/envd-nightly">benchmark</a>.</p>
+<h2 id="moby">Moby</h2>
+<p>For now, the best user experience is to use <code>envd</code> v1 with <code>moby</code> worker. This requires the docker engine version &gt;= 22. To enable it, you can create a new <code>envd</code> context like this:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#4d4d4c;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#c82829;">envd</span><span style="color:#4271ae;"> context create</span><span style="color:#f5871f;"> --name</span><span style="color:#4271ae;"> moby</span><span style="color:#f5871f;"> --builder</span><span style="color:#4271ae;"> moby-worker</span><span style="color:#f5871f;"> --use
+</span></code></pre>
+<p>Need to mention that the <code>moby</code> worker is still experimental. Due to the <a href="https://github.com/moby/moby/issues/45111">issue</a>, we have to <a href="https://github.com/tensorchord/envd/pull/1699">disable the <code>merge</code> operator</a> used in <code>envd</code> when using the <code>moby</code> worker. Thus the build step might be slower but the export step will be much faster. Overall it's still faster, especially when you have a large image, which is the common case for machine learning.</p>
+<h2 id="cache">Cache</h2>
+<p>Docker layer cache is a common optimization for image building. Besides, we also enable the cache for the APT packages, Python wheels, VSCode extensions, and <code>oh-my-zsh</code> plugins. This is done by mounting a cache directory during the build time. The machine learning related pip wheels can be huge, which makes the cache very useful.</p>
+<h2 id="horust">Horust</h2>
+<p>I totally agree that for the online environment, one container should only do one thing, usually, that means running only one service. However, for the development environment, it's totally fine to run as many processes as you like, as long as they don't conflict with each other.</p>
+<p>That's why we need a process management tool to control all of these processes. We have explored several options like <a href="https://systemd.io/">systemd</a>, <a href="https://github.com/just-containers/s6-overlay">s6 overlay</a>, <a href="https://github.com/Supervisor/supervisor">Supervisor</a>. In the end, we decided to use <a href="https://github.com/FedericoPonzi/Horust">Horust</a> which is both simple and powerful. You can check the <a href="https://github.com/tensorchord/envd/issues/930">discussion</a>.</p>
+<h2 id="shell-prompt">Shell prompt</h2>
+<p>I personally use <code>fish</code> with <code>starship</code>, which gives a great out-of-box shell experience. <code>starship</code> can work well with the most common shells like <code>bash</code>, <code>zsh</code>, <code>fish</code>, etc. It's easy to configure and extend. You can check the <a href="https://starship.rs/">starship documentation</a>.</p>
+<p>It works better when you have the <a href="https://www.nerdfonts.com/">Nerd font</a>, but we cannot control the users' terminal configuration, we have to disable some fancy icons.</p>
+<h2 id="coding-in-jupyter-notebook-and-vscode">Coding in Jupyter Notebook and VSCode</h2>
+<p>These are the most common coding tools for machine learning engineers and data scientists.</p>
+<p>Whether it's Jupyter Notebook or Jupyter Lab, it can be exposed as a normal web service.</p>
+<p>VSCode really did a good job on the remote development. You can use the VSCode on your local machine to connect to the remote server or even the container running on a remote server.</p>
+<p>Limited by the license, we have to use the <a href="https://open-vsx.org/">Open VSX Registry</a>. Sometimes the related CI test fails due to its stability.</p>
+<h2 id="develop-in-the-kubernetes-cluster">Develop in the Kubernetes cluster</h2>
+<p>We were hoping to monetize <code>envd</code> with this feature. But not many people are interested in this one. The code is open sourced as <a href="https://github.com/tensorchord/envd-server/"><code>envd-server</code></a>. Maybe we can bring this feature to the new <a href="https://github.com/tensorchord/openmodelz/issues/105">openmodelz</a> project. Although you can run <code>mdz exec {name} -ti bash</code> to get into a container, but it doesn't support VScode-Remote for now.</p>
+<h2 id="use-pointer-receivers">Use pointer receivers</h2>
+<p>This is the most common bug during the development with <code>envd</code>. We have an internal build graph, which has many methods to build the LLB graph. Not all of these methods are using the pointer receivers, which results in the inconsistent state of the internal graph. I would prefer to use the pointer receivers for all of the methods.</p>
+<p>You might be curious how come the lint doesn't catch this. That's because it can be used in a nested way, with the outer function using the value receiver while the inner function uses the pointer receiver.</p>
+<p>This is also a good example to show the language design (personal option). You won't see this kind of bug in Rust. But Rust doesn't have a good container ecosystem. :(</p>
+<h2 id="progress-bar">Progress bar</h2>
+<p>The default docker progress bar is really complex. When I was implementing the <a href="https://github.com/tensorchord/envd/pull/1708"><code>moby</code> push</a> feature, I chose to reuse another progress bar lib to make life easier. Although it lacks multi-line log support.</p>
+<h2 id="ssh-agent-forwarding">SSH agent forwarding</h2>
+<p>Actually, we can forward the host SSH credentials to the container. So we can use the <code>git</code> command as we're in the host machine.</p>
+<h2 id="envd-v1"><code>envd</code> v1</h2>
+<p>This new version is created to address the inappropriate design of the <code>envd</code> v0. The main idea is that <code>envd</code> file should be a more general frontend of BuildKit. It should be able to build any image, not only for the machine learning development environment.</p>
+<p>Here is a comparison:</p>
+<table><thead><tr><th>Features</th><th>v0</th><th>v1</th></tr></thead><tbody>
+<tr><td>is default for <code>envd&lt;v1.0</code></td><td>✅</td><td>❌</td></tr>
+<tr><td>support dev</td><td>✅</td><td>✅</td></tr>
+<tr><td>support CUDA</td><td>✅</td><td>✅</td></tr>
+<tr><td>support serving</td><td>⚠️</td><td>✅</td></tr>
+<tr><td>support custom base image</td><td>⚠️</td><td>✅</td></tr>
+<tr><td>support installing multiple languages</td><td>⚠️</td><td>✅</td></tr>
+<tr><td>support <code>moby</code> builder</td><td>❌</td><td>✅</td></tr>
+</tbody></table>
+<h2 id="make-it-faster">Make it faster</h2>
+<p>The <a href="https://github.com/tensorchord/envd/blob/3b5fae2de801b6e8fee98d1f2e743dce63a20085/pkg/lang/ir/v1/system.go#L346"><code>compileBaseImage</code></a> function should be able to run faster. You can try it if you're interested in the <code>envd</code> development.</p>
+<h2 id="regrets">Regrets</h2>
+<ul>
+<li><a href="https://github.com/tensorchord/envd/pull/972">state-based implementation</a></li>
+</ul>
+<p>This feature will make it much more powerful, but also comes with complexity.</p>
+<p>Users can use low-level operators to build the graph. We can execute the commands from <code>envd</code> file in the user-defined order.</p>
+<ul>
+<li><a href="https://github.com/tensorchord/envd/pull/1459">incremental development environment</a></li>
+</ul>
+<p>Lots of development environments are not built in one shot. This proposal wants to track the changes in the running environment and update the <code>envd</code> file accordingly.</p>
+<h2 id="summary">Summary</h2>
+<p>It is the first time that I can work on an open source project as my daily work.I have learned a lot from the community. I hope more people can benefit from <code>envd</code>.</p>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pycon-china-2022-envd&#x2F;">‹ PyChon China 2022 - envd</a>
+                
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

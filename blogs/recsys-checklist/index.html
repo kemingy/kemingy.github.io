@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Recommendation System Checklist
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#basic" class="toc-link">Basic</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#when-to-use" class="toc-link">When to use?</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#stage" class="toc-link">Stage</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#forecast" class="toc-link">Forecast</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#problem" class="toc-link">Problem</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#user-profile" class="toc-link">User profile</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#models" class="toc-link">Models</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#content-based" class="toc-link">Content-based</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#collaborative-filtering" class="toc-link">Collaborative filtering</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#similarity" class="toc-link">Similarity</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#optimization" class="toc-link">Optimization</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#ranking" class="toc-link">Ranking</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#ensemble" class="toc-link">Ensemble</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#bandit" class="toc-link">Bandit</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#deep-learning" class="toc-link">Deep learning</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#leaderboard" class="toc-link">Leaderboard</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#weighted-sampling" class="toc-link">Weighted sampling</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#deduplicated" class="toc-link">Deduplicated</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#data" class="toc-link">Data</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#collect-data" class="toc-link">Collect data</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#defence" class="toc-link">Defence</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#attack-methods" class="toc-link">Attack methods</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#defence-1" class="toc-link">Defence</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#deploy" class="toc-link">Deploy</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#real-time" class="toc-link">Real Time</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#test-platform" class="toc-link">Test Platform</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#database" class="toc-link">Database</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#api" class="toc-link">API</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#tools" class="toc-link">Tools</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#cf-and-mf" class="toc-link">CF and MF</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#ensemble-1" class="toc-link">Ensemble</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/recsys-checklist/#all-in-one" class="toc-link">All in one</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;recsys-checklist&#x2F;">Recommendation System Checklist</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2018-09-14
+        </span>
+        <span class="post-reading-time">
+            ⌛ 7 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/note/">
+                Note
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                Deep Learning
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/nlp/">
+                NLP
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>Notes of <a href="https://time.geekbang.org/column/74">&quot;36 strokes of recommended system&quot;</a></p>
+<span id="continue-reading"></span><h2 id="basic">Basic</h2>
+<h3 id="when-to-use">When to use?</h3>
+<p>$\frac{N_{connection}}{N_{user} \times N_{item}}$</p>
+<h3 id="stage">Stage</h3>
+<ol>
+<li>mining</li>
+<li>recall</li>
+<li>ranking</li>
+</ol>
+<h3 id="forecast">Forecast</h3>
+<ul>
+<li>score
+<ul>
+<li>collect data</li>
+<li>quality of score</li>
+<li>unstable of score</li>
+</ul>
+</li>
+<li>action
+<ul>
+<li>Click Through Rate(CTR)</li>
+<li>dense of data</li>
+<li>implicit feedback</li>
+</ul>
+</li>
+</ul>
+<h3 id="problem">Problem</h3>
+<ul>
+<li>cold start</li>
+<li>exploit and explore</li>
+<li>secure</li>
+</ul>
+<h3 id="user-profile">User profile</h3>
+<ul>
+<li>Vectorization</li>
+<li>based on records, statistics, balck box models</li>
+<li>Feature
+<ul>
+<li>TF-IDF, TextRank</li>
+<li>Named Entity Recognition (based on dictionary and conditional random field)</li>
+<li>Text classification</li>
+<li>Clustering</li>
+<li>Topic model</li>
+<li>Embedding</li>
+</ul>
+</li>
+<li>Select labels
+<ul>
+<li>Chi-square test(CHI)</li>
+<li>Information gain(GI)</li>
+</ul>
+</li>
+</ul>
+<h2 id="models">Models</h2>
+<h3 id="content-based">Content-based</h3>
+<ul>
+<li>friendly to new items and new users(cold start)</li>
+<li>easy to get data
+<ul>
+<li>grab (use crawler)</li>
+<li>clean data</li>
+<li>data mining</li>
+<li>compute</li>
+</ul>
+</li>
+<li>Algorithm
+<ul>
+<li>Unsupervised
+<ul>
+<li>BM25</li>
+<li>cosine similarity</li>
+</ul>
+</li>
+<li>Supervised
+<ul>
+<li>GBDT</li>
+<li>Logistic Regression</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="collaborative-filtering">Collaborative filtering</h3>
+<ul>
+<li>Memory-based
+<ul>
+<li>User-based
+<ul>
+<li>sample to reduce vector dimension(DIMSUM)</li>
+<li>Map-Reduce to get user2user similarity, or use (KGraph, GraphCHI)</li>
+<li>punish hot items</li>
+<li>attenuate with time</li>
+<li>cons
+<ul>
+<li>too many users to calculate</li>
+<li>too sparse to get real similar users(hot items)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Item-based
+<ul>
+<li>normalization for users and items</li>
+<li>Slope one(consider confidence)</li>
+</ul>
+</li>
+<li>cons: sparse =&gt; vibrate to small correlations</li>
+</ul>
+</li>
+<li>Model-based
+<ul>
+<li>Singular Vector Decomposition(SVD): $$min_{q^<em>,p^</em>}\Sigma_{(u,i)\in \kappa}(r_{ui}-p_u q_i^T)^2+\lambda(\lVert q_i\rVert ^2+\lVert p_u\rVert ^2)$$</li>
+<li>add bias: $$\hat{r}<em>{ui}=\mu + b_i + b_u + p_u q_i^T$ , $min</em>{q^<em>,p^</em>}\Sigma_{(u,i)\in \kappa}(r_{ui}-\mu -b_i - b_u -p_u q_i^T)^2+\lambda(\lVert q_i\rVert ^2+\lVert p_u\rVert ^2+b_i^2+b_u^2)$$ </li>
+<li>SVD++(add implicit feedback &amp; user attribute): $$\hat{r}<em>{ui}=\mu + b_i + b_u + (p_u+\lvert N(u) \rvert ^{-0.5}\Sigma</em>{i\in N(u)}x_i+\Sigma_{a\in Au}y_a)q_i^T$$</li>
+<li>consider about time
+<ul>
+<li>weight</li>
+<li>time scope</li>
+<li>special date</li>
+</ul>
+</li>
+<li>cons:
+<ul>
+<li>ranking is what we want, not vectors</li>
+<li>negative sampling is still a problem</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="similarity">Similarity</h3>
+<ul>
+<li>
+<p>Euclidean distance: $d(p, q)=\sqrt{\Sigma_{i=1}^n(q_i-p_i)^2}$</p>
+</li>
+<li>
+<p>Cosine similarity: $cos(\theta)=\frac{A\cdot B}{\lVert A\rVert \lVert B\rVert}$</p>
+<ul>
+<li>adjust: $sim(i,j)=\frac{\Sigma_{u\in U}(R_{u,i}-\bar{R_u})(R_{u,j}-\bar{R_u})}{\sqrt{\Sigma_{u \in U}(R_{u,i}-\bar{R_u})^2}\sqrt{\Sigma_{u \in U}(R_{u,j}-\bar{R_u})^2}}$</li>
+</ul>
+</li>
+<li>
+<p>Pearson correlation: $\rho_{X,Y}=\frac{\Sigma^n_{i=1}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\Sigma^n_{i=1}(x_i-\bar{x})^2}\sqrt{\Sigma^n_{i=1}(y_i-\bar{y})^2}}$</p>
+</li>
+<li>
+<p>Jaccard index: $J(A, B)=\frac{A\bigcap B}{A\bigcup B}$</p>
+</li>
+</ul>
+<h3 id="optimization">Optimization</h3>
+<ul>
+<li>Stochastic Gradient Descent(SGD)</li>
+<li>Alternative Least Square(ALS): $R_{m\times n}=P_{m\times k}\times Q^T_{n\times k}$
+<ul>
+<li>easy to parallelize</li>
+<li>fast than SGD in not too sparse data</li>
+<li>Weighted-ALS: one-class    $$min_{q^<em>,p^</em>}\Sigma_{(u,i)\in \kappa}c_{ui}(r_{ui}-p_uq_i^T)^2+\lambda(\lVert q_i\rVert ^2+\lVert p_u\rVert ^2)$$ where $c_{ui}=1+\alpha n$ stands for confidence and  $\alpha=40$ , $n$ is frequence.
+<ul>
+<li>sample in hot items (negative sampling)</li>
+</ul>
+</li>
+<li>Tools to search similar items: Faiss(ball tree), Annoy, NMSlib, KGraph</li>
+</ul>
+</li>
+</ul>
+<h3 id="ranking">Ranking</h3>
+<ul>
+<li>methods: point-wise, pair-wise, list-wise</li>
+<li>Bayes Personalized Recommendation(BPR)
+<ul>
+<li>sample: (user, item1, item2, True/False)</li>
+<li>$\Pi_{u,i,j}p(i&gt;_uj\mid \theta)p(\theta)$</li>
+<li>Mini-batch Stochastic Gradient Descent(MSGD)</li>
+</ul>
+</li>
+<li>Area Under Curve(AUC): $AUC=\frac{\Sigma_{i\in samples}r_i-\frac{1}{2}M\times (M-1)}{M\times N}$ </li>
+</ul>
+<h3 id="ensemble">Ensemble</h3>
+<ul>
+<li>Logistic Regression</li>
+<li>Follow-the-Regularized-Leader(FTRL)</li>
+<li>Gradient Boost Decision Tree(GBDT)</li>
+<li>Factorization Machine(FM)
+<ul>
+<li>$\hat{y}=w_0+\Sigma^n_{i=1}w_ix_i+\Sigma^n_{i=1}\Sigma^n_{j=i+1}&lt;V_i,V_j&gt;x_ix_j$ </li>
+<li>$\sigma(\hat{y})=\frac{1}{1+e^{-\hat{y}}}$ , $loss(\theta)=-\frac{1}{m}\Sigma^m_{i=1}[y^{(i)}log(\sigma(\hat{y}))+(1-y^{(i)})log(1-\sigma(\hat{y}))]$ </li>
+<li>$\Sigma_{i=1}^n\Sigma_{j=i+1}^n&lt;v_i,v_j&gt;x_ix_j$ = $\frac{1}{2}\Sigma_{f=1}^k((\Sigma_{i=1}^nv_{i,f}x_i)^2-\Sigma_{i=1}^nv_{i,f}^2x_i^2)$ </li>
+</ul>
+</li>
+<li>Field-aware Factorization Machine(FFM)
+<ul>
+<li>$\hat{y}=w_0+\Sigma^n_{i=1}w_ix_i+\Sigma^n_{i=1}\Sigma^n_{j=i+1}&lt;V_{i,fj}, V_{j,fi}&gt;x_ix_j$ </li>
+</ul>
+</li>
+<li>Deep&amp;Wide
+<ul>
+<li>$P(Y=1\mid X)=\sigma(W^T_{wide}[X, \Phi(X)]+W^T_{deep}a^{(l_f)}+b)$</li>
+<li>scale: $\frac{i-1}{n_q-1}$</li>
+<li>model
+<ul>
+<li>deep: full-connected layer and ReLU</li>
+<li>wide: cross combination</li>
+</ul>
+</li>
+<li>deploy</li>
+</ul>
+</li>
+</ul>
+<h3 id="bandit">Bandit</h3>
+<ul>
+<li>Multi-armed bandit problem(MBP): cold start and EE problem</li>
+<li>$R_T=\Sigma_{i=1}^T(w_{opt}-w_{B(i)})=Tw^*-\Sigma^T_{i=1}w_{B(i)}$ </li>
+<li>Thompson sampling
+<ul>
+<li>beta distribution
+<ul>
+<li>$\alpha + \beta$ ↗⇒ center</li>
+<li>$\frac{\alpha}{\alpha+\beta}$ ↗⇒ center → 1</li>
+</ul>
+</li>
+<li><code>choice = numpy.argmax(pymc.rbeta(1 + self.wins, 1 + self.trials - self.wins))</code></li>
+</ul>
+</li>
+<li>Upper Confidence Bound(UCB)
+<ul>
+<li>$\bar{x}_j(t)+\sqrt\frac{2\ln t}{T_{j, t}}$</li>
+<li>$t$ is total times, $\bar{x}$ is average gain</li>
+</ul>
+</li>
+<li>Epsilon greedy
+<ul>
+<li>select $\epsilon\in(0, 1)$, select best chioce with $p_{best}=1-\epsilon$ </li>
+</ul>
+</li>
+<li>LinUCB
+<ul>
+<li>add features, support delete items</li>
+<li>contextually related</li>
+<li>expected revenue: $\hat{r}=x^T_{d\times 1}\hat{\theta}_{d\times 1}$</li>
+<li>upper bound: $\hat{b}=\alpha \sqrt x^T_{d\times 1}(D^T_{m\times d}D_{m\times d}+I_{d\times d})^{-1}x_{d\times 1}$ </li>
+</ul>
+</li>
+<li>COFIBA
+<ul>
+<li>use CF to reduce user group</li>
+<li>update item group and user group with LinUCB</li>
+</ul>
+</li>
+</ul>
+<h3 id="deep-learning">Deep learning</h3>
+<ul>
+<li>Product2vec
+<ul>
+<li>users' browser history == docs</li>
+<li>try to learn vector of items</li>
+</ul>
+</li>
+<li>Youtube
+<ul>
+<li>$P(w_t=i\mid U,C)=\frac{e_{v_iu}}{\Sigma_{j\in V}e_{v_ju}}$ </li>
+<li>embedded watches, search tokens, geographic, age, gender......</li>
+</ul>
+</li>
+<li>Spotify
+<ul>
+<li>RNN: $h_t=F(Wx_t+Uh_{t-1})$</li>
+</ul>
+</li>
+</ul>
+<h3 id="leaderboard">Leaderboard</h3>
+<ul>
+<li>Hacker News: $\frac{P-1}{(T+2)^G}$
+<ul>
+<li>$P$: vote, $T$: time(hour), G: gravity</li>
+</ul>
+</li>
+<li>Newton's law of cooling: $T(t)=H+Ce^{-\alpha t}$
+<ul>
+<li>$H$: environment tempurature,  $C$: vote, $\alpha$: Chill coefficient</li>
+</ul>
+</li>
+<li>StackOverflow: $\frac{(log_{10}Q_{views}\times 4 + \frac{Q_{answers}\times Q_{score}}{5}+\Sigma_iA_{score_i})}{(\frac{Q_{age}}{2}+\frac{Q_{update}}2+1)^{1.5}}$ 
+<ul>
+<li>$Q_{age}$: time, $Q_{update}$: last update time</li>
+</ul>
+</li>
+<li>Wilson section: $\frac{\hat{p}+\frac{1}{2n}z^2_{1-\frac{\alpha}{2}}\pm z_{1-\frac{\alpha}2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}+\frac{z^2_{1-\frac{\alpha}2}}{4n^2}}}{1+\frac{1}nz^2_{1-\frac{\alpha}2}}$ 
+<ul>
+<li>$\hat{p}$: praise rate, $z_{1-\frac{\alpha}2}$: Z statistic with confidence $\alpha$ </li>
+</ul>
+</li>
+<li>Bayes average: $\frac{v}{v+m}R+\frac{m}{v+m}C$ 
+<ul>
+<li>$R$: average score, $v$: vote, $m$: average vote, $C$: average score</li>
+</ul>
+</li>
+</ul>
+<h3 id="weighted-sampling">Weighted sampling</h3>
+<ul>
+<li>limit data
+<ul>
+<li>$S_i=R^{\frac{1}{w_i}}$</li>
+<li>$f(x,\lambda)=\begin{cases} \lambda e^{-\lambda x} &amp; \text{if }x&gt;0 \ 0 &amp;\text{if }x\leqslant 0 \end{cases}$</li>
+</ul>
+</li>
+<li>unlimit data
+<ul>
+<li>keep $k$ items, replace item with $p=\frac{k}n$ </li>
+</ul>
+</li>
+</ul>
+<h3 id="deduplicated">Deduplicated</h3>
+<ul>
+<li>SimHash</li>
+<li>Bloom filter</li>
+</ul>
+<h2 id="data">Data</h2>
+<h3 id="collect-data">Collect data</h3>
+<ul>
+<li>data model
+<ul>
+<li>user profile</li>
+<li>item profile</li>
+<li>relation</li>
+<li>event</li>
+</ul>
+</li>
+<li>store
+<ul>
+<li>buried point: SDK, Google Analytics, Mixpanel</li>
+<li>end: front-end, back-end</li>
+</ul>
+</li>
+<li>architecture
+<ul>
+<li>Nginx/server → logstash/flume → kafka → storm → HDFS</li>
+</ul>
+</li>
+</ul>
+<h2 id="defence">Defence</h2>
+<h3 id="attack-methods">Attack methods</h3>
+<ul>
+<li>item: target, mask, fake</li>
+<li>score: random, average</li>
+</ul>
+<h3 id="defence-1">Defence</h3>
+<ul>
+<li>platform level: sign up cost, reCAPTCHA</li>
+<li>data level: antispam(PCA, classify, cluster)</li>
+<li>algorithm level: add user quality, restrict user weight</li>
+</ul>
+<h2 id="deploy">Deploy</h2>
+<h3 id="real-time">Real Time</h3>
+<ul>
+<li>
+<p>response → update feature → update model</p>
+</li>
+<li>
+<p>Storm</p>
+<ul>
+<li>Spout, Bolt, Tuple, Topology</li>
+</ul>
+</li>
+<li>
+<p>Kafka</p>
+</li>
+<li>
+<p>Hoeffding</p>
+<ul>
+<li>the real $E(x)$ is smaller than $\hat{x}+\epsilon$ with probability $p=1-\delta$ : $\epsilon=\sqrt{\frac{ln(1/\delta)}{2n}}$ </li>
+</ul>
+</li>
+<li>
+<p>Sliding window</p>
+</li>
+<li>
+<p>Sampling</p>
+</li>
+</ul>
+<h3 id="test-platform">Test Platform</h3>
+<ul>
+<li>scale: $N&gt;=10.5(\frac{s}{\theta})^2$ , $s$ is standard deviation, $\theta$ is sensitivity. (90% confidence)</li>
+<li>Google platform:
+<ul>
+<li>A domain is a segmentation of traffic</li>
+<li>A layer corresponds to a subset of the system parameters</li>
+<li>An experiment is a segmentation of traffic where zero or more system parameters can be given alternate values that change how the incoming request if processed.</li>
+</ul>
+</li>
+</ul>
+<h3 id="database">Database</h3>
+<ul>
+<li>Offline and Online</li>
+<li>Choice
+<ul>
+<li>feature, model, result</li>
+<li>Inversed index: Redis or Memcached</li>
+<li>Column-oriented DBMS: HBase, Cassandra</li>
+<li>Store and search: ElasticSearch, Lucene, Solr</li>
+<li>Parameters: PMML</li>
+</ul>
+</li>
+</ul>
+<h3 id="api">API</h3>
+<ul>
+<li>recommend_ID: unique ID, trace the performance</li>
+</ul>
+<h2 id="tools">Tools</h2>
+<h3 id="cf-and-mf">CF and MF</h3>
+<ul>
+<li>KNN
+<ul>
+<li>kgraph, annoy, faiss, nmslib</li>
+</ul>
+</li>
+<li>SVD, SVD++, BPR
+<ul>
+<li>lightfm</li>
+</ul>
+</li>
+<li>ALS
+<ul>
+<li>implicit, QMF</li>
+</ul>
+</li>
+</ul>
+<h3 id="ensemble-1">Ensemble</h3>
+<ul>
+<li>GBDT:
+<ul>
+<li>LightGBM, XGBoost</li>
+</ul>
+</li>
+<li>FM, FFM:
+<ul>
+<li>libffm</li>
+</ul>
+</li>
+<li>Linear: vowpal_wabbit</li>
+<li>Wide&amp;Deep Model</li>
+</ul>
+<h3 id="all-in-one">All in one</h3>
+<ul>
+<li>PredictionIO</li>
+<li>recommendationRaccoon</li>
+<li>easyrec</li>
+<li>hapiger</li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;wen-ben-fen-lei&#x2F;">‹ 文本分类</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deeplearningnlp&#x2F;">NLP with Deep Learning ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - The worst practice for software engineering
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#put-code-in-ms-word-or-pdf-file" class="toc-link">Put code in MS Word, or PDF file</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#code-is-only-saved-in-local-and-live-server-without-version-control" class="toc-link">Code is only saved in local and live server without version control</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#data1-data2-path1-path2-name1-list0-fun1" class="toc-link">data1, data2, path1, path2, name1, list0, fun1...</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#write-duplicate-code-everywhere" class="toc-link">Write duplicate code everywhere</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#what-is-loop" class="toc-link">What is loop?</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#print-everything-to-std-out" class="toc-link">Print everything to std::out</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#save-everything-to-local-files" class="toc-link">Save everything to local files</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#push-everything-to-code-repository" class="toc-link">Push everything to code repository</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#leave-readme-file-blank" class="toc-link">Leave README file blank</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#leave-useless-code-everywhere" class="toc-link">Leave useless code everywhere</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#no-documents-no-comments-no-tests" class="toc-link">No documents, no comments, no tests</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#use-hashmap-everywhere" class="toc-link">Use HashMap everywhere</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/worst-practice/#useful-resources" class="toc-link">Useful resources</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;worst-practice&#x2F;">The worst practice for software engineering</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2019-03-13
+        </span>
+        <span class="post-reading-time">
+            ⌛ 3 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>People will suffer a lot from bad design or bad code in software engineering. Today I'd like to share a number of the worst practices.</p>
+<span id="continue-reading"></span><h3 id="put-code-in-ms-word-or-pdf-file">Put code in MS Word, or PDF file</h3>
+<blockquote>
+<p>Hey, the code in Word is also colorful. By the way, I can cancel the modification easily. Oh, even cooperating with friends. That's interesting.</p>
+</blockquote>
+<p>Oh, come on. Don't tell me that your code is for exhibiting?</p>
+<p>All right. If your teachers tell you to do so, that means they may not run your code. Of course, they won't do the duplicate checking, either. You may need to find more resource on the Internet for promotion. Don't count on school.</p>
+<h3 id="code-is-only-saved-in-local-and-live-server-without-version-control">Code is only saved in local and live server without version control</h3>
+<blockquote>
+<p>You know what, 'git' means !@#$%^&amp;*</p>
+</blockquote>
+<p>Congratulations if your company still run well. And hope the person who takes over your work won't curse you for a month. (Oh, he may not know your contract since you left nothing.)</p>
+<h3 id="data1-data2-path1-path2-name1-list0-fun1">data1, data2, path1, path2, name1, list0, fun1...</h3>
+<blockquote>
+<p>Do you know how many time the programmers spend on naming?</p>
+</blockquote>
+<p>Then, you really need a good editor. Although CPU doesn't care the names, I think you are working with human beings.</p>
+<h3 id="write-duplicate-code-everywhere">Write duplicate code everywhere</h3>
+<blockquote>
+<p>Hey, guess how many lines of code I have write in one day?</p>
+</blockquote>
+<p>Your boss won't pay you more money due to the lines of code you write. But you really waste a lot of time and you will waste more time. Since every time you change one place, you need to change many places and you may forget where to change.</p>
+<p>Do you know there is something we call &quot;function&quot;?</p>
+<h3 id="what-is-loop">What is loop?</h3>
+<blockquote>
+<p>Type <code>staff.append('xxx')</code> for 100 times in one minute.</p>
+</blockquote>
+<p>Fine, I know your typing is very fast. But do you know sometimes we use the loop?</p>
+<h3 id="print-everything-to-std-out">Print everything to std::out</h3>
+<blockquote>
+<p>That's very clear. You see, everything goes well.</p>
+</blockquote>
+<p>Once your code raises an exception, you can only ask the God for help. For every project, logging will give you hints when the code goes wrong. Besides, that's not difficult to replace print with logging. There are also lots of tools to analyse logs.</p>
+<h3 id="save-everything-to-local-files">Save everything to local files</h3>
+<blockquote>
+<p>Now I have everything stored.</p>
+</blockquote>
+<p>Later you may lost everything. Remember to use database. Lots of people develop it for this purpose.</p>
+<h3 id="push-everything-to-code-repository">Push everything to code repository</h3>
+<blockquote>
+<p>Now, everything is covered by version control!</p>
+</blockquote>
+<p>I'll pull down your code and deploy it. Wait, it's 2.33 GB? Are you kidding me? Why there are so many binray files and logs?</p>
+<p>I know there is large file system for data store. But apparently, these files should be ignored.</p>
+<h3 id="leave-readme-file-blank">Leave README file blank</h3>
+<blockquote>
+<p>Actually, I don't have README file :) Very mysterious, right?</p>
+</blockquote>
+<p>LOL. I don't even show you my code. Am I mysterious?</p>
+<h3 id="leave-useless-code-everywhere">Leave useless code everywhere</h3>
+<blockquote>
+<p>These code may be useful next time.</p>
+</blockquote>
+<p>You really need to master version control.</p>
+<h3 id="no-documents-no-comments-no-tests">No documents, no comments, no tests</h3>
+<blockquote>
+<p>I'll add them when the project is finished.</p>
+</blockquote>
+<p>Really? :)</p>
+<h3 id="use-hashmap-everywhere">Use HashMap everywhere</h3>
+<blockquote>
+<p>I just learned that it's O(1)! <code>map[0] = 'a'; map[1] = 'b'; map[2] = 'c';</code></p>
+</blockquote>
+<p>Clever. But you only need an array.</p>
+<h2 id="useful-resources">Useful resources</h2>
+<ul>
+<li><a href="https://a-nickels-worth.blogspot.com/2016/04/a-guide-to-naming-variables.html">A Guide to Naming Variables</a></li>
+<li><a href="http://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a></li>
+<li><a href="https://education.github.com/git-cheat-sheet-education.pdf">Git cheat sheet</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;vimtutor&#x2F;">‹ Note for Vimtutor</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;yi-nan-ping&#x2F;">意难平 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

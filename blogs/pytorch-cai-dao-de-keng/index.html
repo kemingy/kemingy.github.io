@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - PyTorch 踩到的坑
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/pytorch-cai-dao-de-keng/#dropout-batchnorm" class="toc-link">Dropout &amp; BatchNorm</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/pytorch-cai-dao-de-keng/#conv1d-pool1d" class="toc-link">Conv1d &amp; Pool1d</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/pytorch-cai-dao-de-keng/#bao-cun-mo-xing" class="toc-link">保存模型</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/pytorch-cai-dao-de-keng/#qi-ta" class="toc-link">其他</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pytorch-cai-dao-de-keng&#x2F;">PyTorch 踩到的坑</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2018-01-15
+        </span>
+        <span class="post-reading-time">
+            ⌛ 6 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                Deep Learning
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>目前的深度学习框架实在太多了，初学者难免不知道选哪个才好，是追求曝光率最高的 <code>TensorFlow</code>，还是最 Geek 的 <code>MXNet</code>，又或是最易用的 <code>Keras</code>，又或者是最贴近 Python 编程思维的 <code>Pytorch</code>？</p>
+<span id="continue-reading"></span>
+<p>在这诸多框架中，我也曾徘徊不定，从 <code>TensorFlow</code> 入手，实在太难写了，然后换到 <code>Keras</code>， 发现想实现很多细节的东西还是比较麻烦，而且 debug 都很难受，最后选了 <code>Pytorch</code>，在单机上，目前可以说是无可匹敌的。不过，<code>Pytorch</code> 也是有它的坑的。下面来详细说说我目前遇到的那些坑。</p>
+<h3 id="dropout-batchnorm">Dropout &amp; BatchNorm</h3>
+<p>如果模型里面包含了这两个 Layer ，就需要特别注意了，这时候模型需要在 <code>model.train()</code> 和 <code>model.eval()</code> 两个状态之间切换，来激活或固定这两个 Layer 。</p>
+<p>这一点非常重要，而且不易发现，官方的文档中对应的 API 部分并没有写。而且即便没有使用，模型依旧可以正常在一定数量的 batch 上进行训练，最后你会在 predict 的时候发现问题。以 BatchNorm 为例，因为 predict 的时候通常是对单个 query 进行的，结果会出现很大的偏差，对应到图像上，轻则图片的颜色变得很不正常，如果是批量的则可以通过 norm 来消除一定的影响，重则生成的图片简直像妖怪；对应到文本分类上，就可能出现任意输入的输出都是常数了。</p>
+<p>感受过 <code>Keras</code> 的简易之后，一开始很容易忽略掉这个。不得不说 <code>Keras</code> 设计的真好，太容易上手了，都有点娇生惯养的意思了。</p>
+<h3 id="conv1d-pool1d">Conv1d &amp; Pool1d</h3>
+<p>对一维的数据进行操作，对象通常是文本。一般处理文本数据的时候，都是将一个句子先用向量表示，如 <code>Word2Vec</code> 或者 <code>GloVe</code> 之类的，之后进行卷积操作时，是对 “字” 或者 “词” 进行卷积的，输入是 $size_{batch} \times length_{sentence} \times dimension_{embedding}$ ，输出是 $size_{batch} \times channel_{out} \times number_{filters}$ ，其中 $channel_{out}$ 由输入的 $length_{sentence}$ 和卷积所用的 $size_{kernel}, stride, padding, dilation$ 参数计算得到。不过在 <code>Pytorch</code> 中，卷积操作是对数据的最后一个维度进行卷积的，也就是对 Embedding 进行卷积，这时候就需要用户手动转置了。Pooling 操作也是一样的，只要一开始对输入进行了转置，后面就正常了。</p>
+<p>是不是觉得不可思议，为什么会有这么反直觉的设计？我猜是因为 <code>Pytorch</code> 的卷积和池化接口，都是从图片的接口改过来的，因此保留的图片的那种顺序，而且 Pytorch 处理图片的时候是 channel-first 的，就这样，图片的长和宽对应于句子词向量的维度，图片的 channel 对应到句子的长度，应该算是设计的时候没有考虑清楚。</p>
+<p>但其实回过头去看看，就发现从 Embedding 层开始顺序就不一样了……所以我算是强行往 Keras 的顺序上套，纯属自己折腾自己。</p>
+<h3 id="bao-cun-mo-xing">保存模型</h3>
+<p>通常来讲，保存模型的 best practice 当然是保留各层的参数，而不是把整个模型直接存成二进制，这样可以节省很多空间。</p>
+<p>不过也有其他需求的时候，如果你的模型中包含了 pre-trained embedding layer ，那么模型本身就会变得非常大了，无论哪种方式都不优雅。既然如此，我们肯定倾向于直接存个二进制模型算了，这样加载的时候也很方便。不过 <code>Pytorch</code> 坑的地方就在于，你存的二进制文件的时候，当前目录下必须有模型的定义文件 <code>model.py</code> ，否则无法加载模型 ) : 。换句话说，并没有什么 best practice ，而是 only one practice 。</p>
+<h3 id="qi-ta">其他</h3>
+<p>算不上坑的地方，不过有待改进。</p>
+<ul>
+<li>使用 GPU 需要明确指定，并且对模型和数据执行 <code>.cuda()</code> 操作。记得 evaluate 或者 predict 时候对数据 <code>Variable(data, volatile=False)</code> ，可以加快速度。</li>
+<li><code>Pytorch</code> 本身的 array 并不完全等同于 numpy.array ，有时候会踩到一些意想不到的坑，而且加载数据，保存数据的时候换来换去，真的挺麻烦的。</li>
+<li>custom loss function 需要仔细考虑梯度传播的问题，这个有时间再写一篇介绍下，不算麻烦</li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;github-pian-xing-xing-zhi-nan&#x2F;">‹ GitHub 骗星星指南</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deep-learning-applications&#x2F;">Deep Learning Applications ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - 写了两个 Python service API doc&amp;verify 工具
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/apispec/#why" class="toc-link">Why</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/apispec/#implement" class="toc-link">Implement</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/apispec/#difference" class="toc-link">Difference</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/apispec/#why-not-flask" class="toc-link">Why not Flask</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/apispec/#rethink" class="toc-link">Rethink</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;apispec&#x2F;">写了两个 Python service API doc&amp;verify 工具</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2019-09-25
+        </span>
+        <span class="post-reading-time">
+            ⌛ 10 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>最近在看一些 API 规范化的资料，鉴于没有很合适的，就自己写了两个 Python 的包，顺便记录下感想。</p>
+<span id="continue-reading"></span>
+<p>先放上两个包的地址：</p>
+<ul>
+<li>Flaskerk for Flask：<a href="https://github.com/kemingy/flaskerk">https://github.com/kemingy/flaskerk</a></li>
+<li>Falibrary for Falcon：<a href="https://github.com/kemingy/falibrary">https://github.com/kemingy/falibrary</a></li>
+</ul>
+<h2 id="why">Why</h2>
+<p>说到规范，那基本就是 <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI</a> 了。目前最常用的工具就是 <a href="https://swagger.io/">Swagger</a>。第一次接触这个是看到果壳的一个有几百 star 的开源项目，扩展了官方的包，主要用来根据配置生成几个 Python Web Framework 的代码结构。当时重构 Dashboard 的时候还考虑过，看了下相关文档就放弃了，因为这个配置文件写起来真的很麻烦。这次重拾，也没打算真的让别人通过这种方式来规范化 API，感觉学习成本有点大，而且配置文件出错也不太好找原因（大概有相关工具）。</p>
+<p>看了一下目前有的几个 Python 的包，<a href="https://github.com/flasgger/flasgger">Flasgger</a> 算是比较有代表性的一个，Date Science 各种教程里的后端基本也都是 Flask，直接选这个工具其实也是可以的。然后也看了下 <a href="https://github.com/tiangolo/fastapi">FastAPI</a>，这个项目真的挺有意思的，换了一种思路来做，通过 Python3 的注解取代配置文件里的类型，这里多亏了 <a href="https://github.com/samuelcolvin/pydantic">pydantic</a> 的封装，可以轻松定义数据类型，获取对应的 spec，还能做类型校验，非常好用。</p>
+<p>这些库的 validation 大概有两种，一种是利用 marshmallow，另一种是 JSON，写起来其实都不如 pydantic 方便。</p>
+<p>调查到这里，基本上就有点眉目了，首先否定了各种需要配置文件的库，这个太麻烦了，pydantic 已经做得很好了，实在没必要去写那些繁琐的配置。鉴于大多数人还是更熟悉 Flask，而且对异步没有要求，常用工具能满足需求就没必要换，所以 FastAPI 虽然不错但暂时不考虑。这时候就剩下两条路了，要么给 Flasgger 提 PR 增加新 feature，要么自己造轮子。</p>
+<p>其实我本来倾向于 PR 的，这个东西已经小有名气了，代码质量也可以，接口也算是久经检验，更容易进行推广。不过后来发现了问题，pydantic 是 Python 3.6+ 的，而 Flasgger 还支持 Python2，这就剩下几个月的寿命了，没必要再折腾这个问题。而且为了兼容，Flasgger 的代码里面有很多略显冗余的代码，我要改的话可能也要考虑很多东西进去，这样就太麻烦了，估计 PR 也很难被 merge。思来想去，还是自己另外造个轮子吧，只需要满足自己的需求就可以了，不需要做那么多兼容的工作。</p>
+<h2 id="implement">Implement</h2>
+<p>接下来就要开始动手了，这个工具的要求就是简单易用，能生成 API 文档，能做参数校验就可以了。</p>
+<p>接口的设计，像 Flask 的 route 这样，用一个 decorator 就很方便，写起来很舒服，也被很多后端框架采用。剩下的部分参考 extensions／addons 规范来就可以了。</p>
+<p>我 decorator 用的不多，只好临时再多学一下了，Real Python 有一篇不错的文章 <a href="https://realpython.com/primer-on-python-decorators/">Primer on Python Decorators</a>，详细介绍了各种情况下 decorator 的用法。不过对于我的情况，还需要自己好好琢磨，比如我用了这个 decorator 之后，哪部分代码是初始化的时候被执行的，哪部分只会在调用该 function 的时候才会执行，修改哪个对应的 function 才是我从 route maps 里面拿到的那个 function。</p>
+<p>另一方面就是对 Python 里面一切皆是 class 的理解，动态语言这方面还是有很高的可玩性，我可以在初始化的时候直接把对应的属性动态写入到 route function 上面去，然后生成文档的时候去 route maps 里面找就行了，这种做法比另外弄个 hashtable 之类的来折腾要舒服很多。</p>
+<p>真正开始动手写的时候，才发现有很多东西文档里找不到，毕竟是做开发而不是使用，很多东西都需要去翻看源代码，详细了解整个设计和实现，找到合适的切入点。鉴于 Flask 和 Falcon 的设计都不错，所以很多事情做起来也还轻松。然后就是 interface 的设计和调整了，针对我自己的使用经验，只做了 query，JSON data，response，status code，其他我平时没怎么接触过的也就先不做实现了。</p>
+<h2 id="difference">Difference</h2>
+<p>这两个框架还是有些区别的。</p>
+<p>首先，Flask 的 route 部分是放在 Werkzeug 里面的，最后 register 到 Flask app 里面，拿到的是一个简单的 hash table，key 是路径，value 是对应的 function。而 Falcon 是自己实现了这部分，可以看到有个状态机一样的东西。当然本质上都是一回事，而且拿过来之后都要根据对应的规则做一部分 parse，把路径里面的变量和参数提取出来。</p>
+<p>然后是对 Exception 的处理，包括一些 HTTP status code，Flask 这部分也都是在 Werkzeug 里面，为了使用方便，我给它加了个自定义 status code 的功能。Falcon 里面分成了两部分，一个是 response 的 status code，一个是 HTTPStatus 的具体内容，我只需要知道可能的 code 用来生成文档就行了，所以这里简单把 status code 用正则处理了一下就完事儿。</p>
+<p>最明显的使用差距，一个默认注册 route function，一个默认注册 route class，这一点反倒没有太多影响。</p>
+<h2 id="why-not-flask">Why not Flask</h2>
+<p>其实我本来只实现了 Flaskerk，毕竟 Flask 是多数人的选择。但是后来在我去写 Service Template 的过程中，我发现很多东西要做得非常规范的话，就要用上 blueprint 之类的，否则新手写来写去很容易会遇到 circling import 的问题，虽然官方也给出了一个可行的做法，但是明显有点脏了，这里面涉及到 Python import 的细节，对新手极不友好。可以说，新手很容易就能用 Flask，但跟老手用起来完全不是一个概念，遇到点问题可能就很痛苦了。</p>
+<p>其次就是 Flask 本身虽然是 microservice，但也包括了 template 部分，而 Data Science 需要的其实是一个纯粹的 API service 就可以了，Flask 默认返回的是 HTML 页面，不是 JSON 数据之类的，所以我封装 <code>abort</code> 的时候就顺手改了一下。Falcon 其实更适合，没有第三方依赖（当然还是需要 WSGI），很适合且本身就是为 API service 设计的。</p>
+<p>最后 performance 的问题，当然是 Falcon 好了，不过这一点其实没那么重要，毕竟实际中 IO 不是瓶颈，CPU/GPU 部分的计算才是瓶颈。这也是为什么用不到新的异步特性。</p>
+<p>在后面实现 Falibrary 的过程中，相当于重新思考了一遍，找出来原来实现上的一些小毛病，大概跟修改自己的作文一个效果吧，也不能算没有收获。</p>
+<h2 id="rethink">Rethink</h2>
+<p>我看到有人给 <a href="https://github.com/marshmallow-code/apispec">APIspec</a> 加了 Falcon 的实现，想着大概也可以抽象出来一部分，不同的框架作为类似 middleware 的东西插进去，不过看起来好像也没有太多重复的部分，所以暂时不折腾了。</p>
+<p>现在并没有正式对外推广的打算，虽然本身就是开源的项目。先给同事用着看看情况吧，而且我本来就是为了满足 Data Science 需求的，都没有去考虑 Cookie 之类的，以后再说吧。</p>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;nginx&#x2F;">‹ NGINX Cookbook note</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;systemd&#x2F;">systemd command cheatsheet ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

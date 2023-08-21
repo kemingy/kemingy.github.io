@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Rate Limiter Implementation
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/rate-limiter/#basic-knowledge" class="toc-link">Basic Knowledge</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/rate-limiter/#choice" class="toc-link">Choice</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/rate-limiter/#implementation" class="toc-link">Implementation</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/rate-limiter/#attentions" class="toc-link">Attentions</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rate-limiter&#x2F;">Rate Limiter Implementation</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2020-02-20
+        </span>
+        <span class="post-reading-time">
+            ⌛ 3 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>Rate limiter is used to constrain the request for a certain period, which can reduce the pressure of servers, prevent malicious attacks, offer more stable services.</p>
+<span id="continue-reading"></span><h3 id="basic-knowledge">Basic Knowledge</h3>
+<p>Usually, the target of the rate limiter is the authorized users, or the API endpoint, or both.</p>
+<p>To implement a rate limiter, we have several algorithms:</p>
+<ul>
+<li>Leaky Bucket</li>
+<li>Fixed Window</li>
+<li>Sliding Log</li>
+<li>Sliding Window</li>
+</ul>
+<p>The algorithm details can be found in several blogs:</p>
+<ul>
+<li><a href="https://konghq.com/blog/how-to-design-a-scalable-rate-limiting-algorithm/">Kong: how to design a scalable rate limiting algorithm</a></li>
+<li><a href="https://www.figma.com/blog/an-alternative-approach-to-rate-limiting/">Figma: an alternative approach to rate limiting</a></li>
+<li><a href="https://engineering.classdojo.com/blog/2015/02/06/rolling-rate-limiter/">ClassDojo: rolling rate limiter</a></li>
+</ul>
+<p>If you are trying to find an out of box Go package, I would recommend <a href="https://github.com/RussellLuo/slidingwindow">slidingwindow</a>.</p>
+<p>Next, I'll share some experience in the implementation of a rate limiter in large projects.</p>
+<h3 id="choice">Choice</h3>
+<p>Among these algorithms, I prefer to use <strong>sliding window</strong>. This is due to my use case. I want to reduce the network calls between rate limiters and centralized data store (Redis). Although that may harm the counter precision. But this is the tradeoff you must do.</p>
+<h3 id="implementation">Implementation</h3>
+<p>To cache the count for the current window and previous window, there should be a local count and a global count in the window. When trying to sync the local records to Redis, there may be new requests comes in. So it's better to not just lock the window during the whole sync procedure. Then we need another cache count that will be used during sync and store the count if sync failed.</p>
+<pre data-lang="go" style="background-color:#ffffff;color:#4d4d4c;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#8959a8;">type </span><span>Window </span><span style="color:#8959a8;">struct </span><span>{
+</span><span>    </span><span style="color:#c82829;">local </span><span style="color:#c99e00;">uint32
+</span><span>    </span><span style="color:#c82829;">global </span><span style="color:#c99e00;">uint32
+</span><span>    </span><span style="color:#c82829;">cache </span><span style="color:#c99e00;">uint32
+</span><span>}
+</span></code></pre>
+<p>Then, to get this window count, just need to add these 3 counter together.</p>
+<p>When trying to sync, there will be a pre-sync and sync process. Pre sync will try to move local count to cache, while sync will update global count by Redis returned value and reset cache.</p>
+<p>In this implementation, every time you try to do the <code>increment</code> to a limiter, it will check if the current window is expired and update the count, then check if the last sync is expired and send this limiter to sync queue. There will be another goroutine watching the sync queue and do the sync in a new goroutine.</p>
+<p>The window is created with the limiter and can be reused as it only contains the counters. The time key is yet in the limiter structure.</p>
+<pre data-lang="go" style="background-color:#ffffff;color:#4d4d4c;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#8959a8;">type </span><span>Limiter </span><span style="color:#8959a8;">struct </span><span>{
+</span><span>    </span><span style="color:#c82829;">mu sync</span><span>.</span><span style="color:#8959a8;">RWMutex
+</span><span>    </span><span style="color:#c82829;">key </span><span style="color:#c99e00;">string
+</span><span>    </span><span style="color:#c82829;">windowKey time</span><span>.</span><span style="color:#8959a8;">Time
+</span><span>    </span><span style="color:#c82829;">currWindow </span><span style="color:#3e999f;">*</span><span style="color:#8959a8;">Window
+</span><span>    </span><span style="color:#c82829;">prevWindow </span><span style="color:#3e999f;">*</span><span style="color:#8959a8;">Window
+</span><span>    </span><span style="color:#c82829;">windowPeriod time</span><span>.</span><span style="color:#8959a8;">Duration
+</span><span>    </span><span style="color:#c82829;">syncInterval time</span><span>.</span><span style="color:#8959a8;">Duration
+</span><span>    </span><span style="color:#c82829;">expiryTime time</span><span>.</span><span style="color:#8959a8;">Time
+</span><span>}
+</span></code></pre>
+<h3 id="attentions">Attentions</h3>
+<ul>
+<li>if the limiter doesn't exist, then after you lock and try to create the limiter, you need to re-check if another goroutine already create one before this thread get the lock</li>
+<li>solve the race since there may be multiple threads try to sync the same limiter (this is introduced by separate the sync procedure into pre-sync and sync)</li>
+<li>every time you need update the current window and previous window</li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-descriptor&#x2F;">‹ Python Descriptor Short Note</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;serving-benchmark&#x2F;">Deep Learning Serving Benchmark ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

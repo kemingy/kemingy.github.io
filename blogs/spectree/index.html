@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - SpecTree
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;spectree&#x2F;">SpecTree</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2020-01-07
+        </span>
+        <span class="post-reading-time">
+            ⌛ 4 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>SpecTree: Yet another tool to generate OpenAPI document and validate request &amp; response with Python annotations.</p>
+<span id="continue-reading"></span>
+<p>之前分别跟 Flask 和 Flacon 写了插件来做这件事，本来想着可能不太会去做一个 general core 了，够用就行了。然而马上就被打脸了。</p>
+<p>目前遇到的问题主要有：</p>
+<ul>
+<li>两者有不少共同的逻辑，每次需要调整的时候两边都需要改，还不敢保证效果一致</li>
+<li>写 test 的话，又要写很多重复的 test case 了，文档同理</li>
+<li>如果想支持其他 framework，例如 starlette 就需要从头写了，虽然可以参考</li>
+<li>两个包也存在一部分不一致的地方，感觉设计的时候很多地方欠考虑</li>
+<li><del>我想造轮子了</del></li>
+</ul>
+<p>说干就干……然后 <a href="https://github.com/0b01001001/spectree">spectree</a> 就这样诞生了。主要完成了以下改进：</p>
+<ul>
+<li>作为一个 core，可以增加对其他 framework 的支持，只需要实现几个方法即可</li>
+<li>增加了 test，不然每次都搞不清楚改动是不是影响到其他模块了，不写测试心里没底</li>
+<li>参考了一些 API design guideline，重新设计了 response 的格式，显式声明 status code 和对应的 data model</li>
+<li>统一的 request data 获取方式，都从 <code>request.context</code> 中获取</li>
+<li>使用各个 framework 原生的返回样式，减少代码的修改量</li>
+<li>关于 design 方面的考虑，都写进 issue 里面打上 ‘design’ 的 label，方面之后查询</li>
+<li>顺手增加了 headers 和 cookies 的支持</li>
+<li>尽可能拆分开 core 部分处理的内容和针对每个 framework 需要做的不同处理，可以适配 sync 和 async</li>
+<li>添加了 lgtm.com 检查代码中的问题，当然这个 code quality 真的就是看着开心，A/A+ 大概是常态……</li>
+</ul>
+<p>简单写点感想吧：</p>
+<ul>
+<li>动手之前很有必要广泛阅读相关的各种 standard，guidelines，或 best practice</li>
+<li>中间遇到设计上的考量，写到 issue 里备查，方便自己和他人查阅</li>
+<li>release 最终版之前，最好留点余地，说不定会发现什么 bug 或者 interface 设计问题</li>
+<li>必要的测试真的很有必要，这样每次添加 feature 或者修改 bug 都能心里有点底，写测试的过程也有助于发现一些小问题</li>
+<li>多跟社区的人交流一下，广泛听取群众的意见……</li>
+<li>还是不太会推广，就简单去 framework 的 add-ons 页面加了一条</li>
+<li>Python descriptor 确实很复杂……</li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2019recap&#x2F;">‹ 2019 回顾</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-descriptor&#x2F;">Python Descriptor Short Note ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

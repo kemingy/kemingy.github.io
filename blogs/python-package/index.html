@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Python Package
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/python-package/#zu-cheng" class="toc-link">组成</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/python-package/#setup-py" class="toc-link">setup.py</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/python-package/#setup-cfg" class="toc-link">setup.cfg</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/python-package/#readme-rst" class="toc-link">README.rst</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/python-package/#manifest-in" class="toc-link">MANIFEST.in</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/python-package/#travis-yml" class="toc-link">.travis.yml</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/python-package/#da-bao" class="toc-link">打包</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/python-package/#fa-bu" class="toc-link">发布</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-package&#x2F;">Python Package</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2018-03-10
+        </span>
+        <span class="post-reading-time">
+            ⌛ 6 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/note/">
+                Note
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>偶尔手痒了会撸一个 Python 的项目打包发布到 PyPI 上，方便以后安装使用。即使不是打算发布的，如果考虑把文档写在代码的注释里然后用 Sphinx 生成的，通常也是打包安装到本地，然后在一个地方集中生成文档，方便管理。</p>
+<span id="continue-reading"></span>
+<p>今天就来记录一下 Python 项目打包的流程。（其实是怕自己又犯傻折腾半天找不到原因）<a href="https://packaging.python.org/tutorials/distributing-packages/">官方文档</a> 改了几次之后明显质量好多了。</p>
+<h2 id="zu-cheng">组成</h2>
+<p>一个简单的项目，通常由以下几部分组成。</p>
+<ul>
+<li><code>setup.py</code> ：核心配置文件</li>
+<li><code>setup.cfg</code> ：wheel 配置相关</li>
+<li><code>README.rst</code> ：PyPI 不支持 <strong>Markdown</strong>，必须用 <strong>reStructuredText</strong> ，不是必须的</li>
+<li><code>MANIFEST.in</code> ：是否需要包含其他非必须文件，不是必须的</li>
+<li><code>LICENSE.txt</code> ：不是必须的</li>
+<li><code>&lt;your package&gt;</code> ：不是必须的，但不可能没有这个吧 : )</li>
+<li><code>.travis.yml</code> ：集成测试配置，不是必须的</li>
+<li><code>.gitignore</code></li>
+</ul>
+<h3 id="setup-py"><code>setup.py</code></h3>
+<p>核心文件，感觉像 Sphinx 那样自动生成应该更好用。下面是一个 <a href="https://github.com/pypa/sampleproject/blob/master/setup.py">官方</a> 缩略版的例子，复制粘贴大法好。</p>
+<pre data-lang="python" style="background-color:#ffffff;color:#4d4d4c;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#8959a8;">from </span><span>setuptools </span><span style="color:#8959a8;">import </span><span>setup, find_packages
+</span><span style="color:#8959a8;">from </span><span>codecs </span><span style="color:#8959a8;">import </span><span style="color:#4271ae;">open
+</span><span style="color:#8959a8;">from </span><span>os </span><span style="color:#8959a8;">import </span><span>path
+</span><span>
+</span><span>here </span><span style="color:#3e999f;">= </span><span style="color:#4271ae;">path.</span><span style="color:#c82829;">abspath</span><span style="color:#4271ae;">(path.</span><span style="color:#c82829;">dirname</span><span style="color:#4271ae;">(__file__))
+</span><span>
+</span><span style="color:#999999;"># Get the long description from the README file
+</span><span style="color:#8959a8;">with </span><span style="color:#4271ae;">open(path.</span><span style="color:#c82829;">join</span><span style="color:#4271ae;">(here, </span><span style="color:#718c00;">&#39;README.rst&#39;</span><span style="color:#4271ae;">), </span><span style="color:#f5871f;">encoding</span><span style="color:#3e999f;">=</span><span style="color:#718c00;">&#39;utf-8&#39;</span><span style="color:#4271ae;">) </span><span style="color:#8959a8;">as </span><span>f:
+</span><span>long_description </span><span style="color:#3e999f;">= </span><span style="color:#4271ae;">f.</span><span style="color:#c82829;">read</span><span style="color:#4271ae;">()
+</span><span>
+</span><span style="color:#c82829;">setup</span><span style="color:#4271ae;">(
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">name</span><span style="color:#3e999f;">=</span><span style="color:#718c00;">&#39;sampleproject&#39;</span><span style="color:#4271ae;">,  </span><span style="color:#999999;"># Required
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">version</span><span style="color:#3e999f;">=</span><span style="color:#718c00;">&#39;1.2.0&#39;</span><span style="color:#4271ae;">,  </span><span style="color:#999999;"># Required
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">description</span><span style="color:#3e999f;">=</span><span style="color:#718c00;">&#39;A sample Python project&#39;</span><span style="color:#4271ae;">,  </span><span style="color:#999999;"># Required
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">long_description</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">long_description,  </span><span style="color:#999999;"># Optional
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">url</span><span style="color:#3e999f;">=</span><span style="color:#718c00;">&#39;https://github.com/pypa/sampleproject&#39;</span><span style="color:#4271ae;">,  </span><span style="color:#999999;"># Optional
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">author</span><span style="color:#3e999f;">=</span><span style="color:#718c00;">&#39;The Python Packaging Authority&#39;</span><span style="color:#4271ae;">,  </span><span style="color:#999999;"># Optional
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">author_email</span><span style="color:#3e999f;">=</span><span style="color:#718c00;">&#39;pypa-dev@googlegroups.com&#39;</span><span style="color:#4271ae;">,  </span><span style="color:#999999;"># Optional
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">packages</span><span style="color:#3e999f;">=</span><span style="color:#c82829;">find_packages</span><span style="color:#4271ae;">(</span><span style="color:#f5871f;">exclude</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">[</span><span style="color:#718c00;">&#39;contrib&#39;</span><span style="color:#4271ae;">, </span><span style="color:#718c00;">&#39;docs&#39;</span><span style="color:#4271ae;">, </span><span style="color:#718c00;">&#39;tests&#39;</span><span style="color:#4271ae;">]),  </span><span style="color:#999999;"># Required
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">install_requires</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">[</span><span style="color:#718c00;">&#39;peppercorn&#39;</span><span style="color:#4271ae;">],  </span><span style="color:#999999;"># Optional
+</span><span style="color:#4271ae;">    </span><span style="color:#f5871f;">entry_points</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">{
+</span><span style="color:#4271ae;">        </span><span style="color:#718c00;">&#39;console_scripts&#39;</span><span style="color:#4271ae;">: [
+</span><span style="color:#4271ae;">            </span><span style="color:#718c00;">&#39;my_func=sampleproject:main&#39;</span><span style="color:#4271ae;">,  </span><span style="color:#999999;"># Optional
+</span><span style="color:#4271ae;">        ]
+</span><span style="color:#4271ae;">    }
+</span><span style="color:#4271ae;">)
+</span></code></pre>
+<p>看名字就知道是干嘛的了，就不多解释了。</p>
+<p>如果需要包含模型数据之类的，或者需要在安装后执行一个脚本的，可以查阅文档看相关的配置。</p>
+<p><code>version</code> 是比较需要注意的，一定要按照规范的格式来。</p>
+<p><code>entry_points</code> 可以在安装的时候注册一个命令行函数，上面的例子中，函数名是 <code>my_func</code>，对应的执行函数是 <code>sampleproject</code> 下面的 <code>main</code> 函数。</p>
+<h3 id="setup-cfg"><code>setup.cfg</code></h3>
+<p>主要是关于项目是否支持 Python 2 和 Python 3 的，我已经弃用 Python 2 了，所以默认配置就够了。</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>[bdist_wheel]
+</span><span>universal=1
+</span></code></pre>
+<h3 id="readme-rst"><code>README.rst</code></h3>
+<p>不是很习惯这个格式，而且 PyPI 支持的 rst 跟 Sphinx 又不太一样。</p>
+<p>不过没关系，反正这个文件仅仅是在 PyPI 页面上显示的，大家习惯了从 GitHub 上看详细介绍，然后去看文档，所以没有这个文件也没关系，或者直接用一些工具转一下。</p>
+<p>当然熟悉这个格式的就直接用这个好了。</p>
+<h3 id="manifest-in"><code>MANIFEST.in</code></h3>
+<p>如果你需要把协议，数据，文档等东西也打包进去的话，可以配置这个。</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span># Include the license file
+</span><span>include LICENSE.txt
+</span><span>
+</span><span># Include the data files
+</span><span>recursive-include data *
+</span></code></pre>
+<h3 id="travis-yml"><code>.travis.yml</code></h3>
+<p>一般把代码发布到 GitHub 的时候习惯性会用这个，可以获得一个测试通过的标志 d(`･∀･)b</p>
+<pre data-lang="yaml" style="background-color:#ffffff;color:#4d4d4c;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#c82829;">language</span><span>: </span><span style="color:#718c00;">python
+</span><span style="color:#c82829;">python</span><span>:
+</span><span>- </span><span style="color:#718c00;">&quot;2.7&quot;
+</span><span>- </span><span style="color:#718c00;">&quot;3.5&quot;
+</span><span style="color:#c82829;">install</span><span>:
+</span><span>- </span><span style="color:#718c00;">pip install -r requirements.txt
+</span><span style="color:#c82829;">script</span><span>:
+</span><span>- </span><span style="color:#718c00;">pytest
+</span></code></pre>
+<p>复制粘贴大法好。上次手误打错一个单词，然后测试的时候总是通不过，半天没找到原因 ( º﹃º )</p>
+<h2 id="da-bao">打包</h2>
+<p>这个时候已经可以安装到本地了。</p>
+<pre data-lang="sh" style="background-color:#ffffff;color:#4d4d4c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#c82829;">python</span><span style="color:#4271ae;"> setup.py install
+</span></code></pre>
+<p>或者安装到当前路径下，适合做调试的时候使用：</p>
+<pre data-lang="sh" style="background-color:#ffffff;color:#4d4d4c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#c82829;">pip3</span><span style="color:#4271ae;"> install</span><span style="color:#f5871f;"> -e</span><span style="color:#4271ae;"> .
+</span></code></pre>
+<p>执行之后会生成几个文件夹，暂时不用管。</p>
+<p>这个时候有必要了解一下 Wheel 和 Egg 的区别了，详情看 <a href="https://packaging.python.org/discussions/wheel-vs-egg/">官方</a> 。</p>
+<p>先说个坑，我提交 Egg 之后发现根本没法安装，总是报错：</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>Collecting plane-0.0.3-py3.5.egg
+</span><span>Could not find a version that satisfies the requirement plane-0.0.3-py3.5.egg (from versions: )
+</span><span>No matching distribution found for plane-0.0.3-py3.5.egg
+</span></code></pre>
+<p>搜一波反正是找不到一个合理的解释的。然后换到 Wheel 就一切正常了。</p>
+<p>总之，用 Wheel 这个新的格式肯定没错了。</p>
+<p>生成 wheel 文件：</p>
+<pre data-lang="sh" style="background-color:#ffffff;color:#4d4d4c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#c82829;">python</span><span style="color:#4271ae;"> setup.py bdist_wheel</span><span style="color:#f5871f;"> --universal
+</span></code></pre>
+<p>如果你在 <code>setup.cfg</code> 中配置了，那么就可以省略后面的参数了。</p>
+<h2 id="fa-bu">发布</h2>
+<p>这时候要用到 <code>twine</code> 这个工具了，想起来几年前发布的时候各种奇怪的流程，现在真是精简多了。</p>
+<p>首先你要在 <a href="https://pypi.org/account/register/">PyPI</a> 上注册账号。</p>
+<p>为了不用每次提交都手动填账号密码，可以在本地写一个文件：<code>$HOME/.pypirc</code></p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>[pypi]
+</span><span>username = &lt;username&gt;
+</span><span>password = &lt;password&gt;
+</span></code></pre>
+<p>然后提交就可以了：</p>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>twine upload dist/&lt;your-wheel-package&gt;
+</span></code></pre>
+<p>提交后记得测试一下能不能用 PIP 安装。</p>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-bian-ma&#x2F;">‹ Python 编码</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;relevance-from-tfidf-to-bm25&#x2F;">Relevance: from TFIDF to BM25 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Note for Vimtutor
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/vimtutor/#1-basic" class="toc-link">1. Basic</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#1-1-moving-the-cursor" class="toc-link">1.1 Moving the cursor</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#1-2-exiting-vim-scream" class="toc-link">1.2 Exiting vim 😱</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#1-3-deletion" class="toc-link">1.3 Deletion</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#1-4-insertion" class="toc-link">1.4 Insertion</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#1-5-appending" class="toc-link">1.5 Appending</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/vimtutor/#2-combined-operation" class="toc-link">2. Combined Operation</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#2-1-delete" class="toc-link">2.1 Delete</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#2-2-using-a-count-for-a-motion" class="toc-link">2.2 Using a count for a motion</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#2-3-using-a-count-to-delete-more" class="toc-link">2.3 Using a count to delete more</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#2-4-delete-a-whole-line" class="toc-link">2.4 Delete a whole line</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#2-5-undo-and-redo" class="toc-link">2.5 Undo and redo</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/vimtutor/#3-put-and-replace" class="toc-link">3. Put and replace</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#3-1-put" class="toc-link">3.1 Put</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#3-2-replace" class="toc-link">3.2 Replace</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#3-3-change" class="toc-link">3.3 Change</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/vimtutor/#4-search-and-substitute" class="toc-link">4. Search and substitute</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#4-1-cursor-location-and-file-status" class="toc-link">4.1 Cursor location and file status</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#4-2-search" class="toc-link">4.2 Search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#4-3-matching-parentheses-search" class="toc-link">4.3 Matching parentheses search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#4-4-the-substitute-command" class="toc-link">4.4 The substitute command</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/vimtutor/#5-external" class="toc-link">5. External</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#5-1-how-to-execute-an-external-command" class="toc-link">5.1 How to execute an external command</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#5-2-write-to-another-file" class="toc-link">5.2 Write to another file</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#5-3-insert-to-current-file" class="toc-link">5.3 Insert to current file</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/vimtutor/#6-new-line-and-copy" class="toc-link">6. New line and copy</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#6-1-open" class="toc-link">6.1 Open</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#6-2-copy" class="toc-link">6.2 Copy</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#6-3-set-option" class="toc-link">6.3 Set option</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/vimtutor/#7-others" class="toc-link">7. Others</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#7-1-getting-help" class="toc-link">7.1 Getting help</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#7-2-completion" class="toc-link">7.2 Completion</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/vimtutor/#7-3-multiple-windows" class="toc-link">7.3 Multiple windows</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;vimtutor&#x2F;">Note for Vimtutor</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2019-02-24
+        </span>
+        <span class="post-reading-time">
+            ⌛ 4 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/note/">
+                Note
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>Just type <code>vimtutor</code> in your terminal to learn the basic usage of Vim.</p>
+<p>Although I usually use VSCode for coding, sometimes you have to edit files in the server. Mastering the basic of Vim is necessary.</p>
+<span id="continue-reading"></span><h2 id="1-basic">1. Basic</h2>
+<h3 id="1-1-moving-the-cursor">1.1 Moving the cursor</h3>
+<pre style="background-color:#ffffff;color:#4d4d4c;"><code><span>     ^
+</span><span>     k
+</span><span>&lt; h     l &gt;
+</span><span>     j
+</span><span>     v
+</span></code></pre>
+<h3 id="1-2-exiting-vim-scream">1.2 Exiting vim 😱</h3>
+<ul>
+<li>Normally: <code>:q</code></li>
+<li>Write and exit: <code>:x</code> or <code>:wq</code></li>
+<li>Without saving changes: <code>:q!</code></li>
+<li>Write with sudo: <code>:w !sudo tee %</code></li>
+</ul>
+<h3 id="1-3-deletion">1.3 Deletion</h3>
+<ul>
+<li>Single character: <code>x</code></li>
+</ul>
+<h3 id="1-4-insertion">1.4 Insertion</h3>
+<ul>
+<li>Activate insertion mode: <code>i</code></li>
+<li>Insert from the beginning of the line: <code>I</code></li>
+</ul>
+<h3 id="1-5-appending">1.5 Appending</h3>
+<ul>
+<li>Append to this word: <code>a</code></li>
+<li>Append to this line: <code>A</code></li>
+</ul>
+<h2 id="2-combined-operation">2. Combined Operation</h2>
+<h3 id="2-1-delete">2.1 Delete</h3>
+<p><code>d motion</code> where 'motion' is what the operator will operate on</p>
+<ul>
+<li>Delete from cursor to the start of the next word, EXCLUDING its first character: <code>dw</code></li>
+<li>Delete from cursor to the end of the current word, INCLUDING the last character: <code>de</code></li>
+<li>Delete from cursor th the end of line: 'd$'</li>
+</ul>
+<h3 id="2-2-using-a-count-for-a-motion">2.2 Using a count for a motion</h3>
+<p><code>number motion</code></p>
+<ul>
+<li>Moving to the start of the line: <code>0</code></li>
+<li>Moving the cursor 5 words forward: <code>5w</code></li>
+<li>Moving the cursor to the end of the 3rd word forward: <code>3e</code></li>
+</ul>
+<h3 id="2-3-using-a-count-to-delete-more">2.3 Using a count to delete more</h3>
+<p><code>operator number motion</code></p>
+<ul>
+<li>Delete 2 words: <code>d2w</code></li>
+</ul>
+<h3 id="2-4-delete-a-whole-line">2.4 Delete a whole line</h3>
+<ul>
+<li>Delete current line: <code>dd</code></li>
+<li>Delete 2 lines from current line: <code>2dd</code></li>
+</ul>
+<h3 id="2-5-undo-and-redo">2.5 Undo and redo</h3>
+<ul>
+<li>Undo the last commands: <code>u</code></li>
+<li>Undo a whole line: <code>U</code></li>
+<li>Redo the commands: <code>CTRL-r</code></li>
+</ul>
+<h2 id="3-put-and-replace">3. Put and replace</h2>
+<h3 id="3-1-put">3.1 Put</h3>
+<ul>
+<li>Put line below current line: <code>p</code></li>
+<li>Put line above current line: <code>P</code></li>
+</ul>
+<h3 id="3-2-replace">3.2 Replace</h3>
+<ul>
+<li>Replace current character to 'x': <code>rx</code></li>
+<li>Replace multiple characters: <code>R</code></li>
+</ul>
+<h3 id="3-3-change">3.3 Change</h3>
+<ul>
+<li>Remove the rest of word and activate insert mode: <code>ce</code> or <code>cw</code></li>
+<li>Remove the rest of line and activate insert mode: <code>c$</code></li>
+</ul>
+<h2 id="4-search-and-substitute">4. Search and substitute</h2>
+<h3 id="4-1-cursor-location-and-file-status">4.1 Cursor location and file status</h3>
+<ul>
+<li>Show your location in the file and the file status: <code>CTRL-g</code></li>
+<li>Move to the bottom of the file: <code>G</code></li>
+<li>Move to the start of the file: <code>gg</code></li>
+<li>Move to line 233: <code>233G</code></li>
+</ul>
+<h3 id="4-2-search">4.2 Search</h3>
+<ul>
+<li>Search in forward direction: <code>/</code></li>
+<li>Search in backward direction: <code>?</code></li>
+<li>Find next in the same direction: <code>n</code></li>
+<li>Find next in the opposite direction: <code>N</code></li>
+<li>To go back to where you came from: <code>CTRL-o</code></li>
+<li>To go forward: <code>CTRL-i</code></li>
+</ul>
+<h3 id="4-3-matching-parentheses-search">4.3 Matching parentheses search</h3>
+<ul>
+<li>Find a match of ')', ']', or '}': <code>%</code></li>
+</ul>
+<h3 id="4-4-the-substitute-command">4.4 The substitute command</h3>
+<ul>
+<li>To change the 1st occurrence of the word in the line: <code>:s/&lt;old&gt;/&lt;new&gt;</code></li>
+<li>To change all the occurrence of the word in the line: <code>:s/&lt;old&gt;/&lt;new&gt;/g</code></li>
+<li>To change all the occurrence of the word between line #1 and #2: <code>:#1,#2s/&lt;old&gt;/&lt;new&gt;/g</code></li>
+<li>To change every occurence of the word in the whole file: <code>:%s/&lt;old&gt;/&lt;new&gt;/g</code></li>
+<li>To change every occurence of the word in the whole file with a prompt: <code>:%s/&lt;old&gt;/&lt;new&gt;/gc</code></li>
+</ul>
+<h2 id="5-external">5. External</h2>
+<h3 id="5-1-how-to-execute-an-external-command">5.1 How to execute an external command</h3>
+<ul>
+<li>Execute an external command: <code>:!&lt;cmd&gt;</code></li>
+</ul>
+<h3 id="5-2-write-to-another-file">5.2 Write to another file</h3>
+<ul>
+<li>Write the whole file to another file: <code>:w &lt;file&gt;</code></li>
+<li>Use <code>v</code> to select the text you want to copy, then type <code>:</code> you will see <code>:'&lt;,'&gt;</code>, write to file: <code>:'&lt;,'&gt;w &lt;file&gt;</code></li>
+</ul>
+<h3 id="5-3-insert-to-current-file">5.3 Insert to current file</h3>
+<ul>
+<li>Insert file to current file: <code>:r &lt;file&gt;</code></li>
+<li>Insert from command line output: <code>:r !&lt;cmd&gt;</code></li>
+</ul>
+<h2 id="6-new-line-and-copy">6. New line and copy</h2>
+<h3 id="6-1-open">6.1 Open</h3>
+<ul>
+<li>Open a line below the cursor: <code>o</code></li>
+<li>Open a line above the cursor: <code>O</code></li>
+</ul>
+<h3 id="6-2-copy">6.2 Copy</h3>
+<ul>
+<li>Copy one word: <code>yw</code></li>
+<li>Copy from cursor to the end of the line: <code>y$</code></li>
+<li>Copy the whole line: <code>yy</code></li>
+</ul>
+<h3 id="6-3-set-option">6.3 Set option</h3>
+<ul>
+<li>Ingore case: <code>:set ic</code></li>
+<li>Disable ignoring case: <code>:set noic</code></li>
+<li>'hlsearch'(highlight) and 'incsearch'(show partial matches): <code>:set hls is</code></li>
+</ul>
+<h2 id="7-others">7. Others</h2>
+<h3 id="7-1-getting-help">7.1 Getting help</h3>
+<ul>
+<li>Press <code>&lt;HELP&gt;</code> or <code>&lt;F1&gt;</code> or type: <code>:help</code></li>
+<li>Get help for command: <code>:help &lt;cmd&gt;</code></li>
+</ul>
+<h3 id="7-2-completion">7.2 Completion</h3>
+<ul>
+<li>Press <code>&lt;TAB&gt;</code> or <code>&lt;CTRL-d&gt;</code></li>
+</ul>
+<h3 id="7-3-multiple-windows">7.3 Multiple windows</h3>
+<ul>
+<li>Jump to another window: <code>&lt;CTRL-w&gt;</code></li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;zi-sha-shi-dan-shen&#x2F;">‹ 自杀式单身</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;worst-practice&#x2F;">The worst practice for software engineering ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

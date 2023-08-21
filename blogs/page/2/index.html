@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Cyanide</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+                
+                <div class="posts">
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;envd&#x2F;">My journey with envd</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2023-08-18
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 11 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/python/">
+                                    Python
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p><code>envd</code> is a frontend of <a href="https://github.com/moby/buildkit">BuildKit</a>. Just like the Dockerfile. It has been more than a year since I started working on this project. Since the features are relatively stable, I'd like to write a blog about my journey with <code>envd</code>.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;envd&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pycon-china-2022-envd&#x2F;">PyChon China 2022 - envd</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2022-12-17
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 1 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/python/">
+                                    Python
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Develop machine learning applications inside the containers</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pycon-china-2022-envd&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-multiprocessing&#x2F;">Why not multiprocessing</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2021-09-29
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 10 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/python/">
+                                    Python
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Be careful to use multiprocessing in production.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-multiprocessing&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;cicd-for-data-science&#x2F;">CI&#x2F;CD for data science</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2021-04-13
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/data-science/">
+                                    Data Science
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Lots of people are talking about MLOps recently. Continuous Integration (CI) and Continuous Delivery/Deployment (CD) are the basic requirements for MLOps. This post will focus on some details about CI/CD for data science.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;cicd-for-data-science&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;long-time-no-see&#x2F;">Long Time No See</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2021-03-30
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 3 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Why haven't you post any blogs for the past half year?
+In short, I'm too lazy.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;long-time-no-see&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;spark&#x2F;">Note for Resilient Distributed Datasets</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2021-03-01
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 2 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/paper/">
+                                    Paper
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p><a href="https://people.csail.mit.edu/matei/papers/2012/nsdi_spark.pdf">Resilient Distributed Datasets: A Fault-Tolerant Abstraction forIn-Memory Cluster Computing</a></p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;spark&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;mapreduce&#x2F;">Note for MapReduce</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2020-12-25
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 4 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/paper/">
+                                    Paper
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p><a href="https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf">MapReduce: Simplified Data Processing on Large Clusters</a></p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;mapreduce&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deep-learning-serving&#x2F;">Deep Learning Serving Framework</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2020-05-13
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/data-science/">
+                                    Data Science
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Yet another deep learning serving framework that is easy to use.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deep-learning-serving&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;serving-benchmark&#x2F;">Deep Learning Serving Benchmark</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2020-04-22
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 3 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/data-science/">
+                                    Data Science
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>There is no black magic, everything follows the rules.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;serving-benchmark&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rate-limiter&#x2F;">Rate Limiter Implementation</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2020-02-20
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 3 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Rate limiter is used to constrain the request for a certain period, which can reduce the pressure of servers, prevent malicious attacks, offer more stable services.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rate-limiter&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-descriptor&#x2F;">Python Descriptor Short Note</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2020-01-16
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 1 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p><strong>Define</strong>: a descriptor is an object attribute with &quot;binding behavior&quot;, one whose attribute access has been overridden by methods in the descriptor protocal.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-descriptor&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;spectree&#x2F;">SpecTree</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2020-01-07
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 4 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>SpecTree: Yet another tool to generate OpenAPI document and validate request &amp; response with Python annotations.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;spectree&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2019recap&#x2F;">2019 回顾</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-12-30
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 8 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/summary/">
+                                    Summary
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>划水摸鱼又一年。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2019recap&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;k8s-in-action&#x2F;">Kubernetes in action note</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-11-27
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>k8s is really complex...</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;k8s-in-action&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;systemd&#x2F;">systemd command cheatsheet</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-09-27
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 2 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>useful command for <code>systemd</code></p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;systemd&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;apispec&#x2F;">写了两个 Python service API doc&amp;verify 工具</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-09-25
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 10 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>最近在看一些 API 规范化的资料，鉴于没有很合适的，就自己写了两个 Python 的包，顺便记录下感想。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;apispec&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;nginx&#x2F;">NGINX Cookbook note</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-07-27
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 6 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>NGINX Plus looks great :)</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;nginx&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;minimalist&#x2F;">极简流浪生活</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-07-21
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 10 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Less(poor) is more(hard).</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;minimalist&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;geek-love&#x2F;">极客的爱情</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-06-17
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 9 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>我并非故意要标榜极客是多么另类的群体，只不过当两个极客相遇并惺惺相惜，他们之间法生的很多事情确实有趣的很，至少对其他极客来讲。而这样的事情，放在普通人身上或许只会让人觉得奇怪吧。嗯，看起来还是比较另类的。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;geek-love&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;ansible-tutorial-for-human&#x2F;">Ansible tutorial for human</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-06-12
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 2 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/devops/">
+                                    DevOps
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>We need documents for human, not for robots.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;ansible-tutorial-for-human&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;996&#x2F;">996ICU</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-04-28
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 15 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>那个 <a href="https://github.com/996icu/996.ICU">996.icu</a> 的项目也快一个月了，现在 star 增长不多了，估计不会突破 250k。我早就觉得有写点什么的必要了。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;996&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;yi-nan-ping&#x2F;">意难平</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-03-16
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 10 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/game/">
+                                    Game
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <blockquote>
+<p>巫炤，他惩罚别人，也惩罚自己。他只是意难平。</p>
+</blockquote>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;yi-nan-ping&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;worst-practice&#x2F;">The worst practice for software engineering</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-03-13
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 3 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>People will suffer a lot from bad design or bad code in software engineering. Today I'd like to share a number of the worst practices.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;worst-practice&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;vimtutor&#x2F;">Note for Vimtutor</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-02-24
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 4 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Just type <code>vimtutor</code> in your terminal to learn the basic usage of Vim.</p>
+<p>Although I usually use VSCode for coding, sometimes you have to edit files in the server. Mastering the basic of Vim is necessary.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;vimtutor&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;zi-sha-shi-dan-shen&#x2F;">自杀式单身</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2019-01-19
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 7 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>自杀式单身：形容一直单身又不主动扩展社交范围去认识新朋友，却每天幻想着能拥有爱情的行为。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;zi-sha-shi-dan-shen&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2018review&#x2F;">2018 回顾</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-12-25
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 8 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/summary/">
+                                    Summary
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>很快就到年末了，对比之前的 2018 年的目标，来总结一下吧。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2018review&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;refactor-java-project&#x2F;">填坑一个 Java 项目</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-12-08
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/design-pattern/">
+                                    Design Pattern
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/programming-language/">
+                                    Programming Language
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>重构是不可能重构的，这辈子都不可能重构的……</p>
+<p>好吧，我自己写的垃圾代码我自己重构……</p>
+<p>什么！？你要我去修改别人的垃圾代码？！</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;refactor-java-project&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deeplearningnlp&#x2F;">NLP with Deep Learning</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-10-05
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 17 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/nlp/">
+                                    NLP
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Notes of <a href="http://web.stanford.edu/class/cs224n/">CS224n: Natural Language Processing with Deep Learning</a></p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deeplearningnlp&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;recsys-checklist&#x2F;">Recommendation System Checklist</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-09-14
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 7 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/nlp/">
+                                    NLP
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Notes of <a href="https://time.geekbang.org/column/74">&quot;36 strokes of recommended system&quot;</a></p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;recsys-checklist&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;wen-ben-fen-lei&#x2F;">文本分类</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-08-24
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 10 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/machine-learning/">
+                                    Machine Learning
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/nlp/">
+                                    NLP
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>文本分类是最经典的机器学习问题之一，像 anti-spam，情感分析，语义相似等，都是以文本分类为核心建立起来的。当我们能处理好文本分类问题的时候，往往都能很好解决这些问题。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;wen-ben-fen-lei&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;bo-ke-gong-ju&#x2F;">写个博客那么多事儿</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-08-07
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 7 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>各种工具、平台、格式泛滥成灾，每个打算动手写博客的人都要在上面浪费不少时间。是否要自己搭建？该选什么主题？要买什么域名？鉴于我已经在上面浪费了不少时间，就简单总结一下吧。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;bo-ke-gong-ju&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;xiang-mu-wen-dang-guan-li&#x2F;">项目文档管理</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-07-26
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 3 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>没文档或者文档太烂的项目是可怕的，完善易懂的文档是一个好项目的标配。</p>
+<p>如何管理项目文档对于维护一个靠谱的项目是至关重要的。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;xiang-mu-wen-dang-guan-li&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;txing&#x2F;">T 型路线</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-06-20
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>做一个 T 型人才，或者说博学且有专长，这类说法在很多地方都能看到，我印象中最深刻的是在 Valve 的员工手册中，大概是因为一直都期待能有一家企业回应这种说法吧。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;txing&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pin-yin-shu-ru-fa-yin-qing&#x2F;">拼音输入法引擎</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-06-18
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/programming-language/">
+                                    Programming Language
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>最近在做 query rewriting 的时候，需要做一个拼音转中文的功能，做着做着，就差不多快做成一个拼音输入法引擎了。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pin-yin-shu-ru-fa-yin-qing&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rustpin-xie-jian-cha-qi&#x2F;">拼写检查器</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-06-17
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 6 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/programming-language/">
+                                    Programming Language
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/rust/">
+                                    Rust
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>跟拼写检查器还是有点渊源的。想当初做数学建模的时候，就遇到过一次类似的问题，于是去网上搜到 <a href="http://norvig.com/spell-correct.html">Peter Norvig</a> 的教程，写的非常好，当时看到短短二十行代码就能很好解决这个问题，实在是惊艳。而我也是从那个时候开始学习 Python 的。当然，以我初学者的水平要想一时间完全看懂他的代码是不太可能的，不过还是能理解大体的流程，做了一定修改后留作自用。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rustpin-xie-jian-cha-qi&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;relevance-from-tfidf-to-bm25&#x2F;">Relevance: from TFIDF to BM25</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-03-12
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 7 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>在信息检索系统中，TFIDF 和 BM25 函数都可以用来计算文档的相关度并进行排序。其中，TFIDF 也经常被用在自然语言处理中，BM25 则可以看做是 TFIDF 的进一步演化。在处理搜索字符串的时候，它们采用的都是 Bag-of-Word 方式，也就是说会忽略掉词的出现顺序，只考虑词出现与否和词频。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;relevance-from-tfidf-to-bm25&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-package&#x2F;">Python Package</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-03-10
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 6 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>偶尔手痒了会撸一个 Python 的项目打包发布到 PyPI 上，方便以后安装使用。即使不是打算发布的，如果考虑把文档写在代码的注释里然后用 Sphinx 生成的，通常也是打包安装到本地，然后在一个地方集中生成文档，方便管理。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-package&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-bian-ma&#x2F;">Python 编码</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-02-24
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 4 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/programming-language/">
+                                    Programming Language
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>毫不客气地说，编码真的是 Python 使用者遇到的最多的问题之一。新手看了会崩溃，老手遇到会流泪（感叹以前踩过的坑）。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-bian-ma&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;mian-ju&#x2F;">面具</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-01-27
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/daily/">
+                                    Daily
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <blockquote>
+<p>面具戴太久，就会长到脸上，再想揭下来，除非伤筋动骨扒皮。		——鲁迅</p>
+</blockquote>
+<p>这里的面具虽然指的不是游坦之的面具，不过这确实是个很符合上面这句话意思的例子。游坦之的面具是阿紫给他的枷锁，即使他后来忍痛揭下来，还会有无形的枷锁和满脸的伤疤。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;mian-ju&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deep-learning-applications&#x2F;">Deep Learning Applications</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-01-23
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 2 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Deep Learning Applications in NLP, CV and RL etc.</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deep-learning-applications&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pytorch-cai-dao-de-keng&#x2F;">PyTorch 踩到的坑</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-01-15
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 6 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>目前的深度学习框架实在太多了，初学者难免不知道选哪个才好，是追求曝光率最高的 <code>TensorFlow</code>，还是最 Geek 的 <code>MXNet</code>，又或是最易用的 <code>Keras</code>，又或者是最贴近 Python 编程思维的 <code>Pytorch</code>？</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pytorch-cai-dao-de-keng&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;github-pian-xing-xing-zhi-nan&#x2F;">GitHub 骗星星指南</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-01-10
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/daily/">
+                                    Daily
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Star 对 GitHuber 来说还是很重要的，以至于淘宝都有代刷的业务了，就是不知道有没有发生过刷太多上了 Trending 的。</p>
+<p>找人代刷毕竟太 low 了，我们还是要走别的路线，这样显得好像也是个正规军。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;github-pian-xing-xing-zhi-nan&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;tong-xiang-cai-fu-zi-you-zhi-lu&#x2F;">通向财富自由之路</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-01-09
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 9 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/daily/">
+                                    Daily
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <blockquote>
+<p>我们活着是为了什么？</p>
+</blockquote>
+<p>这个哲学问题太难了，换个简单一点的。</p>
+<blockquote>
+<p>怎么活着比较爽啊？</p>
+</blockquote>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;tong-xiang-cai-fu-zi-you-zhi-lu&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2018-zuo-dian-shi-yao&#x2F;">2018 做点什么</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2018-01-01
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 4 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>这篇当然不是 2018 第一天写的，毕竟这一年已经懒了太多了。写这篇的目的，无非就是总结一下自己的 2017，然后展望下自己的 2018 。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2018-zuo-dian-shi-yao&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rust-lue-xiang-xi-de-jie-shao&#x2F;">Rust 略详细的介绍</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2017-12-22
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 21 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/programming-language/">
+                                    Programming Language
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/rust/">
+                                    Rust
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Rust 是一门编译型系统编程语言。官方给出的定义是：</p>
+<blockquote>
+<p><strong>Rust</strong> is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.</p>
+</blockquote>
+<p>可以看出这是一门主打效率，安全和并发的语言。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rust-lue-xiang-xi-de-jie-shao&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;da-xue-zhe-si-nian&#x2F;">大学这四年</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2017-12-19
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 11 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/summary/">
+                                    Summary
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>时光飞逝，还没来得及好好享受，就已经大学毕业了。</p>
+<p>回想这四年的时光，虽然多是无聊的日子，但多少也有一些值得怀念的记忆。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;da-xue-zhe-si-nian&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;flask-gui-fan-hua&#x2F;">Flask 规范化</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2017-11-19
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 5 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>说到 <code>Flask</code> ，这是我接触的第一个后端架构，也基本是目前唯一一个比较熟悉的。</p>
+<p>对于规范化，这当然是很有必要的，特别是你的项目越做越复杂，不断增加新功能的时候，就会发现如果一开始结构很差，基本就需要大规模重构了。而重构，又通常是说说而已，真正动手完全重构什么的是不存在的，这么丑的代码，就算是我自己写得，我也不想再看了。</p>
+<p>所以呢，一开始就尽可能做得规范一点，这样以后看起来就很舒服了，进行修改也会变得相对简单，别人要接手也不会看吐了。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;flask-gui-fan-hua&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;docker-chang-yong-ming-ling&#x2F;">Docker 常用命令</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2017-11-18
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 2 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>Docker 这几年非常火，只不过对于我这种基本不接触业务的人而言，平时很少会用到 Docker，自己写项目愿意用 Python 的 <code>virtualenv</code> 就不错了。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;docker-chang-yong-ming-ling&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;zhe-teng-ge-chong-gong-ju&#x2F;">折腾各种工具</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2017-11-16
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 6 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>俗话说的好，技术水平不重要，重要的是折腾各种工具的过程。: )</p>
+<p>那么，就来总结一下自己觉得还不错的工具吧。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;zhe-teng-ge-chong-gong-ju&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;wu-liao-xie-bo-ke&#x2F;">无聊写博客</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2017-11-05
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 2 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/life/">
+                                    Life
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>大概一年多没有写博客了。这一年间，多多少少接触了很多工业界的东西，不少东西还是值得记下的。更重要的是，很多东西不记下来自己就忘了，用的时候查资料也不一定方便，毕竟不是每个开源项目的文档都写得那么好用，也只有自己写出来的才最适合自己。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;wu-liao-xie-bo-ke&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;natural-language-processing-knowledge&#x2F;">Basic NLP Knowledge</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2016-08-11
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 14 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                                    Deep Learning
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/nlp/">
+                                    NLP
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p><a href="http://web.stanford.edu/%7Ejurafsky/NLPCourseraSlides.html"><em>Notes of Stanford NLP course</em></a></p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;natural-language-processing-knowledge&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-title">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;variable-name&#x2F;">变量命名规则</a>
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-time">
+                                📅 2016-05-16
+                            </span>
+                            <span class="post-reading-time">
+                                ⌛ 4 min
+                            </span>
+                            
+                            <div class="post-category">
+                                
+                                <a href="https://blog.mapotofu.org/categories/note/">
+                                    Note
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/technology/">
+                                    Technology
+                                </a>
+                                
+                                <a href="https://blog.mapotofu.org/categories/translation/">
+                                    Translation
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="post-summary">
+                            <p>原文：<a href="http://a-nickels-worth.blogspot.com/2016/04/a-guide-to-naming-variables.html?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=email">Variable name</a></p>
+<p>本文翻译了该文章的大致意思，省略了代码示例。</p>
+
+                        </div>
+                        <div class="read-more">
+                            <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;variable-name&#x2F;">Read more...</a>
+                        </div>
+                    </article>
+                    
+                </div>
+                <nav class="pagination">
+                    
+                    <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;">‹ Previous</a>
+                    
+                    
+                    <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;page&#x2F;3&#x2F;">Next ›</a>
+                    
+                </nav>
+                
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

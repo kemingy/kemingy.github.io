@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Note for MapReduce
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#procedure" class="toc-link">Procedure</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#master-data-structure" class="toc-link">Master Data Structure</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#fault-tolerance" class="toc-link">Fault Tolerance</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#locality" class="toc-link">Locality</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#task-granularity" class="toc-link">Task Granularity</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#backup-tasks" class="toc-link">Backup Tasks</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#partitioning-function" class="toc-link">Partitioning Function</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#ordering-guarantees" class="toc-link">Ordering Guarantees</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#combiner-function" class="toc-link">Combiner Function</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#input-and-output-types" class="toc-link">Input and Output Types</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#skipping-bad-records" class="toc-link">Skipping Bad Records</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/mapreduce/#counters" class="toc-link">Counters</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;mapreduce&#x2F;">Note for MapReduce</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2020-12-25
+        </span>
+        <span class="post-reading-time">
+            ⌛ 4 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/paper/">
+                Paper
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p><a href="https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf">MapReduce: Simplified Data Processing on Large Clusters</a></p>
+<span id="continue-reading"></span>
+<ul>
+<li>sending code to servers</li>
+<li>tracking tasks</li>
+<li>moving data from Map to Reduce</li>
+<li>load balancing over servers</li>
+<li>recovering from failures</li>
+</ul>
+<blockquote>
+<p>Limit</p>
+</blockquote>
+<ul>
+<li>no interaction or state</li>
+<li>no multi-stage pipeline</li>
+<li>no real-time or streaming processing</li>
+</ul>
+<blockquote>
+<p>Bottleneck</p>
+</blockquote>
+<ul>
+<li>network</li>
+<li>root switch</li>
+</ul>
+<blockquote>
+<p>Minimize network use</p>
+</blockquote>
+<ul>
+<li>input is read from local disk (via GFS)</li>
+<li>Map workers write to local disk</li>
+<li>Reduce workers read directly from Map workers</li>
+<li>intermediate data partitioned into files holding many keys</li>
+</ul>
+<blockquote>
+<p>load balance</p>
+</blockquote>
+<ul>
+<li>small tasks</li>
+<li>Master hands out new tasks to workers who finish previous tasks</li>
+</ul>
+<blockquote>
+<p>fault tolerance</p>
+</blockquote>
+<ul>
+<li>re-run the failed Maps and Reduces</li>
+<li>Map and Reduce must be pure deterministic functions</li>
+</ul>
+<blockquote>
+<p>worker crash recovery</p>
+</blockquote>
+<ul>
+<li>Map
+<ul>
+<li>Master tells other workers to run those lost tasks</li>
+<li>omit if Reduce workers already fetched the intermediate data</li>
+</ul>
+</li>
+<li>Reduce
+<ul>
+<li>Master re-start worker's unfinished tasks</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>other failures/problems</p>
+</blockquote>
+<ul>
+<li>Master gives 2 workers the same Map() task: tell Reduce workers about only one of them</li>
+<li>Master gives 2 workers the same Reduce() task: GFS handle this</li>
+<li>a single worker is very slow: Master starts a 2nd copy of the last few tasks</li>
+</ul>
+<blockquote>
+<p>conclusion</p>
+</blockquote>
+<pre data-lang="diff" style="background-color:#ffffff;color:#4d4d4c;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#c82829;color:#ffffff;">- not the most efficient or flexible
+</span><span style="background-color:#718c00;color:#ffffff;">+ scales well
+</span><span style="background-color:#718c00;color:#ffffff;">+ easy to program
+</span></code></pre>
+<h3 id="procedure">Procedure</h3>
+<ol>
+<li>Splits input files into <em>M</em> pieces of typically 16 MB ~ 64 MB per piece.</li>
+<li>Master picks idle workers and assigns each one a map task or a reduce task.</li>
+<li>Map worker parses the input data and passes each key/value pair to the user-defined <em>Map</em> function. Results are buffered in memory.</li>
+<li>Periodically write the buffered pairs to local disk, partitioned into <em>R</em> regions. Pass the locations back to the master.</li>
+<li>Reduce worker reads all the data through RPC and sorts it by the intermediate keys. An external sort is used when the intermediate data is too large to fit in memory.</li>
+<li>Reduce worker passes the keys and the corresponding set of intermediate values to the user-defined <em>Reduce</em> function. Results are appended to a final output file.</li>
+<li>After all map and reduce tasks have been completed, master wakes up the user program.</li>
+</ol>
+<h3 id="master-data-structure">Master Data Structure</h3>
+<pre data-lang="rust" style="background-color:#ffffff;color:#4d4d4c;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#8959a8;">enum </span><span>State {
+</span><span>  idle,
+</span><span>  in_progress,
+</span><span>  completed,
+</span><span>}
+</span><span>
+</span><span style="color:#8959a8;">struct </span><span>Task {
+</span><span>  </span><span style="color:#c82829;">state</span><span>: State,
+</span><span>  </span><span style="color:#c82829;">localtion</span><span>: String,
+</span><span>  </span><span style="color:#c82829;">size</span><span>: </span><span style="color:#8959a8;">u32</span><span>,
+</span><span>}
+</span></code></pre>
+<h3 id="fault-tolerance">Fault Tolerance</h3>
+<blockquote>
+<p>worker failure</p>
+</blockquote>
+<ul>
+<li>master pings every worker periodically</li>
+<li>if no response, marks the worker as falied</li>
+<li>any map tasks completed by the failed worker are reset (because the results are stored locally)</li>
+<li>any map tasks or reduce tasks in progress on the failed worker are reset</li>
+<li>notify the reduce worker</li>
+</ul>
+<blockquote>
+<p>master failure</p>
+</blockquote>
+<ul>
+<li>checkpoints for recovery</li>
+</ul>
+<h3 id="locality">Locality</h3>
+<p>The MapReduce master takes the location information of the input files into account and attempts to schedule a map task on a
+machine that contains a replica of the coressponding input data.</p>
+<h3 id="task-granularity">Task Granularity</h3>
+<ul>
+<li>scheduling: <code>O(M+R)</code></li>
+<li>states: <code>O(M*R)</code></li>
+<li>each piece of input data size: 16 MB to 64 MB</li>
+<li>M = 200,000</li>
+<li>R = 5,000</li>
+<li>workers = 2,000</li>
+</ul>
+<h3 id="backup-tasks">Backup Tasks</h3>
+<p>When a MapReduce operation is close to completion, the master schedules backup executions of the remaining <em>in-progress</em> tasks.
+The task is marked as completed whenever either the primary or the backup execution completes.</p>
+<h3 id="partitioning-function">Partitioning Function</h3>
+<p><code>hash(func(key)) mod R</code></p>
+<h3 id="ordering-guarantees">Ordering Guarantees</h3>
+<p>Within a given partition, the intermediate key/value pairs are processed in increasing key order.</p>
+<h3 id="combiner-function">Combiner Function</h3>
+<p>(Optional) Combiner function defined by user will partial merging the data after Map before sending to Reduce worker.</p>
+<p>Sometimes this can significantly speeds up the MapReduce operations.</p>
+<h3 id="input-and-output-types">Input and Output Types</h3>
+<p>Default <em>reader</em> function: the key is the offset in the file and the value is the contents of the line.</p>
+<h3 id="skipping-bad-records">Skipping Bad Records</h3>
+<p>Each worker process installs a signal handler that catches segementation violations and bus errors. It will send a &quot;last gasp&quot; UDP packet that contains the sequence number to the master. When the master has seen more than one failure on a particular record, it indicates that the record should be skipped.</p>
+<h3 id="counters">Counters</h3>
+<p>The counter values from individual worker machines are periodically propagated to the master (piggybacked on the ping response).</p>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deep-learning-serving&#x2F;">‹ Deep Learning Serving Framework</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;spark&#x2F;">Note for Resilient Distributed Datasets ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

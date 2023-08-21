@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - NLP with Deep Learning
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#word-embedding" class="toc-link">Word Embedding</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#backpropagation" class="toc-link">Backpropagation</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#classification" class="toc-link">Classification</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#overfitting" class="toc-link">Overfitting</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#underfitting" class="toc-link">Underfitting</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#named-entity-recognition" class="toc-link">Named Entity Recognition</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#dependency-parsing" class="toc-link">Dependency Parsing</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#shift-reduce-parser" class="toc-link">Shift-reduce parser</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#neural-dependency-parsing" class="toc-link">Neural Dependency Parsing</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#language-model" class="toc-link">Language Model</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#recurrent-neural-networks-rnn" class="toc-link">Recurrent Neural Networks (RNN)</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#gated-recurrent-units-gru" class="toc-link">Gated Recurrent Units (GRU)</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#long-short-term-memories-lstm" class="toc-link">Long-Short-Term-Memories (LSTM)</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#bidirectional-rnns" class="toc-link">Bidirectional RNNs</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#training" class="toc-link">Training</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#machine-translation" class="toc-link">Machine Translation</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#quasi-recurrent-neural-network-qrnn" class="toc-link">Quasi-Recurrent Neural Network (QRNN)</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#attention" class="toc-link">Attention</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#attention-is-all-you-need" class="toc-link">Attention is all you need</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#convolutional-neural-networks-cnn" class="toc-link">Convolutional Neural Networks (CNN)</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#coreference-resolution" class="toc-link">Coreference Resolution</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#constituency-parsing" class="toc-link">Constituency Parsing</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#tree-recursive-neural-network" class="toc-link">Tree Recursive Neural Network</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#syntactically-untied-rnn" class="toc-link">Syntactically-Untied RNN</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#compositionality-through-recursive-matrix-vector-spaces" class="toc-link">Compositionality Through Recursive Matrix-Vector Spaces</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#model-overview-and-memory-networks" class="toc-link">Model overview and memory networks</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#treelstms" class="toc-link">TreeLSTMs</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#neural-architecture-search" class="toc-link">Neural Architecture Search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#dynamic-memory-network" class="toc-link">Dynamic Memory Network</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#semi-supervised-learning" class="toc-link">Semi-Supervised Learning</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deeplearningnlp/#next" class="toc-link">Next</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deeplearningnlp&#x2F;">NLP with Deep Learning</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2018-10-05
+        </span>
+        <span class="post-reading-time">
+            ⌛ 17 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/note/">
+                Note
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                Deep Learning
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/nlp/">
+                NLP
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>Notes of <a href="http://web.stanford.edu/class/cs224n/">CS224n: Natural Language Processing with Deep Learning</a></p>
+<span id="continue-reading"></span><h2 id="word-embedding">Word Embedding</h2>
+<p>$J(\theta)=-\frac{1}{T}\Sigma^T_{t=1}\Sigma_{-m\le j \le m}\log P(w_{t+j}\vert w_t;\theta)$</p>
+<p>We will use 2 vectors per word $w$ to calculate $P(w_{t+j}\vert w_t;\theta)$</p>
+<ol>
+<li>$v_w$ when $w$ is a center word</li>
+<li>$u_w$ when $w​$ is a context word</li>
+</ol>
+<p>$P(o\vert c)=\frac{\exp(u_o^{\top}v_c)}{\Sigma_{w\in V}\exp(u^{\top}_wv_c)}$</p>
+<blockquote>
+<p>Why two vectors?</p>
+<p>Easier optimization. Average both at the end.</p>
+</blockquote>
+<p>Two model variants:</p>
+<ol>
+<li>
+<p>Skip-grams(SG)</p>
+<p>Predict context words (position independent) given center word.</p>
+</li>
+<li>
+<p>Continuous Bag of Words(CBOW)</p>
+<p>Predict center word from (bag of) context words.</p>
+</li>
+</ol>
+<p>Additional efficiency in training: negative sampling.</p>
+<p>$arg\max J(\theta)=\frac 1 T\Sigma^T_{t=1}J_t(\theta)$</p>
+<p>$J_t(\theta)=\log \sigma(u_o^{\top}v_c)+\Sigma_{i=1}^k \mathbb{E}_{j\sim P(w)}[\log \sigma(-u^{\top}_jv_c)]$</p>
+<p>$\sigma(x) = \frac 1 {1+e^{-x}}$</p>
+<p>$J_{neg-sample}(o, v_c, U)=-\log (\sigma(u_o^{\top}v_c))-\Sigma ^K_{k=1}\log(\sigma(-u^{\top}_kv_c))$</p>
+<p>$P(w)=U(w)^{\frac 3 4}/Z$</p>
+<p>Another way: co-occurrence matrix X (full document and SVD) (LSA, HAL)</p>
+<ul>
+<li>stopwords
+<ul>
+<li>min(X, t)</li>
+<li>ignore them all</li>
+<li>use Pearson correlations instead of counts</li>
+</ul>
+</li>
+<li>computational cost of SVD ($O(mn^2)$)</li>
+<li>hard to incorporate new words</li>
+</ul>
+<p>Combining both: GloVe  $J(\theta)=\frac 1 2 \Sigma^W_{i,j=1}f(P_{ij})(u_i^{\top}v_j-\log P_{ij})^2$</p>
+<ul>
+<li>fast training</li>
+<li>scalable to huge corpora</li>
+<li>good performance even with small corpus and small vectors</li>
+</ul>
+<p>$X_{fianl}=U+V$</p>
+<p>Word Vector Analogies: $d=\arg\displaystyle\max_i\frac{(x_b-x_a+x_c)^{\top}x_i}{\lVert x_b-x_a+x_c \rVert}$</p>
+<h2 id="backpropagation">Backpropagation</h2>
+<p>$\frac{\partial}{\partial x}(Wx+b)=W$</p>
+<p>$\frac{\partial}{\partial b}(Wx+b)=I$</p>
+<p>$\frac{\partial}{\partial u}(u^{\top h})=h^{\top}$</p>
+<p>$\frac{\partial}{\partial z}(f(z))=diag(f'(z))$</p>
+<p>[downstream gradient] = [upstream gradient] * [local gradient]</p>
+<p>Forward: compute result of operation and save intermediate values</p>
+<p>Backward: apply chain rule to compute gradient</p>
+<h2 id="classification">Classification</h2>
+<p>Cross Entropy(one-hot target): $H(p,q)=-\Sigma^C_{c=1}p(c)\log q(c)$</p>
+<p>Kullback-Leibler(KL) divergence: $H(p, q)=H(p)+D_{KL}(p\Vert q)$ where $D_{KL}(p\Vert q)=\Sigma^C_{c=1}p(c)\log\frac{p(c)}{q(c)}$</p>
+<blockquote>
+<p>What happens when we retrain the word vectors?</p>
+<p>Those that are in the training data move around and others stay. Retrain the word vector if you have large dataset.</p>
+</blockquote>
+<h2 id="overfitting">Overfitting</h2>
+<ul>
+<li>Dropout</li>
+<li>Regularization</li>
+<li>Reduce network depth/size</li>
+<li>Reduce input feature dimensionality</li>
+<li>Early stopping</li>
+<li>Max-Norm, Dropconnect, etc.</li>
+</ul>
+<h2 id="underfitting">Underfitting</h2>
+<ul>
+<li>Increase model complexity/size</li>
+<li>Decreasing regularization effects</li>
+<li>Reducing Dropout probability</li>
+<li>Ensemble</li>
+<li>Data Preprocessing</li>
+<li>Batch Normalization</li>
+<li>Curriculum Learning</li>
+<li>Data Augmentation</li>
+</ul>
+<h2 id="named-entity-recognition">Named Entity Recognition</h2>
+<ul>
+<li>Person</li>
+<li>Location</li>
+<li>Organizaiton</li>
+<li>None</li>
+</ul>
+<h2 id="dependency-parsing">Dependency Parsing</h2>
+<p>Constituency = phrase structure grammar = context-free grammars (CFGs)</p>
+<ul>
+<li>Bilexical affinities</li>
+<li>Dependency distance</li>
+<li>Intervening material</li>
+<li>Valency of heads</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li>Dynamic programming</li>
+<li>Graph algorithms</li>
+<li>Constraint Satisfaction</li>
+<li>Greedy Transition-based parsing</li>
+</ul>
+<h3 id="shift-reduce-parser">Shift-reduce parser</h3>
+<p>(words in buffer, words in stack, set of parsed dependencies, set of actions)</p>
+<p>Handling non-projectivity:</p>
+<ul>
+<li>Declare defeat</li>
+<li>Use post-processor</li>
+<li>Add extra transitions</li>
+<li>Use a special parsing mechanism</li>
+</ul>
+<h3 id="neural-dependency-parsing">Neural Dependency Parsing</h3>
+<p>embedded vector representations</p>
+<ul>
+<li>Vector representation</li>
+<li>POS tags</li>
+<li>Arc labels</li>
+</ul>
+<p>Model: $y=softmax(U\circ ReLU(Wx+b_1)+ b_2)$</p>
+<h2 id="language-model">Language Model</h2>
+<blockquote>
+<p>How to learn a language model?</p>
+<p>Learn a n-gram Language Model.</p>
+</blockquote>
+<p>$P(x^{(t+1)}\vert x^{(t)},\dots,x^{(1)})=P(x^{(t+1)} \vert x^{(t)},\dots,x^{(t-n+2)})=\frac{P(x^{(t+1)}, x^{(t)},\dots,x^{(t-n+2)})}{P(x^{(t)}, x^{(t-1)},\dots,x^{(t-n+2)})}$</p>
+<p>Problems:</p>
+<ul>
+<li>Sparsify: need smoothing and backoff</li>
+<li>Model size: $O(\exp(n))$</li>
+</ul>
+<p>Neural Language Model: $y=softmax(U\circ f(We+b_1)+b_2)$</p>
+<p>Improvements:</p>
+<ul>
+<li>No sparsity problem</li>
+<li>Model size is $O(n)$</li>
+</ul>
+<p>Problems:</p>
+<ul>
+<li>fixed window is too small</li>
+<li>enlarging window enlarges $W$</li>
+<li>window can never be large enough</li>
+<li>do not share weights across the window</li>
+</ul>
+<p>RNN Language Model: $y=softmax(U\circ \sigma(W_hh^{(t-1)}+W_ee^{(t)}+b_1)+b_2)$</p>
+<p>Evaluation metric: perplexity $PP=\Pi^T_{t=1}(\frac1{\Sigma^{\vert V\vert}_{j=1}y_j^{(t)}\cdot \hat{y}_j^{(t)}})^{1/T}$</p>
+<h2 id="recurrent-neural-networks-rnn">Recurrent Neural Networks (RNN)</h2>
+<p>Core idea: <strong>Apple the same weights repeatedly</strong>.</p>
+<p>Adcantages:</p>
+<ul>
+<li>Can process any length input</li>
+<li>Model size doesn't increase for longer input</li>
+<li>Step $t$ can use information from many steps back</li>
+<li>Weights are shared across timesteps</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Slow, hard to parallel</li>
+<li>In practice, difficult to access information from many steps back</li>
+</ul>
+<p>Usage:</p>
+<ul>
+<li>part-of-speech tagging</li>
+<li>named entity recognition</li>
+<li>sentiment analysis (take element-wise max or mean of all hidden states are usually better than final hidden state)</li>
+<li>generate text by repeated sampling (speech recoginition, machine translation, summarization)</li>
+</ul>
+<p>$\hat{y}^{(t)}=softmax(Uh^{(t)}+b_2)\in \Bbb{R}^{\vert V\vert}$</p>
+<p>$h^{(t)}=\sigma(W_hh^{(t-1)}+W_ee^{(t)}+b_1)$</p>
+<p>$z^{(t)}=W_hh^{(t-1)}+W_ee^{(t)}+b_1$</p>
+<p>$\theta^{(t)}=Uh^{(t)}+b_2$</p>
+<blockquote>
+<p>What's the derivative $\frac{\partial J^{(t)}}{\partial W_h}$ ? Leave as a chain rule.</p>
+<p>Recall $W_h$ appears at every time step. Caculate the sum of gradients w.r.t. each time it appears.</p>
+</blockquote>
+<p>$\frac{\partial h^{(t)}}{\partial h^{(t-1)}}$ can lead to vanishing or exploding gradients.</p>
+<p>$\lVert \frac{\partial h_j}{\partial h_{j-1}}\rVert\le\rVert W^T\rVert\lVert diag[f'(h_{j-1})]\rVert\le\beta_W\beta_h$</p>
+<p>$\lVert \frac{\partial h_t}{\partial h_k}\rVert=\lVert \Pi^t_{j=k+1}\frac{\partial h_j}{\partial h_{j-1}}\rVert\le(\beta_W\beta_h)^{t-k}$</p>
+<p>Gradient problems:</p>
+<ul>
+<li>Backprop in RNNs have a recursive gradient call for hidden layer</li>
+<li>Magnitude of gradients of typical activation functions (sigmoid, relu) lie between 0 and 1. Also depends on repeated multiplicaitons of $W$ matrix</li>
+<li>If gradient magnitude is large/small, increasing timesteps increases/decreases the final magnitude</li>
+<li>RNNs fail to learn long term dependencies</li>
+</ul>
+<p>How to solve:</p>
+<ul>
+<li>exploding gradients: gradient clipping(update only when $g\ge threashold$ )</li>
+<li>vanishing gradients: GRUs or LSTMs or Init + ReLUs</li>
+</ul>
+<blockquote>
+<p>Add L2-norm will help with vanishing gradients?</p>
+<p>False. This will put the weights toward 0, which can make it worse.</p>
+<p>Add more layers will solve vanishing gradient?</p>
+<p>False. This will increase the chance of vanishing gradient problems.</p>
+</blockquote>
+<h3 id="gated-recurrent-units-gru">Gated Recurrent Units (GRU)</h3>
+<p>$z_t=\sigma(W^{(z)}x_t+U^{(z)}h_{t-1})$</p>
+<p>$r_t=\sigma(W^{(r)}x_t+U^{(r)}h_{t-1})$</p>
+<p>$\tilde{h}_{t} = \tanh(Wx_t + r_t \circ Uh_{t-1})$</p>
+<p>$h_t=z_t\circ h_{t-1}+(1-z_t)\circ \tilde{h}_t$</p>
+<p>Intuition:</p>
+<ul>
+<li>high $r_t$ $\implies$ short-term dependencies</li>
+<li>high $z_t$ $\implies$ long-term dependencies(solves vanishing gradients problem)</li>
+</ul>
+<blockquote>
+<p>If the update gate $z_t$ is close to 1, the net doesn't update its current state significantly?</p>
+<p>True. In this case, $h_t\approx \tilde{h}_t$ .</p>
+</blockquote>
+<h3 id="long-short-term-memories-lstm">Long-Short-Term-Memories (LSTM)</h3>
+<p>$i_t=\sigma(W^{(i)}x_t+U^{(i)}h_{t-1})$</p>
+<p>$f_t=\sigma(W^{(f)}x_t+U^{(f)}h_{t-1})$</p>
+<p>$o_t=\sigma(W^{(o)}x_t+U^{(o)}h_{t-1})$</p>
+<p>$\tilde{c}_{t}=\tanh(W^{(c)}x_t+U^{(c)}h_{t-1})$</p>
+<p>$c_t=f_t\circ c_{t-1}+i_t\circ \tilde{c}_t$</p>
+<p>$h_t=o_t\circ \tanh(c_t)$</p>
+<p>Backprop from $c_t$ to $c_{t-1}$ only elementwise multiplication by $f_t$. No longer only depends on $\frac{dh_t}{dh_{t-1}}$.</p>
+<blockquote>
+<p>The entries of $f_t, i_t, o_t$ are non-negative?</p>
+<p>True. The range of sigmoid is (0, 1).</p>
+</blockquote>
+<h3 id="bidirectional-rnns">Bidirectional RNNs</h3>
+<p>$y_t=g(U[\overrightarrow{h}_t;\overleftarrow{h}_t]+c)$</p>
+<h3 id="training">Training</h3>
+<ul>
+<li>Initialize recurrent matrices to be orthogonal</li>
+<li>Initialize other matrices with a sensible(small) scale</li>
+<li>Initialize forget gate bias to 1: default to remember</li>
+<li>Use adaptive learning rate algorithms: Adam, AdaDelta, ...</li>
+<li>Clip the norm of the gradient</li>
+<li>Either only dropout vertically or learn how to do it right</li>
+</ul>
+<h2 id="machine-translation">Machine Translation</h2>
+<ul>
+<li>
+<p>$P(x\vert y)$ need large amount of parallel data</p>
+</li>
+<li>
+<p>$P(x,a\vert y)$ where $a$ is the alignment</p>
+</li>
+<li>
+<p>$P(y)$ refers to a language model</p>
+</li>
+</ul>
+<p>Statistical Machine Translation:</p>
+<ul>
+<li>Systems have many separately-designed subcomponents</li>
+<li>Lots of feature engineering</li>
+<li>Require compiling and maintaining extra resources</li>
+<li>Lots of human effort to maintain</li>
+</ul>
+<p>Neural Machine Translation (Seq2Seq)</p>
+<ul>
+<li>
+<p>Encoder RNN produces an encoding of the source sentence and provides inital hidden state for Decoder RNN</p>
+</li>
+<li>
+<p>Decoder RNN is a langauge model that generates target sentence conditioned on encoding</p>
+</li>
+<li>
+<p>$P(y\vert x)=P(y_1\vert x)P(y_2\vert y1, x)P(y_3\vert y_1,y_2,x)\dots P(y_T\vert y_1,\dots,y_{T-1},x)$</p>
+</li>
+<li>
+<p>Use beam search decoding (on each step of decoder, keep track of the k most probable partial translations)</p>
+</li>
+<li>
+<p>Better performance (more fluent, better use of context, better use of phrase similarities)</p>
+</li>
+<li>
+<p>A single neural network to be optimized end-to-end</p>
+</li>
+<li>
+<p>Requires much less human engineering effort</p>
+</li>
+<li>
+<p>Less interpretable, hard to debug, difficult to control</p>
+</li>
+</ul>
+<p>Use BLEU(Bilingual Evaluation Understudy) to evaluate: compares machine tranlation to human translation and computes a similarity score based on:</p>
+<ul>
+<li>n-gram precision (usually up to 3 or 4)</li>
+<li>penalty for too short tranlations</li>
+</ul>
+<p>Problems:</p>
+<ul>
+<li>out-of-vocabulary words</li>
+<li>domain mismatch</li>
+<li>low-resource language pairs</li>
+<li>maintaining context over longer text</li>
+<li>using common sense is still hard</li>
+<li>NMT picks up biases in training data</li>
+<li>uninterpretable systems do strange things</li>
+</ul>
+<p>Improve: use attention</p>
+<ul>
+<li>solves the bottleneck problem</li>
+<li>helps with vanishing gradient problem</li>
+<li>provides some interpretability: alignment for free</li>
+</ul>
+<p>Seq2Seq model:</p>
+<ul>
+<li>summarization</li>
+<li>dialogue</li>
+<li>parsing</li>
+<li>code generation</li>
+</ul>
+<p>Large-vocab NMT:</p>
+<ul>
+<li>each time train on a smaller vocab $V' \ll V$ </li>
+<li>test on K most frequent words: unigram prob.</li>
+</ul>
+<p>Byte Pair Encoding: most frequent ngram pairs $\to$ a new ngram</p>
+<p>Hybrid NMT: mostly at the word level, only go to the character level when needed</p>
+<h2 id="quasi-recurrent-neural-network-qrnn">Quasi-Recurrent Neural Network (QRNN)</h2>
+<p>Take the best and parallelizable parts of RNNs and CNNs.</p>
+<p>Parallelism computation across time:</p>
+<p>$Z=\tanh(W_z*X)$</p>
+<p>$F=\sigma(W_f*X)$</p>
+<p>$O=\sigma(W_o*X)$</p>
+<p>Element-wise gated recurrence for parallelism across channels:</p>
+<p>$h_t=f_t\odot h_{t-1}+(1-f_t)\odot z_t$</p>
+<h2 id="attention">Attention</h2>
+<p>Attention scores: $e^t=[s_t^Th_1,\dots,s_t^Th_N]\in\Bbb{R}^N$</p>
+<p>$\alpha^t=softmax(e^t)\in\Bbb{R}^N$</p>
+<p>$a_t=\Sigma^N_{i=1}\alpha^t_ih_i\in\Bbb{R}^h$</p>
+<p>Compute $e\in\Bbb{R}^N$ from $h_1,\dots,h_N\in\Bbb{R}^{d_1}$ and $s\in\Bbb{R}^{d_2}$:</p>
+<ul>
+<li>Basic dot-product attention: $e_i=s^{\top}h_i\in\Bbb{R}$</li>
+<li>Multiplicative attention: $e_i=s^{\top}Wh_i\in\Bbb{R}$</li>
+<li>Additive attention: $e_i=v^{\top}\tanh(W_1h_i+W_2s)\in\Bbb{R}$</li>
+</ul>
+<p>Applications:</p>
+<ul>
+<li>Pointing to words for language modeling: $p(y_i\lvert x_i)=g\thinspace p_{vocab}(y_i\lvert x_i)+(1-g)p_{ptr}(y_i\lvert x_i)$</li>
+<li>Intra-Decoder attention for summarization</li>
+<li>Machine Translation with Seq2Seq</li>
+</ul>
+<p>Encoder attention:</p>
+<p>$e_{ti}=f(h_t^d,h_i^e)=h_t^{d^{\top}}W^e_{attn}h_i^e$</p>
+<p>$e'_{ti}=\begin{cases} \exp(e_ti) &amp; \text{if}\space t=1\\frac{\exp(e_{ti})}{\Sigma_{j=1}^{t-1}\exp(e_{ji})} &amp; \text{otherwise} \end{cases}$</p>
+<p>$\alpha^e_{ti}=\frac{e'_{ti}}{\Sigma^n_{j=1}e'_{tj}}$</p>
+<p>$c_t^e=\Sigma^n_{i=1}\alpha^e_{ti}h^e_i$</p>
+<p>Self-attention on decoder:</p>
+<p>$e^d_{tt'}=h^{d\top}_tW^d_{attn}h^d_{t'}$</p>
+<p>$\alpha^d_{tt'}=\frac{\exp(e^d_{tt'})}{\Sigma^{t-1}_{j=1}\exp(e^d_{tj})}$</p>
+<p>$c^d_t=\Sigma^{t-1}_{j=1}\alpha^d_{tj}h^d_j$</p>
+<p>Combine softmax and pointers:</p>
+<p>$p(u_t=1)=\sigma(W_u[h_t^d\lVert c_t^e\rVert c_t^d]+b_u)$</p>
+<p>$p(y_t\lvert u_t=0)=\text{softmax}(W_{out}[h_t^d\lVert c_t^e\rVert c_t^d]+b_{out})$</p>
+<p>$p(y_t=x_i\vert u_t=1)=\alpha^e_{ti}$</p>
+<p>$p(y_t)=p(u_t=1)p(y_t\vert u_t=1)+p(u_t=0)p(y_t\vert u_t=0)$</p>
+<h3 id="attention-is-all-you-need">Attention is all you need</h3>
+<p>$A(q, K, V)=\Sigma_i\frac{e_{q\cdot k_i}}{\Sigma_je^{q\cdot k_j}}v_i$</p>
+<p>$A(Q,K,V)=softmax(\frac {QK^{\top}}{\sqrt{d_k}})V$</p>
+<p>Self-attention and multi-head attention:</p>
+<p>$MultiHead(Q,K,V)=Concat(head_1,\dots,head_h)W^o$</p>
+<p>where $head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)$</p>
+<p>Layer norm:</p>
+<p>$\mu^l=\frac1H\Sigma^H_{i=1}a^l_i$</p>
+<p>$\sigma^l=\sqrt{\frac1H\Sigma^H_{i=1}(a^l_i-\mu^l)^2}$</p>
+<p>$h_i=f(\frac{g_i}{\sigma_i}(a_i-\mu_i)-b_i)$</p>
+<p>Added is a positional encoding:</p>
+<p>$PE_{pos, 2i}=\sin(pos/10000^{2i/d_{model}})$</p>
+<p>$PE_{pos, 2i+1}=\cos(pos/10000^{2i/d_{model}})$</p>
+<p>Transformer Decoder: masked decoder self-attention on previously generated outputs.</p>
+<ul>
+<li>byte-pair encodings</li>
+<li>checkpoint averaging</li>
+<li>Adam optimizer with learning rate changes</li>
+<li>Dropout during training at every layer just before adding residual</li>
+<li>label smoothing</li>
+<li>auto-regressive decoding with beam search and length penalties</li>
+</ul>
+<h2 id="convolutional-neural-networks-cnn">Convolutional Neural Networks (CNN)</h2>
+<p>1d discrete convolution generally: $(f*g)[n]=\Sigma_{m=-M}^Mf[n-m]g[m]$</p>
+<p>$x_{1:n}=x_1\oplus x_2\oplus\dots\oplus x_n$</p>
+<p>$c_i=f(w^{\top}x_{i:i+h-1}+b)$</p>
+<p>$\hat{c}=\max{[c_1, c_2, \dots, c_{n-h+1}]}$</p>
+<p>$z=[\hat{c}_1, \dots, \hat{c}_m]$</p>
+<p>$y=\text{softmax}(W^{(s)}z+b)$</p>
+<h2 id="coreference-resolution">Coreference Resolution</h2>
+<p>Applications:</p>
+<ul>
+<li>Full text understanding</li>
+<li>Machine Translation</li>
+<li>Bialogue Systems</li>
+</ul>
+<p>Two steps:</p>
+<ul>
+<li>Detect the montions(easy)
+<ul>
+<li>Pronouns: POS tagging</li>
+<li>Named entities: NER system</li>
+<li>Noun pharses: constituency parser</li>
+</ul>
+</li>
+<li>Cluster the mentions(hard)</li>
+</ul>
+<blockquote>
+<p>How to deal with these bad mentions?</p>
+<p>Keep all mentions as &quot;candidate mentions&quot;.</p>
+</blockquote>
+<p>Coreference Models:</p>
+<ul>
+<li>
+<p>Mention Pair</p>
+<ul>
+<li>$J=-\Sigma^N_{i=2}\Sigma^i_{j=1}y_{ij}\log p(m_j, m_i)$, $y_{ij}=1$ if mentions $m_i$ and $m_j$ are coreferent, -1 if otherwise</li>
+<li>Many mentions only have one clear antecedent, but we want all.</li>
+<li>Solution: more linguistically plausible</li>
+</ul>
+</li>
+<li>
+<p>Mention Ranking</p>
+<ul>
+<li>
+<p>Assign each mention its highest scoring candidate antecedent according to the model</p>
+</li>
+<li>
+<p>$J=\sum^N_{i=2}-\log(\sum^{i-1}_{j=1}\mathbb{1}(y_{ij}=1)p(m_j,m_i))$</p>
+</li>
+<li>
+<p>Non-Neural Coref Model: Features</p>
+</li>
+<li>
+<p>Neural Coref Model</p>
+<ul>
+<li>Embeddings: previous two words, first word, last word, head word, ... of each mention</li>
+<li>Distance</li>
+<li>Document genre</li>
+<li>Speaker information</li>
+</ul>
+</li>
+<li>
+<p>End-to-End Model</p>
+<ul>
+<li>
+<p>Word &amp; character embedding $\to$ BiLSTM $\to$ Attention</p>
+</li>
+<li>
+<p>Do mention detection and coreference end-to-end</p>
+<p>$g_i=[x^{*}_{start(i)},x^{*}_{end(i)},\hat{x}_i,\phi(i)]$</p>
+<p>$\alpha_t=w_{\alpha}\cdot \text{FFNN}_{\alpha}(x^*_t)$</p>
+<p>$a_{i,t}=\frac{\exp(\alpha_t)}{\sum^{end(i)}_{k=start(i)}\exp(\alpha_k)}$</p>
+<p>$\hat{x}_i=\sum^{end(i)}_{t=start(i)}a_{i,t}\cdot x_t$</p>
+<p>$s(i,j)=s_m(i)+s_m(j)+s_a(i,j)$</p>
+<p>$s_m(i)=w_m\cdot \text{FFNN}_m(g_i)$</p>
+<p>$s_a(i,j)=w_a\cdot\text{FFNN}_a([g_i,g_j,g_i\circ g_j,\phi(i,j)])$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Clustering</p>
+<ul>
+<li>Current candidate cluster merges depend on previous ones it already made.</li>
+<li>Metrics: MUC, CEAF, LEA, B-CUBED, BLANC</li>
+</ul>
+</li>
+</ul>
+<h2 id="constituency-parsing">Constituency Parsing</h2>
+<p>Language recursive:</p>
+<ul>
+<li>helpful in disambiguation</li>
+<li>helpful for some tasks to refer to specific phrases</li>
+<li>works better for some tasks to use grammatical tree structure</li>
+</ul>
+<p>Recursive neural nets require a tree structure, while recurrent neural nets cannot capture pharses without prefix context and often capture too much of last words in final vector.</p>
+<h3 id="tree-recursive-neural-network">Tree Recursive Neural Network</h3>
+<p>Input: two candidate children's representations</p>
+<p>Outpu: the semantic representation if the two nodes are merged and score of how plausible the new node would be</p>
+<p>$score = U^{\top}p$</p>
+<p>$p=\tanh(W\begin{bmatrix}c_1 \\\ c_2 \end{bmatrix}+b)$, same $W$ parameters at all nodes of the tree</p>
+<p>$score(text, tree)=\sum_{n\in nodes(tree)}s_n$</p>
+<p>$J=\sum_is(x_i,y_i)-\max_{y\in A(x_i)}(s(x_i,y)+\triangle(y,y_i))$</p>
+<p>$\delta^{(l)}=((W^{(l)})^{\top}\delta^{(l+1)})\circ f'(z^{(l)})$</p>
+<p>$\frac{\partial}{\partial W^{(l)}}E_R=\delta^{(l+1)}(a^{(l)})^{\top}+\lambda W^{(l)}$</p>
+<p>Differences of backprop in recursion and tree structure:</p>
+<ul>
+<li>sum derivatives of $W$ from all nodes</li>
+<li>split derivatives at each node</li>
+<li>add error messages from parent + node itself</li>
+</ul>
+<h3 id="syntactically-untied-rnn">Syntactically-Untied RNN</h3>
+<p>Use different composition matrix for different syntactic environments.</p>
+<p>Problem: speed.</p>
+<p>Solution: compute score only for a subset of trees coming from a simpler, faster model(PCFG).</p>
+<p>Compositional Vector Grammar(CVG): PCFG + TreeRNN</p>
+<h3 id="compositionality-through-recursive-matrix-vector-spaces">Compositionality Through Recursive Matrix-Vector Spaces</h3>
+<p>$p=\tanh(W\begin{bmatrix}c_2c_1 \\\ c_1c_2 \end{bmatrix}+b)$</p>
+<p>Matrix-Vector RNNs</p>
+<p>$p=g(A,B)=W_M\begin{bmatrix}A \\\ B\end{bmatrix}$</p>
+<blockquote>
+<p>Can an MV-RNN learn how a large syntractic context conveys a semantic relationship?</p>
+<p>Build a single compositional semantics for the minimal constituent including both terms.</p>
+</blockquote>
+<h2 id="model-overview-and-memory-networks">Model overview and memory networks</h2>
+<h3 id="treelstms">TreeLSTMs</h3>
+<p>TreeLSTM = TreeRNN + LSTM</p>
+<p>$\tilde{h}_j=\sum_{k\in C(j)}h_k$</p>
+<p>$i_j=\sigma(W^{(i)}x_j+U^{(i)}\tilde{h}_j+b^{(i)})$</p>
+<p>$f_{jk}=\sigma(W^{(f)}x_j+U^{(f)}h_k+b^{(f)})$</p>
+<p>$o_j=\sigma(W^{(o)}x_j+U^{(o)}\tilde{h}_j+b^{(o)})$</p>
+<p>$u_j=\tanh(W^{(u)}x_j+U^{(u)}\tilde{h}_j+b^{(u)})$</p>
+<p>$c_j=i_j\odot u_j+\sum_{k\in C(j)}f_{jk}\odot c_k$</p>
+<p>$h_j=o_j\odot \tanh(c_j)$</p>
+<h3 id="neural-architecture-search">Neural Architecture Search</h3>
+<ul>
+<li>Maintain the controller (RNN)</li>
+<li>Sample architecture A with probability $p$</li>
+<li>Train a child network with architecture A to get accuracy R</li>
+<li>Compute gradient of $p$ and scale it by R to update the controller</li>
+</ul>
+<h3 id="dynamic-memory-network">Dynamic Memory Network</h3>
+<ul>
+<li>
+<p>Input module</p>
+<p>Standard GRU or BiGRU</p>
+</li>
+<li>
+<p>Question module</p>
+<p>$q_t=GRU(v_t, q_{t-1})$</p>
+</li>
+<li>
+<p>Episodic Memory module</p>
+<p>$h_i^t=g_i^tGRU(s_i,h^t_{i-1})+(1-g^t_i)h^t_{i-1}$, last hidden state $m^t$</p>
+<p>gates are activated if sentence relevant to the question or memory.</p>
+<p>$z_i^t=[s_i\circ q;s_i\circ m^{t-1};\lvert s_i-q\rvert;\lvert s_i-m^{t-1}\rvert]$</p>
+<p>$Z^t_i=W^{(2)}\tanh(W^{(1)}z^t_i+b^{(1)})+b^{(2)}$</p>
+<p>$g^t_i=\frac{\exp(Z^t_i)}{\sum^{M_i}_{k=1}\exp(Z^t_k)}$</p>
+</li>
+<li>
+<p>Answer Module</p>
+<p>$a_t=GRU([y_{t-1},q],a_{t-1})$</p>
+<p>$y_t=softmax(W^{(a)}a_t)$</p>
+</li>
+</ul>
+<p>Related work: Neural Turing Machine.</p>
+<h2 id="semi-supervised-learning">Semi-Supervised Learning</h2>
+<ul>
+<li>Pre-training
+<ul>
+<li>first train an unsupervised model on unlabeled data, then train it on the labeled data</li>
+<li>Word2Vec (skip-gram, CBOW, GloVe, etc.)</li>
+<li>Auto-Encoder</li>
+<li>Strategies:
+<ul>
+<li>CoVe</li>
+<li>ELMo</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Self-training
+<ul>
+<li>train the model on the labeled data, then use the model to label the unlabeled data</li>
+<li>Online self-training: $J(\theta)=CE(y_i,p(y\lvert x_i,\theta))+CE(onehot(argmax(p(y\lvert x_j,\theta))),p(y\lvert x_j,\theta))$</li>
+<li>hard targets work better than soft targets</li>
+</ul>
+</li>
+<li>Consistency regularization
+<ul>
+<li>$J(\theta)=CE(p(y\lvert x_j,\theta),p(y\lvert x_j+\eta,\theta))$ where $\eta$ is a vector with a random direction and a small magnitude $\epsilon$</li>
+<li>Apply to NLP:
+<ul>
+<li>Add noise to the word embedding(noise should be chosen adversarially)
+<ul>
+<li>Compute the gradient of the loss with respect to the input, then add epsilon times the gradient to the input.</li>
+<li>$\eta=\epsilon\frac{\nabla_xJ}{\lVert\nabla_xJ\rVert}$</li>
+</ul>
+</li>
+<li>Word dropout
+<ul>
+<li>randomly(10%-20%) replace words in the input with a special REMOVED token: $J(\theta)=CE(p(y\lvert x_j,\theta),p(y\lvert dropwords(x_j), \theta))$</li>
+</ul>
+</li>
+<li>Cross-view Consistency
+<ul>
+<li>train the model across many different views of the input at once</li>
+<li>instead of running full the model multiple times, add multiple &quot;auxiliary&quot; softmax layers to the model</li>
+<li>$J(\theta)=\Sigma_{i=1}^kCE(p(y\lvert x_j,\theta),p_{view_i}(y\lvert x_j,\theta))$ </li>
+<li>forward and backward auxiliary softmax layer, attention dropout, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="next">Next</h2>
+<p>3 equivalent NLP-Complete Super Tasks</p>
+<ul>
+<li>Language Model</li>
+<li>Question Answering</li>
+<li>Dialogue System</li>
+</ul>
+<p>Limits for deep NLP:</p>
+<ul>
+<li>Comprehensive QA</li>
+<li>Multitask learning</li>
+<li>Combined multimodel, logical and memory-based reasoning</li>
+<li>Learning from few examples</li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;recsys-checklist&#x2F;">‹ Recommendation System Checklist</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;refactor-java-project&#x2F;">填坑一个 Java 项目 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

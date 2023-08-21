@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Basic NLP Knowledge
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#preference" class="toc-link">Preference</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#language-technology" class="toc-link">Language Technology</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#why-nlp-difficult" class="toc-link">Why NLP difficult?</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#basic-skills" class="toc-link">Basic skills</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#edit-distance" class="toc-link">Edit Distance</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#language-model" class="toc-link">Language Model</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#probabilistic-language-models" class="toc-link">Probabilistic Language Models</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#markov-assumption" class="toc-link">Markov Assumption</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#unigram-model" class="toc-link">Unigram Model</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#bigram-model" class="toc-link">Bigram Model</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#add-k-smoothing" class="toc-link">Add-k Smoothing</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#unigram-prior-smoothing" class="toc-link">Unigram prior smoothing</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#smoothing-algorithm" class="toc-link">Smoothing Algorithm</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#spelling-correction" class="toc-link">Spelling Correction</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#text-classification" class="toc-link">Text Classification</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#used-for" class="toc-link">Used for:</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#methods-supervised-machine-learning" class="toc-link">Methods: Supervised Machine Learning</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#naive-bayes" class="toc-link">Naive Bayes</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#f-measure" class="toc-link">F Measure</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#sentiment-analysis" class="toc-link">Sentiment Analysis</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#sentiment-lexicons" class="toc-link">Sentiment Lexicons</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#features" class="toc-link">Features</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#joint-and-discriminative" class="toc-link">Joint and Discriminative</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#features-1" class="toc-link">Features</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#maximum-entropy" class="toc-link">Maximum Entropy</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#named-entity-recognition-ner" class="toc-link">Named Entity Recognition (NER)</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#relation-extraction" class="toc-link">Relation Extraction</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#pos-tagging" class="toc-link">POS Tagging</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#parsing" class="toc-link">Parsing</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#probabilistic-parsing" class="toc-link">Probabilistic Parsing</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#lexicalized-parsing" class="toc-link">Lexicalized Parsing</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#dependency-parsing" class="toc-link">Dependency Parsing</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#information-retrieval" class="toc-link">Information Retrieval</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#classic-search" class="toc-link">Classic search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#initial-stages-of-text-processing" class="toc-link">Initial stages of text processing</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#query-processing" class="toc-link">Query processing</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#ranked-retrieval" class="toc-link">Ranked Retrieval</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#tf-idf-weighting" class="toc-link">tf-idf weighting</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#distance-cosine-query-document" class="toc-link">Distance: cosine(query, document)</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#weighting" class="toc-link">Weighting</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#evaluation" class="toc-link">Evaluation</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#semantic" class="toc-link">Semantic</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#situation" class="toc-link">Situation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#applications-of-thesauri-and-ontologies" class="toc-link">Applications of Thesauri and Ontologies</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#word-similarity" class="toc-link">Word Similarity</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#thesaurus-based-similarity" class="toc-link">Thesaurus-based similarity</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#distributional-models-of-meaning" class="toc-link">Distributional models of meaning</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#question-answering" class="toc-link">Question Answering</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/natural-language-processing-knowledge/#summarization" class="toc-link">Summarization</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;natural-language-processing-knowledge&#x2F;">Basic NLP Knowledge</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2016-08-11
+        </span>
+        <span class="post-reading-time">
+            ⌛ 14 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/note/">
+                Note
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                Deep Learning
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/nlp/">
+                NLP
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p><a href="http://web.stanford.edu/%7Ejurafsky/NLPCourseraSlides.html"><em>Notes of Stanford NLP course</em></a></p>
+<span id="continue-reading"></span><h2 id="preference">Preference</h2>
+<h3 id="language-technology">Language Technology</h3>
+<ul>
+<li>Mostly solved:
+<ul>
+<li>Spam detection</li>
+<li>Part-of-speech (POS) tagging</li>
+<li>Named Entity Recognition (NER)</li>
+</ul>
+</li>
+<li>Making good progress
+<ul>
+<li>Sentiment analysis</li>
+<li>Co-reference resolution</li>
+<li>Word sense disambiguation (WSD)</li>
+<li>Parsing</li>
+<li>Machine translation (MT)</li>
+<li>Information Extraction (IE)</li>
+</ul>
+</li>
+<li>Still really hard
+<ul>
+<li>Question answering (QA)</li>
+<li>Paraphrase</li>
+<li>Summarization</li>
+<li>Dialog</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-nlp-difficult">Why NLP difficult?</h3>
+<ul>
+<li>Non-standard Language</li>
+<li>segmentation issues</li>
+<li>idioms</li>
+<li>neologisms</li>
+<li>world knowledge</li>
+<li>tricky entity names</li>
+</ul>
+<h3 id="basic-skills">Basic skills</h3>
+<ul>
+<li>Regular Expressions</li>
+<li>Tokenization</li>
+<li>Word Normalization and Stemming</li>
+<li>Classifier
+<ul>
+<li>Decision Tree</li>
+<li>Logistic Regression</li>
+<li>SVM</li>
+<li>Neural Nets</li>
+</ul>
+</li>
+</ul>
+<h3 id="edit-distance">Edit Distance</h3>
+<ul>
+<li>Used for
+<ul>
+<li>Spell correction</li>
+<li>Computational Biology</li>
+</ul>
+</li>
+<li>Basic operations
+<ul>
+<li>Insertion</li>
+<li>Deletion</li>
+<li>Substitution</li>
+</ul>
+</li>
+<li>Algorithm
+<ul>
+<li>Levenshtein</li>
+<li>Back trace</li>
+<li>Needleman-Wunsch</li>
+<li>Smith-Waterman</li>
+</ul>
+</li>
+</ul>
+<h2 id="language-model">Language Model</h2>
+<h3 id="probabilistic-language-models">Probabilistic Language Models</h3>
+<ul>
+<li>Machine translation</li>
+<li>Spell correction</li>
+<li>Speech Recognition</li>
+<li>Summarization</li>
+<li>Question answering</li>
+</ul>
+<h3 id="markov-assumption">Markov Assumption</h3>
+<p>$$ P(\omega_1 \omega_2 \dots \omega_n) \approx  \prod_i P(\omega_i | \omega_{i-k} \dots \omega_{i-1}) $$</p>
+<h3 id="unigram-model">Unigram Model</h3>
+<p>$$ P(\omega_1 \omega_2 \dots \omega_n) \approx  \prod_i P(\omega_i) $$</p>
+<h3 id="bigram-model">Bigram Model</h3>
+<p>$$ P(\omega_i | \omega_1 \omega_2 \dots \omega_{i-1}) \approx  \prod_i P(\omega_i | \omega{i-1}) $$</p>
+<h3 id="add-k-smoothing">Add-k Smoothing</h3>
+<p>$$ P_{Add-k}(\omega_i|\omega{i-1})=\tfrac{c(\omega_{i-1},\omega_i)+k}{c(\omega_{i-1})+kV} $$</p>
+<h3 id="unigram-prior-smoothing">Unigram prior smoothing</h3>
+<p>$$ P_{Add-k}(\omega_i|\omega_{i-1})=\tfrac{c(\omega_{i-1},\omega_i)+m(\tfrac{1}{V})}{c(\omega_{i-1})+m} $$</p>
+<h3 id="smoothing-algorithm">Smoothing Algorithm</h3>
+<ul>
+<li>Good-Turing</li>
+<li>Kneser-Ney</li>
+<li>Witten-Bell</li>
+</ul>
+<h3 id="spelling-correction">Spelling Correction</h3>
+<ul>
+<li>tasks:
+<ul>
+<li>Spelling error detection</li>
+<li>Spelling error correction
+<ul>
+<li>Autocorrect</li>
+<li>Suggest a correction</li>
+<li>Suggestion lists</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Real word spelling errors:
+<ul>
+<li>For each word $w$, generate candidate set</li>
+<li>Choose best candidate</li>
+<li>Find the correct word $w$</li>
+</ul>
+</li>
+<li>Candidate generation
+<ul>
+<li>words with similar spelling</li>
+<li>words with similar pronunciation</li>
+</ul>
+</li>
+<li>Factors that could influence <code>p(misspelling|word)</code>
+<ul>
+<li>source letter</li>
+<li>target letter</li>
+<li>surrounding letter</li>
+<li>the position in the word</li>
+<li>nearby keys on the keyboard</li>
+<li>homology on the keyboard</li>
+<li>pronunciation</li>
+<li>likely morpheme transformations</li>
+</ul>
+</li>
+</ul>
+<h2 id="text-classification">Text Classification</h2>
+<h3 id="used-for">Used for:</h3>
+<ul>
+<li>Assigning subject categories, topics, or genres</li>
+<li>Spam detection</li>
+<li>Authorship identification</li>
+<li>Age/gender identification</li>
+<li>Language identification</li>
+<li>Sentiment analysis</li>
+<li>...</li>
+</ul>
+<h3 id="methods-supervised-machine-learning">Methods: Supervised Machine Learning</h3>
+<ul>
+<li>Naive Bayes</li>
+<li>Logistic Regression</li>
+<li>Support Vector Machines</li>
+<li>k-Nearset Neighbors</li>
+</ul>
+<h3 id="naive-bayes">Naive Bayes</h3>
+<p>$$ C_{MAP}=arg\max_{c\in C}P(x_1,x_2,\dots,x_n|c)P(c) $$</p>
+<ul>
+<li>Laplace (add-1) Smoothing</li>
+<li>Used for Spam Filtering</li>
+<li>Training data:
+<ul>
+<li>No training data: manually written rules</li>
+<li>Very little data:
+<ul>
+<li>Use Naive Bayes</li>
+<li>Get more labeled data</li>
+<li>Try semi-supervised training methods</li>
+</ul>
+</li>
+<li>A reasonable amount of data:
+<ul>
+<li>All clever Classifiers:
+<ul>
+<li>SVM</li>
+<li>Regularized Logistic Regression</li>
+</ul>
+</li>
+<li>User-interpretable decision trees</li>
+</ul>
+</li>
+<li>A huge amount of data:
+<ul>
+<li>At a cost
+<ul>
+<li>SVM (train time)</li>
+<li>kNN (test time)</li>
+<li>Regularized Logistic Regression can be somewhat better</li>
+</ul>
+</li>
+<li>Naive Bayes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tweak performance
+<ul>
+<li>Domain-specific</li>
+<li>Collapse terms</li>
+<li>Upweighting some words</li>
+</ul>
+</li>
+</ul>
+<h3 id="f-measure">F Measure</h3>
+<p>Precision: % of selected items that are correct</p>
+<p>Recall: % of correct items that are selected</p>
+<table><thead><tr><th>/</th><th>correct</th><th>not correct</th></tr></thead><tbody>
+<tr><td>selected</td><td>tp</td><td>fp</td></tr>
+<tr><td>not selected</td><td>fn</td><td>tn</td></tr>
+</tbody></table>
+<p>$$ F=\tfrac{1}{\alpha \tfrac{1}{P} +(1-\alpha)\tfrac{1}{R}}=\tfrac{(\beta^2+1)PR}{\beta^2P+R} $$</p>
+<h3 id="sentiment-analysis">Sentiment Analysis</h3>
+<ul>
+<li>Typology of Affective States
+<ul>
+<li>Emotion</li>
+<li>Mood</li>
+<li>Interpersonal stances</li>
+<li>Attitudes (Sentiment Analysis)</li>
+<li>Personality traits</li>
+</ul>
+</li>
+<li>Baseline Algorithm
+<ul>
+<li>Tokenization</li>
+<li>Feature Extraction</li>
+<li>Classification
+<ul>
+<li>Naive Bayes</li>
+<li>MaxEnt (better)</li>
+<li>SVM (better)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Issues
+<ul>
+<li>HTML, XML and other markups</li>
+<li>Capitalization</li>
+<li>Phone numbers, dates</li>
+<li>Emoticons</li>
+</ul>
+</li>
+</ul>
+<h3 id="sentiment-lexicons">Sentiment Lexicons</h3>
+<ul>
+<li>semi-supervised learning of lexicons
+<ul>
+<li>use a small amount of information</li>
+<li>to bootstrap a lexicon</li>
+<li>adjectives conjoined by &quot;and&quot; have same polarity</li>
+<li>adjectives conjoined by &quot;but&quot; do not</li>
+</ul>
+</li>
+<li>Process
+<ul>
+<li>label seed set of adjectives</li>
+<li>expand seed set to conjoined adjectives</li>
+<li>supervised classifier assigns &quot;polarity similarity&quot; to each word pair</li>
+<li>clustering for partitioning</li>
+</ul>
+</li>
+<li>Turney Algorithm
+<ul>
+<li>extract a phrasal lexicon from reviews</li>
+<li>learn polarity of each phrase</li>
+<li>rate a review by the average polarity of its phrases</li>
+</ul>
+</li>
+<li>Advantages
+<ul>
+<li>domain-specific</li>
+<li>more robust</li>
+</ul>
+</li>
+<li>Assume classes have equal frequencies:
+<ul>
+<li>if not balanced: need to use F-scores</li>
+<li>severe imbalancing also can degrade classifier performance</li>
+<li>solutions:
+<ul>
+<li>Resampling in training</li>
+<li>Cost-sensitive learning
+<ul>
+<li>penalize SVM more for misclassification of the rare thing</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Features:
+<ul>
+<li>Negation is important</li>
+<li>Using all words works well for some tasks (NB)</li>
+<li>Finding subsets of words may help in other tasks</li>
+</ul>
+</li>
+</ul>
+<h2 id="features">Features</h2>
+<h3 id="joint-and-discriminative">Joint and Discriminative</h3>
+<ul>
+<li>Joint (generative) models: place probabilities over both observed data and the hidden stuff ---- P(c,d)
+<ul>
+<li>N-gram models</li>
+<li>Naive Bayes classifiers</li>
+<li>Hidden Markov models</li>
+<li>Probabilistic context-free grammars</li>
+<li>IBM machine translation alignment models</li>
+</ul>
+</li>
+<li>Discriminative (conditional) models: take the data as given, and put a probability over hidden structure given the data ---- <code>P(c|d)</code>
+<ul>
+<li>Logistic regression</li>
+<li>Conditional loglinear</li>
+<li>Maximum Entropy models</li>
+<li>Conditional Random Fields</li>
+<li>SVMs</li>
+<li>Perceptron</li>
+</ul>
+</li>
+</ul>
+<h3 id="features-1">Features</h3>
+<ul>
+<li>Feature Expectations:
+<ul>
+<li>Empirical count</li>
+<li>Model expectation</li>
+</ul>
+</li>
+<li>Feature-Based Models:
+<ul>
+<li>Text Categorization</li>
+<li>Word-Sense Disambiguation</li>
+<li>POS Tagging</li>
+</ul>
+</li>
+</ul>
+<h3 id="maximum-entropy">Maximum Entropy</h3>
+<p>$$ \log P(C|D,\lambda)=\sum_{(c,d)\in (C,D)}\log P(c|d,\lambda)=\sum_{(c,d)\in(C,D)}\log \tfrac{exp \sum_{i} \lambda_if_i(c,d)}{\sum_{c'} exp\sum_i \lambda_if_i(c',d)} $$</p>
+<ul>
+<li>Find the optimal parameters
+<ul>
+<li>Gradient descent (GD), Stochastic gradient descent (SGD)</li>
+<li>Iterative proportional fitting methods: Generalized Iterative Scaling (GIS) and Improved Iterative Scaling (IIS)</li>
+<li>Conjugate gradient (CG), perhaps with preconditioning</li>
+<li>Quasi-Newton methods - limited memory variable metric (LMVM) methods, in particular, L-BFGS</li>
+</ul>
+</li>
+<li>Feature Overlap
+<ul>
+<li>Maxent models handle overlapping features well</li>
+<li>Unlike NB, there is no double counting</li>
+</ul>
+</li>
+<li>Feature Interaction
+<ul>
+<li>Maxent models handle overlapping features well, but do not automatically model feature interactions</li>
+</ul>
+</li>
+<li>Feature Interaction
+<ul>
+<li>If you want to interaction terms, you have to add them</li>
+<li>A disjunctive feature would also have done it</li>
+</ul>
+</li>
+<li>Smoothing:
+<ul>
+<li>Issues of scale
+<ul>
+<li>Lots of features</li>
+<li>Lots of sparsity</li>
+<li>Optimization problems</li>
+</ul>
+</li>
+<li>Methods
+<ul>
+<li>Early stopping</li>
+<li>Priors (MAP)</li>
+<li>Regularization</li>
+<li>Virtual Data</li>
+<li>Count Cutoffs</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="named-entity-recognition-ner">Named Entity Recognition (NER)</h3>
+<ul>
+<li>The uses:
+<ul>
+<li>Named entities can be indexed, linked off, etc.</li>
+<li>Sentiment can be attributed to companies or products</li>
+<li>A lot of IE relations are associations between named entities</li>
+<li>For question answering, answers are often named entities</li>
+</ul>
+</li>
+<li>Training:
+<ul>
+<li>Collect a set of representative training documents</li>
+<li>Label each token for its entity class or other</li>
+<li>Design feature extractors appropriate to the text and classes</li>
+<li>Train a sequence classifier to predict the labels form the data</li>
+</ul>
+</li>
+<li>Inference
+<ul>
+<li>Greedy
+<ul>
+<li>Fast, no extra memory requirements</li>
+<li>Very easy to implement</li>
+<li>With rich features including observations to the right, it may perform quite well</li>
+<li>Greedy, we make commit errors we cannot recover from</li>
+</ul>
+</li>
+<li>Beam
+<ul>
+<li>Fast, beam sizes of 3-5 are almost as good as exact inference in many cases</li>
+<li>Easy to implement</li>
+<li>Inexact: the globally best sequence can fall off the beam</li>
+</ul>
+</li>
+<li>Viterbi
+<ul>
+<li>Exact: the global best sequence is returned</li>
+<li>Harder to implement long-distance state-state interactions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CRFs
+<ul>
+<li>Training is slower, but CRFs avoid causal-competition biases</li>
+<li>In practice usually work much the same as MEMMs</li>
+</ul>
+</li>
+</ul>
+<h3 id="relation-extraction">Relation Extraction</h3>
+<ul>
+<li>How to build relation extractors
+<ul>
+<li>Hand-written patterns
+<ul>
+<li>High-precision and low-recall</li>
+<li>Specific domains</li>
+<li>A lot of work</li>
+</ul>
+</li>
+<li>Supervised machine learning
+<ul>
+<li>MaxEnt, Naive Bayes, SVM</li>
+<li>Can get high accuracies with enough training data</li>
+<li>Labeling a large training set is expensive</li>
+<li>Brittle, don't generalize well to different genres</li>
+</ul>
+</li>
+<li>Semi-supervised and unsupervised
+<ul>
+<li>Bootstrapping (using seeds)
+<ul>
+<li>Find sentences with these pairs</li>
+<li>Look at the context between or around the pair and generalize the context to create patterns</li>
+<li>Use the patterns for grep for more pairs</li>
+</ul>
+</li>
+<li>Distance supervision
+<ul>
+<li>Doesn't require iteratively expanding patterns</li>
+<li>Uses very large amounts of unlabeled data</li>
+<li>Not sensitive to genre issues in training corpus</li>
+</ul>
+</li>
+<li>Unsupervised learning from the web
+<ul>
+<li>Use parsed data to train a &quot;trustworthy tuple&quot; classifier</li>
+<li>Single-pass extract all relations between NPs, keep if trustworthy</li>
+<li>Assessor ranks relations based on text redundancy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="pos-tagging">POS Tagging</h3>
+<ul>
+<li>Performance
+<ul>
+<li>About 97% currently</li>
+<li>But baseline is already 90%</li>
+<li>Partly easy because
+<ul>
+<li>Many words are unambiguous</li>
+<li>You get points for them and for punctuation marks</li>
+</ul>
+</li>
+<li>Difficulty
+<ul>
+<li>ambiguous words</li>
+<li>common words can be ambiguous</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Source of information
+<ul>
+<li>knowledge of neighboring words</li>
+<li>knowledge of word probabilities</li>
+<li>word</li>
+<li>lowercased word</li>
+<li>prefixes</li>
+<li>suffixes</li>
+<li>capitalization</li>
+<li>word shapes</li>
+</ul>
+</li>
+<li>Summary
+<ul>
+<li>the change from generative to discriminative model does not by itself result in great improvement</li>
+<li>the higher accuracy of discriminative models comes at the price of much slower training</li>
+</ul>
+</li>
+</ul>
+<h2 id="parsing">Parsing</h2>
+<ul>
+<li>Treebank
+<ul>
+<li>reusability of the labor
+<ul>
+<li>many parser, POS taggers, etc.</li>
+<li>valuable resource for linguistics</li>
+</ul>
+</li>
+<li>broad coverage</li>
+<li>frequencies and distributional information</li>
+<li>a way to evaluate systems</li>
+</ul>
+</li>
+<li>Statistical parsing applications
+<ul>
+<li>high precision question answering</li>
+<li>improving biological named entity finding</li>
+<li>syntactically based sentence compression</li>
+<li>extracting interaction in computer games</li>
+<li>helping linguists find data</li>
+<li>source sentence analysis for machine translation</li>
+<li>relation extraction systems</li>
+</ul>
+</li>
+<li>Phrase structure grammars (= context-free grammars, CFGs) in NLP
+<ul>
+<li>G = (T, C, N, S, L, R)
+<ul>
+<li>T is a set of terminal symbols</li>
+<li>C is a set of preterminal symbols</li>
+<li>N is a set of nonterminal symbols</li>
+<li>S is the start symbol</li>
+<li>L is the lexicon, a set of items of the form X -&gt; x</li>
+<li>R is the grammar, a set of items of the form X -&gt; $\gamma$</li>
+<li>e is the empty symbol</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="probabilistic-parsing">Probabilistic Parsing</h3>
+<ul>
+<li>Probabilistic - or stochastic - context-free grammars (PCFGs)
+<ul>
+<li>G = (T, N, S, R, P)
+<ul>
+<li>P is a probability function</li>
+</ul>
+</li>
+<li>Chomsky Normal Form
+<ul>
+<li>Reconstructing n-aries is easy</li>
+<li>Reconstructing unaries/empties is trickier</li>
+<li>Binarization is crucial for cubic time CFG parsing</li>
+</ul>
+</li>
+<li>Cocke-Kasami-Younger (CKY) Constituency Parsing
+<ul>
+<li>Unaries can by incorporated into the algorithm</li>
+<li>Empties can be incorporated</li>
+<li>Binarization is vital</li>
+</ul>
+</li>
+<li>Performance
+<ul>
+<li>Robust</li>
+<li>Partial solution for grammar ambiguity</li>
+<li>Give a probabilistic language model</li>
+<li>The problem seems to be that PCFGs lack the lexicalization of a trigram model</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="lexicalized-parsing">Lexicalized Parsing</h3>
+<ul>
+<li>Charniak
+<ul>
+<li>Probabilistic conditioning is &quot;top-down&quot; like a regular PCFG, but actual parsing is bottom-up, somewhat like the CKY algorithm we saw</li>
+</ul>
+</li>
+<li>Non-Independence
+<ul>
+<li>The independence assumptions of a PCFG are often too strong</li>
+<li>We can relax independence assumptions by encoding dependencies into the PCFG symbols, by state splitting (sparseness)</li>
+</ul>
+</li>
+<li>Accurate Unlexicalized Parsing
+<ul>
+<li>Grammar rules are not systematically specified to the level of lexical items</li>
+<li>Closed vs. open class words</li>
+</ul>
+</li>
+<li>Learning Latent Annotations
+<ul>
+<li>brackets are known</li>
+<li>base categories are known</li>
+<li>induce subcategories</li>
+<li>clever split/merge category refinement</li>
+<li>EM, like Forward-Backward for HMMs, but constrained by tree</li>
+</ul>
+</li>
+</ul>
+<h3 id="dependency-parsing">Dependency Parsing</h3>
+<ul>
+<li>Methods
+<ul>
+<li>Dynamic programming (like in the CKY algorithm)</li>
+<li>Graph algorithm</li>
+<li>Constraint Satisfaction</li>
+<li>Deterministic Parsing</li>
+</ul>
+</li>
+<li>Sources of information
+<ul>
+<li>Bilexical affinities</li>
+<li>Dependency distance</li>
+<li>Intervening material</li>
+<li>Valency of heads</li>
+</ul>
+</li>
+<li>MaltParser
+<ul>
+<li>Greedy</li>
+<li>Bottom up</li>
+<li>Has
+<ul>
+<li>a stack</li>
+<li>a buffer</li>
+<li>a set of dependency arcs</li>
+<li>a set of actions</li>
+</ul>
+</li>
+<li>Each action is predicted by a discriminative classifier (SVM)</li>
+<li>No search</li>
+<li>Provides close to state of the art parsing performance</li>
+<li>Provides very fast linear time parsing</li>
+</ul>
+</li>
+<li>Projective
+<ul>
+<li>Dependencies from a CFG tree using heads, must be projective</li>
+<li>But dependency theory normally does allow non-projective structure to account for displaced constituents</li>
+<li>The arc-eager algorithm only builds projective dependency trees</li>
+</ul>
+</li>
+<li>Stanford Dependencies
+<ul>
+<li>Projective</li>
+<li>Can be generated by postprocessing headed phrase structure parses, or dependency parsers like MaltParser or the Easy-First Parser</li>
+</ul>
+</li>
+</ul>
+<h2 id="information-retrieval">Information Retrieval</h2>
+<ul>
+<li>Used for
+<ul>
+<li>web search</li>
+<li>e-mail search</li>
+<li>searching your laptop</li>
+<li>corporate knowledge bases</li>
+<li>legal information retrieval</li>
+</ul>
+</li>
+</ul>
+<h3 id="classic-search">Classic search</h3>
+<ul>
+<li>User task</li>
+<li>Info need</li>
+<li>Query &amp; Collection</li>
+<li>Search engine</li>
+<li>Results</li>
+</ul>
+<h3 id="initial-stages-of-text-processing">Initial stages of text processing</h3>
+<ul>
+<li>Tokenization</li>
+<li>Normalization</li>
+<li>Stemming</li>
+<li>Stop words</li>
+</ul>
+<h3 id="query-processing">Query processing</h3>
+<ul>
+<li>AND
+<ul>
+<li>&quot;merge&quot; algorithm</li>
+</ul>
+</li>
+<li>Phrase queries
+<ul>
+<li>Biword indexes
+<ul>
+<li>false positives</li>
+<li>bigger dictionary</li>
+</ul>
+</li>
+<li>Positional indexes
+<ul>
+<li>Extract inverted index entries for each distinct term</li>
+<li>Merge their doc:position lists to enumerate all positions</li>
+<li>Same general method for proximity searches</li>
+</ul>
+</li>
+<li>A positional index is 2-4 as large as a non-positional index</li>
+<li>Caveat: all of this holds for &quot;English-like&quot; language</li>
+<li>These two approaches can be profitably combined</li>
+</ul>
+</li>
+</ul>
+<h3 id="ranked-retrieval">Ranked Retrieval</h3>
+<ul>
+<li>Advantage
+<ul>
+<li>Free text queries</li>
+<li>large result sets are not an issue</li>
+</ul>
+</li>
+<li>Query-document matching scores
+<ul>
+<li>Jaccard coefficient
+<ul>
+<li>Doesn't consider term frequency</li>
+<li>Length normalization needed</li>
+</ul>
+</li>
+<li>Bag of words model
+<ul>
+<li>Term frequency (tf)</li>
+<li>Log-frequency weighting</li>
+<li>Inverse document frequency (idf)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="tf-idf-weighting">tf-idf weighting</h3>
+<p>$$ W_{t,d}=(1+\log tf_{t,d})\times \log_{10}(N/df_t) $$</p>
+<ul>
+<li>Best known weighting scheme in information retrieval</li>
+</ul>
+<h3 id="distance-cosine-query-document">Distance: cosine(query, document)</h3>
+<p>$$ \cos(\vec q,\vec d)=\tfrac{\vec q \bullet \vec d}{|\vec q||\vec d|}=\tfrac{\vec q}{|\vec q|}\bullet \tfrac{\vec d}{|\vec d|}=\tfrac{\sum^{|V|}<em>{i=1}q_id_i}{\sqrt{\sum^{|V|}</em>{i=1}q_i^2}\sqrt{\sum^{|V|}_{i=1}d^2_i}} $$</p>
+<h3 id="weighting">Weighting</h3>
+<ul>
+<li>Many search engines allow for different weightings for queries vs. documents</li>
+<li>A very standard weighting scheme is: Inc.Itc</li>
+<li>Document: logarithmic tf, no idf and cosine normalization</li>
+<li>Query: logarithmic tf idf, cosine normalization</li>
+</ul>
+<h3 id="evaluation">Evaluation</h3>
+<ul>
+<li>Mean average precision (MAP)</li>
+</ul>
+<h2 id="semantic">Semantic</h2>
+<h3 id="situation">Situation</h3>
+<ul>
+<li>Reminder: lemma and wordform</li>
+<li>Homonymy
+<ul>
+<li>Homographs</li>
+<li>Homophones</li>
+</ul>
+</li>
+<li>Polysemy</li>
+<li>Synonyms</li>
+<li>Antonyms</li>
+<li>Hyponymy and Hypernymy</li>
+<li>Hyponyms and Instances</li>
+</ul>
+<h3 id="applications-of-thesauri-and-ontologies">Applications of Thesauri and Ontologies</h3>
+<ul>
+<li>Information Extraction</li>
+<li>Information Retrieval</li>
+<li>Question Answering</li>
+<li>Bioinformatics and Medical Informatics</li>
+<li>Machine Translation</li>
+</ul>
+<h3 id="word-similarity">Word Similarity</h3>
+<ul>
+<li>Synonymy and similarity</li>
+<li>Similarity algorithm
+<ul>
+<li>Thesaurus-based algorithm</li>
+<li>Distributional algorithms</li>
+</ul>
+</li>
+</ul>
+<h3 id="thesaurus-based-similarity">Thesaurus-based similarity</h3>
+<p>$LCS(c_1,c_2)=$ The most informative (lowest) node in the hierarchy subsuming both $c_1$ and $c_2$</p>
+<p>$$ Sim_{path}(c_1,c_2)=\tfrac{1}{pathlen(c_1,c_2)} $$</p>
+<p>$$ Sim_{resnik}(c_1,c_2)=-\log P(LCS(c_1,c_2)) $$</p>
+<p>$$ Sim_{lin}(c_1,c_2)=\tfrac{1\log P(LCS(c_1,c_2))}{\log P(c_1)+\log P(c_2)} $$</p>
+<p>$$ Sim_{jiangconrath}(c_1,c_2)=\tfrac{1}{\log P(c_1)+\log P(c_2)-2\log P(LCS(c_1,c_2))} $$</p>
+<p>$$ Sim_{eLesk}(c_1,c_2)=\sum_{r,q\in RELS}overlap(gloss(r(c_1)),gloss(q(c_2))) $$</p>
+<ul>
+<li>Evaluating
+<ul>
+<li>Intrinsic
+<ul>
+<li>Correlation between algorithm and human word similarity ratings</li>
+</ul>
+</li>
+<li>Extrinsic (task_based, end-to-end)
+<ul>
+<li>Malapropism (Spelling error) detection</li>
+<li>WSD</li>
+<li>Essay grading</li>
+<li>Taking TOEFL multiple-choice vocabulary tests</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Problems
+<ul>
+<li>We don't have a thesaurus for every language</li>
+<li>recall
+<ul>
+<li>missing words</li>
+<li>missing phrases</li>
+<li>missing connections between senses</li>
+<li>works less well for verbs, adj.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="distributional-models-of-meaning">Distributional models of meaning</h3>
+<ul>
+<li>For the term-document matrix: tf-idf</li>
+<li>For the term-context matrix: Positive Pointwise Mutual Information (PPMI) is common</li>
+</ul>
+<p>$$ PMI(w_1,w_2)=\log_2\tfrac{P(w_1,w_2)}{P(w_1)P(w_2)} $$</p>
+<ul>
+<li>PMI is biased toward infrequent events
+<ul>
+<li>various weighting schemes</li>
+<li>add-one smoothing</li>
+</ul>
+</li>
+</ul>
+<h3 id="question-answering">Question Answering</h3>
+<ul>
+<li>Question processing
+<ul>
+<li>Detect question type, answer type (NER), focus, relations</li>
+<li>Formulate queries to send a search engine</li>
+</ul>
+</li>
+<li>Passage Retrieval
+<ul>
+<li>Retrieval ranked documents</li>
+<li>Break into suitable passages and re-rank</li>
+</ul>
+</li>
+<li>Answer processing
+<ul>
+<li>Extract candidate answers</li>
+<li>Rank candidates</li>
+</ul>
+</li>
+</ul>
+<h4 id="approaches">Approaches</h4>
+<ul>
+<li>Knowledge-based
+<ul>
+<li>build a semantic representation of the query</li>
+<li>Map from this semantics to query structured data or resources</li>
+</ul>
+</li>
+<li>Hybrid
+<ul>
+<li>build a shallow semantic representation of the query</li>
+<li>generate answer candidate using IR methods</li>
+<li>Score each candidate using richer knowledge sources</li>
+</ul>
+</li>
+</ul>
+<h4 id="answer-type-taxonomy">Answer type taxonomy</h4>
+<ul>
+<li>6 coarse classes
+<ul>
+<li>Abbreviation</li>
+<li>Entity</li>
+<li>Description</li>
+<li>Human</li>
+<li>Location</li>
+<li>Numeric</li>
+</ul>
+</li>
+<li>50 finer classes</li>
+<li>Detection
+<ul>
+<li>Hand-written rules</li>
+<li>Machine Learning</li>
+<li>Hybrids</li>
+</ul>
+</li>
+<li>Features
+<ul>
+<li>Question words and phrases</li>
+<li>Part-of-speech tags</li>
+<li>Parse features</li>
+<li>Named Entities</li>
+<li>Semantically related words</li>
+</ul>
+</li>
+</ul>
+<h4 id="keyword-selection">Keyword selection</h4>
+<ol>
+<li>Non-stop words</li>
+<li>NNP words in recognized named entities</li>
+<li>Complex nominals with their adjectival modifiers</li>
+<li>Other complex nominals</li>
+<li>Nouns with their adjectival modifiers</li>
+<li>Other nouns</li>
+<li>Verbs</li>
+<li>Adverbs</li>
+<li>QFW word (skipped in all previous steps)</li>
+<li>Other words</li>
+</ol>
+<h4 id="passage-retrieval">Passage Retrieval</h4>
+<ul>
+<li>IR engine retrieves documents using query terms</li>
+<li>Segment the documents into shorter units</li>
+<li>Passage ranking
+<ul>
+<li>number of named entities of the right type in passage</li>
+<li>number of query words in passage</li>
+<li>number of question N-grams also in passage</li>
+<li>proximity of query keywords to each other in passage</li>
+<li>longest sequence of question words</li>
+<li>rank of the document containing passage</li>
+</ul>
+</li>
+</ul>
+<h4 id="features-for-ranking-candidate-answers">Features for ranking candidate answers</h4>
+<ul>
+<li>answer type match</li>
+<li>pattern match</li>
+<li>question keywords</li>
+<li>keyword distance</li>
+<li>novelty factor</li>
+<li>apposition features</li>
+<li>punctuation location</li>
+<li>sequences of question terms</li>
+</ul>
+<h4 id="common-evaluation-metrics">Common Evaluation Metrics</h4>
+<ul>
+<li>Accuracy</li>
+<li>Mean Reciprocal Rank (MRR)</li>
+</ul>
+<p>$$ MRR = \tfrac{\sum_{i=1}^N \tfrac{1}{rank_i}}{N} $$</p>
+<h3 id="summarization">Summarization</h3>
+<ul>
+<li>Applications
+<ul>
+<li>outlines or abstracts</li>
+<li>summaries</li>
+<li>action items</li>
+<li>simplifying</li>
+</ul>
+</li>
+<li>Three stages
+<ul>
+<li>content selection</li>
+<li>information ordering</li>
+<li>sentence realization</li>
+</ul>
+</li>
+<li>salient words
+<ul>
+<li>tf-idf</li>
+<li>topic signature
+<ul>
+<li>mutual information</li>
+<li>log-likelihood ratio (LLR)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$
+weight(w_i)=
+\begin{cases}
+1,&amp; if -2\log \lambda(w_i)&gt;10 \ 0,&amp; otherwise
+\end{cases}
+$$</p>
+<ul>
+<li>Supervised content selection problem
+<ul>
+<li>hard to get labeled training data</li>
+<li>alignment difficult</li>
+<li>performance not better than unsupervised algorithm</li>
+</ul>
+</li>
+<li>ROUGE (Recall Oriented Understudy for Gisting Evaluation)
+<ul>
+<li>Intrinsic metric for automatically evaluating summaries
+<ul>
+<li>based on BLEU</li>
+<li>not as good as human evaluation</li>
+<li>much more convenient</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$ ROUGE-2=\tfrac{\sum_{x\in {RefSummaries}}\sum_{bigrams:i\in S}\min(count(i,X),count(i,S))}{\sum_{x\in{RefSummaries}}\sum_{bigrams:i\in S}count(i,S)} $$</p>
+<ul>
+<li>Maximal Marginal Relevance (MMR)
+<ul>
+<li>Iteratively (greedily)
+<ul>
+<li>Relevant: high cosine similarity to the query</li>
+<li>Novel: low cosine similarity to the summary</li>
+</ul>
+</li>
+<li>Stop when desired length</li>
+</ul>
+</li>
+<li>Information Ordering
+<ul>
+<li>Chronological ordering</li>
+<li>Coherence</li>
+<li>Topical ordering</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;variable-name&#x2F;">‹ 变量命名规则</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;wu-liao-xie-bo-ke&#x2F;">无聊写博客 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

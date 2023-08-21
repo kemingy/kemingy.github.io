@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Python Descriptor Short Note
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/python-descriptor/#descriptor-protocol" class="toc-link">Descriptor Protocol</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/python-descriptor/#lookup-chain" class="toc-link">Lookup Chain</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/python-descriptor/#use-case" class="toc-link">Use case</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/python-descriptor/#decorator" class="toc-link">Decorator</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/python-descriptor/#wrap-3-layers" class="toc-link">Wrap 3 layers</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;python-descriptor&#x2F;">Python Descriptor Short Note</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2020-01-16
+        </span>
+        <span class="post-reading-time">
+            ⌛ 1 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p><strong>Define</strong>: a descriptor is an object attribute with &quot;binding behavior&quot;, one whose attribute access has been overridden by methods in the descriptor protocal.</p>
+<span id="continue-reading"></span>
+<p><code>a.x</code> -&gt; <code>a.__dict__['x']</code> -&gt; <code>type(a).__dict__['x']</code></p>
+<h2 id="descriptor-protocol">Descriptor Protocol</h2>
+<ul>
+<li><code>descr.__get__(self, obj, type=None) -&gt; value</code></li>
+<li><code>descr.__set__(self, obj, value) -&gt; None</code></li>
+<li><code>descr.__delete__(self, obj) -&gt; None</code></li>
+</ul>
+<p>If only implements <code>__get__</code> then it's said to be a <strong>non-data descriptor</strong>. If implements <code>__set__</code> and <code>__del__</code> then it's said to be a <strong>data descriptor</strong>.</p>
+<h2 id="lookup-chain">Lookup Chain</h2>
+<ol>
+<li><code>__get__</code> of the data descriptor</li>
+<li>object's <code>__dict__</code></li>
+<li><code>__get__</code> of the non-data descriptor</li>
+<li>object type's <code>__dict__</code></li>
+<li>object parent type's <code>__dict__</code></li>
+<li>repeat for all the parent type's <code>__dict__</code></li>
+<li><code>AttributionError</code></li>
+</ol>
+<h2 id="use-case">Use case</h2>
+<ul>
+<li>lazy properties</li>
+<li>Don't repeat yourself(D.R.Y.) code <code>__set_name__</code></li>
+</ul>
+<h1 id="decorator">Decorator</h1>
+<h2 id="wrap-3-layers">Wrap 3 layers</h2>
+<ol>
+<li>arguments for decorator <code>@decorator(*args, **kwargs)</code></li>
+<li>wrapped function <code>wrapped_func(func)</code></li>
+<li>arguments for wrapped function <code>@wrap(func)(somefunc(*args, **kwargs))</code></li>
+</ol>
+<pre data-lang="py" style="background-color:#ffffff;color:#4d4d4c;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#8959a8;">def </span><span style="color:#4271ae;">decorator_func</span><span>(</span><span style="color:#3e999f;">*</span><span style="color:#f5871f;">args</span><span>, </span><span style="color:#3e999f;">**</span><span style="color:#f5871f;">kwargs</span><span>):
+</span><span>    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">wrapper</span><span>(</span><span style="color:#f5871f;">func</span><span>):
+</span><span>        @functools.</span><span style="color:#c82829;">wraps</span><span>(func)
+</span><span>        </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">somefunc</span><span>(</span><span style="color:#3e999f;">*</span><span style="color:#f5871f;">func_args</span><span>, </span><span style="color:#3e999f;">**</span><span style="color:#f5871f;">func_kwargs</span><span>):
+</span><span>            resp </span><span style="color:#3e999f;">= </span><span style="color:#c82829;">func</span><span style="color:#4271ae;">(</span><span style="color:#3e999f;">*</span><span style="color:#4271ae;">func_args, </span><span style="color:#3e999f;">**</span><span style="color:#4271ae;">func_kwargs)
+</span><span>            </span><span style="color:#8959a8;">return </span><span>resp
+</span><span>            
+</span><span>        </span><span style="color:#8959a8;">return </span><span>somefunc
+</span><span>    </span><span style="color:#8959a8;">return </span><span>wrapper
+</span></code></pre>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;spectree&#x2F;">‹ SpecTree</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rate-limiter&#x2F;">Rate Limiter Implementation ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Ansible tutorial for human
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/ansible-tutorial-for-human/#tutorial" class="toc-link">Tutorial</a>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/ansible-tutorial-for-human/#inventory" class="toc-link">Inventory</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/ansible-tutorial-for-human/#ansible-cmd" class="toc-link">Ansible cmd</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://blog.mapotofu.org/blogs/ansible-tutorial-for-human/#playbooks-and-roles" class="toc-link">Playbooks and roles</a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/ansible-tutorial-for-human/#finally" class="toc-link">Finally</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;ansible-tutorial-for-human&#x2F;">Ansible tutorial for human</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2019-06-12
+        </span>
+        <span class="post-reading-time">
+            ⌛ 2 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/devops/">
+                DevOps
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>We need documents for human, not for robots.</p>
+<span id="continue-reading"></span>
+<blockquote>
+<p>What is ansible?</p>
+</blockquote>
+<p>Ansible is a tool for DevOps. It can be used to：</p>
+<ul>
+<li>define server groups in inventory</li>
+<li>control a group of servers like localhost</li>
+<li>setup environments on servers
+<ul>
+<li>install, update, remove apps</li>
+<li>write, copy files</li>
+</ul>
+</li>
+<li>execute command on servers</li>
+<li>use playbooks to execute a series of tasks</li>
+<li>use others' playbooks as roles from ansible galaxy</li>
+</ul>
+<h2 id="tutorial">Tutorial</h2>
+<p>The easiest way to learn how to use ansible is learning from examples. Only when you find some key words that confuse you that you need to check the official documents with search engines.</p>
+<p>Here I'd like to give you some simple introductions.</p>
+<h3 id="inventory">Inventory</h3>
+<p>TOML like file that defines the group of servers. If you already defined some hosts in <code>$HOME/.ssh/config</code>, you can use the host name instead of IP address.</p>
+<pre data-lang="toml" style="background-color:#ffffff;color:#4d4d4c;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[</span><span style="color:#c82829;">master</span><span>]
+</span><span style="color:#c82829;">10.0.0.1
+</span><span>
+</span><span>[</span><span style="color:#c82829;">worker</span><span>]
+</span><span style="color:#c82829;">10.0.10.1
+</span><span style="color:#c82829;">10.0.10.2
+</span><span style="color:#c82829;">10.0.10.3
+</span></code></pre>
+<p>In the file above, we define two groups of servers. Then you can use <code>master</code>, <code>worker</code>, <code>all</code> as group name. Save this file as <code>/etc/ansible/hosts</code> so you can use it anywhere.</p>
+<h3 id="ansible-cmd">Ansible cmd</h3>
+<p>Ping all the servers: <code>ansible all -m ping</code>.</p>
+<p>Run a live command: <code>ansible worker -a &quot;/bin/echo $USER&quot;</code></p>
+<h3 id="playbooks-and-roles">Playbooks and roles</h3>
+<p>You can execute a series of tasks defined in the playbooks. First of all, check if there exists roles that already done the same thing you need. Roles can be found from <a href="https://galaxy.ansible.com/">Ansible Galaxy</a>.</p>
+<p>Playbooks is defined in yaml file.</p>
+<pre data-lang="yml" style="background-color:#ffffff;color:#4d4d4c;" class="language-yml "><code class="language-yml" data-lang="yml"><span>- </span><span style="color:#c82829;">hosts</span><span>: </span><span style="color:#718c00;">all
+</span><span>  </span><span style="color:#c82829;">become</span><span>: </span><span style="color:#f5871f;">yes
+</span><span>  </span><span style="color:#c82829;">roles</span><span>:
+</span><span>    - </span><span style="color:#718c00;">nvidia.nvidia_driver
+</span><span>    - </span><span style="color:#718c00;">nvidia.nvidia_docker
+</span><span>  </span><span style="color:#c82829;">tasks</span><span>:
+</span><span>    - </span><span style="color:#c82829;">name</span><span>: </span><span style="color:#718c00;">turn off swap
+</span><span>      </span><span style="color:#c82829;">command</span><span>: </span><span style="color:#718c00;">swapoff -a
+</span><span>      </span><span style="color:#c82829;">when</span><span>: </span><span style="color:#718c00;">ansible_swaptotal_mb &gt; 0
+</span><span>
+</span><span>    - </span><span style="color:#c82829;">name</span><span>: </span><span style="color:#718c00;">add k8s GPG key
+</span><span>      </span><span style="color:#c82829;">apt_key</span><span>: </span><span style="color:#718c00;">url=https://packages.cloud.google.com/apt/doc/apt-key.gpg
+</span><span>      
+</span><span>    - </span><span style="color:#c82829;">name</span><span>: </span><span style="color:#718c00;">install kubectl kubelet kubeadm
+</span><span>      </span><span style="color:#c82829;">apt</span><span>:
+</span><span>        </span><span style="color:#c82829;">name</span><span>: [</span><span style="color:#718c00;">&#39;kubelet&#39;</span><span>,</span><span style="color:#718c00;">&#39;kubectl&#39;</span><span>,</span><span style="color:#718c00;">&#39;kubeadm&#39;</span><span>]
+</span><span>        </span><span style="color:#c82829;">state</span><span>: </span><span style="color:#718c00;">present
+</span><span>        </span><span style="color:#c82829;">update_cache</span><span>: </span><span style="color:#f5871f;">yes
+</span></code></pre>
+<p>For each task, you can do almost everything like <code>command</code>, <code>apt</code>, <code>copy</code>, <code>replace</code>. Find what you need with search engines.</p>
+<p>Execute playbooks:</p>
+<pre data-lang="sh" style="background-color:#ffffff;color:#4d4d4c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#c82829;">ansible-playbook</span><span style="color:#f5871f;"> -i</span><span style="color:#4271ae;"> inventory k8s.yml
+</span></code></pre>
+<h2 id="finally">Finally</h2>
+<p>This is almost everything you need to know about ansible as a beginner :)</p>
+<p>As usual, GitHub and StackOverflow are still your best friends.</p>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;996&#x2F;">‹ 996ICU</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;geek-love&#x2F;">极客的爱情 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

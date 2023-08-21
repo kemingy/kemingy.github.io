@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - Deep Learning Applications
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+<div class="toc">
+    <h2 class="toc-title">Contents</h2>
+    <div class="toc-content always-active">
+        <ul>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deep-learning-applications/#natural-language-processing" class="toc-link">Natural Language Processing</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deep-learning-applications/#computer-vision" class="toc-link">Computer Vision</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deep-learning-applications/#audio-signal-processing" class="toc-link">Audio Signal Processing</a>
+                
+            </li>
+            
+            <li>
+                <a href="https://blog.mapotofu.org/blogs/deep-learning-applications/#reinforcement-learning" class="toc-link">Reinforcement Learning</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deep-learning-applications&#x2F;">Deep Learning Applications</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2018-01-23
+        </span>
+        <span class="post-reading-time">
+            ⌛ 2 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/deep-learning/">
+                Deep Learning
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>Deep Learning Applications in NLP, CV and RL etc.</p>
+<span id="continue-reading"></span><h2 id="natural-language-processing">Natural Language Processing</h2>
+<ul>
+<li>Machine Translation
+<ul>
+<li><a href="https://github.com/tensorflow/nmt">Google Neural Machine Translation</a></li>
+<li><a href="https://github.com/facebookresearch/fairseq">Facebook Fairseq</a></li>
+</ul>
+</li>
+<li>Sentiment Analysis
+<ul>
+<li><a href="https://nlp.stanford.edu/sentiment/index.html">Sentiment Analysis</a><!--more--></li>
+</ul>
+</li>
+<li>Question Answering &amp; Chatbot
+<ul>
+<li><a href="https://github.com/Conchylicultor/DeepQA">DeepQA</a></li>
+<li><a href="https://github.com/jiweil/Neural-Dialogue-Generation">Neural Dialogue Generation</a></li>
+<li><a href="https://github.com/gunthercox/ChatterBot">ChatterBot</a></li>
+</ul>
+</li>
+<li>Sentences Generation
+<ul>
+<li><a href="https://arxiv.org/pdf/1511.06349.pdf">Generating Sentences from a Continuous Space [pdf]</a></li>
+<li><a href="https://ai.binwang.me/couplet/">对对联</a></li>
+</ul>
+</li>
+<li>Code Generation
+<ul>
+<li><a href="https://github.com/tonybeltramelli/pix2code">Pix2Code</a></li>
+</ul>
+</li>
+<li>Reading Comprehension
+<ul>
+<li><a href="https://arxiv.org/pdf/1607.04423.pdf">Attention over Attention [pdf]</a></li>
+</ul>
+</li>
+<li>Identify Duplicate Questions
+<ul>
+<li><a href="https://www.kaggle.com/c/quora-question-pairs">Kaggle: Quora Question Pairs</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="computer-vision">Computer Vision</h2>
+<ul>
+<li>Image Style Transfer
+<ul>
+<li><a href="https://github.com/luanfujun/deep-photo-styletransfer">Deep Photo Style Transfer</a></li>
+<li><a href="https://github.com/lengstrom/fast-style-transfer">Fast Style Transfer</a></li>
+<li><a href="https://github.com/anishathalye/neural-style">Neural Style</a></li>
+<li><a href="https://github.com/google/deepdream">Google Deep Dream</a></li>
+<li><a href="https://github.com/awentzonline/image-analogies">Neural Image Analogies</a></li>
+</ul>
+</li>
+<li>Image Generation
+<ul>
+<li><a href="https://github.com/alexjc/neural-doodle">Neural Doodle</a></li>
+<li><a href="https://github.com/makegirlsmoe/makegirlsmoe_web">Make Girls Moe</a></li>
+<li><a href="https://github.com/AlexiaJM/Deep-learning-with-cats">Deep Learning with Cats</a></li>
+</ul>
+</li>
+<li>Fonts Generation
+<ul>
+<li><a href="https://github.com/erikbern/deep-fonts">Deep Fonts</a></li>
+<li><a href="https://github.com/patrickgadd/feel-the-kern">Feel the Kern</a></li>
+</ul>
+</li>
+<li>Colorize Grayscale Images
+<ul>
+<li><a href="https://github.com/pavelgonchar/colornet">ColorNet</a></li>
+</ul>
+</li>
+<li>Automatic Coloring
+<ul>
+<li><a href="https://github.com/kvfrans/deepcolor">Deep Color</a></li>
+</ul>
+</li>
+<li>Denoise
+<ul>
+<li><a href="https://github.com/cszn/DnCNN">DnCNN</a></li>
+</ul>
+</li>
+<li>Inpaiting
+<ul>
+<li><a href="https://github.com/Yijunmaverick/GenerativeFaceCompletion">Generative Face Completion</a></li>
+<li><a href="https://github.com/leehomyc/Faster-High-Res-Neural-Inpainting">High-Resolution Image Inpainting using Multi-Scale Neural Patch Synthesis</a></li>
+<li><a href="https://github.com/pathak22/context-encoder">Context Encoder</a></li>
+</ul>
+</li>
+<li>Super Resolution
+<ul>
+<li><a href="https://github.com/alexjc/neural-enhance">Neural Enhance</a></li>
+<li><a href="https://github.com/david-gpu/srez">srez</a></li>
+<li><a href="http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html">SRCNN</a></li>
+</ul>
+</li>
+<li>Image Description
+<ul>
+<li><a href="https://github.com/karpathy/neuraltalk">NeuralTalk</a></li>
+<li><a href="https://github.com/karpathy/neuraltalk2">NeuralTalk2</a></li>
+<li><a href="https://github.com/ryankiros/neural-storyteller">StoryTeller</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="audio-signal-processing">Audio Signal Processing</h2>
+<ul>
+<li>Music Generation
+<ul>
+<li><a href="https://github.com/jisungk/deepjazz">Deep Jazz</a></li>
+<li><a href="https://github.com/feynmanliang/bachbot">Bach Bot</a></li>
+</ul>
+</li>
+<li>Voice Style Transfer
+<ul>
+<li><a href="https://github.com/andabi/deep-voice-conversion">Deep voice conversion</a></li>
+</ul>
+</li>
+<li>Speech Recognition
+<ul>
+<li><a href="https://arxiv.org/pdf/1707.07413.pdf">Baidu Deep Speech 3 [pdf]</a>    <a href="https://github.com/mozilla/DeepSpeech">Code</a></li>
+<li><a href="https://github.com/pannous/tensorflow-speech-recognition">Seq2Seq</a></li>
+</ul>
+</li>
+<li>Text to Speech
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.07825v2.pdf">Baidu Deep Voice [pdf]</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="reinforcement-learning">Reinforcement Learning</h2>
+<ul>
+<li>Game
+<ul>
+<li><a href="https://github.com/openai/gym">OpenAI Gym</a></li>
+<li><a href="https://github.com/openai/universe">OpenAI Universe</a></li>
+<li><a href="https://github.com/deepmind/lab">DeepMind Lab</a></li>
+<li><a href="https://www.nature.com/articles/nature24270">AlphaGo Zero</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pytorch-cai-dao-de-keng&#x2F;">‹ PyTorch 踩到的坑</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;mian-ju&#x2F;">面具 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

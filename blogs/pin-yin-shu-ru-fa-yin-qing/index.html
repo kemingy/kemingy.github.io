@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - 拼音输入法引擎
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;pin-yin-shu-ru-fa-yin-qing&#x2F;">拼音输入法引擎</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2018-06-18
+        </span>
+        <span class="post-reading-time">
+            ⌛ 5 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/programming-language/">
+                Programming Language
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>最近在做 query rewriting 的时候，需要做一个拼音转中文的功能，做着做着，就差不多快做成一个拼音输入法引擎了。</p>
+<span id="continue-reading"></span>
+<p>第一次接触输入法引擎还是 Rime，留下了很深的印象，因为当时觉得有这样一个开源的不会侵犯用户隐私的输入法真不容易啊，当即下载试用，不过因为当时不太喜欢看太长的配置方法，最后也就简单定制了一下，发现很多词输入起来比较费劲，就没继续用。不过换到 Linux 下之后，基本上就是 Rime 了，当然本身的 ibus 也是可以的。</p>
+<p>一个基本的输入法引擎，当时就是根据输入的拼音找到对应的候选词，按照概率从大到小进行排序，在此基础上，还可以根据用户输入的历史记录，调整候选词的概率，同时还可以利用 N-gram 的概率进一步优化候选词列表，当然有云计算的话，就变成搜索大规模词频和句子，一些不常见的特定领域名词和诗词歌赋也可以轻松打出来。</p>
+<p>这一切的基础，当然是拼音了。好在已经有人做了这部分的工作，我们只需要坐享其成就可以了。<code>pypinyin</code> 是一个不错的包，可以得到中文的拼音以及音标，对多音字也有一定的效果，如果你需要这些功能的话。词库是另外一个很必要的东西，明月拼音的词库还是有点旧了，可以试试搜狗、百度或者腾讯的词库，虽然现在的都加密过了，不过还是能提取出来的。至于 N-gram，还是需要一个较新的预料的，Wikipedia 中文还是有点太不贴近大多数用户的实际输入了，像是微博、知乎一类的预料就比较合适。</p>
+<p>有了数据之后，下面就是数据结构部分了。对于这种有大量共同前缀的 key-value，当然是选择 Trie tree 了。这部分还是比较容易自己动手实现的，这里有一个例子 <a href="https://gist.github.com/Momingcoder/555b69847dc10c501dd13b93779aa574">Trie Tree</a>，查找效率也是非常高的，主要的耗时是在构造 Trie tree 的时候，如果语料比较大的话，用 Python 可能要几十秒到几分钟的时间，可以适当精简基础语料，当然也可以考虑用 Rust 写。</p>
+<p>下面来说一下进一步优化的几个问题和解决方案：</p>
+<ol>
+<li>为了提高输入效率，需要支持给出声母即可得到候选词，这部分可以在 Trie tree 里面处理声母和韵母，遇到连续的声母的情况可以把第一个声母后面的韵母跳过直接查找对应的第二个声母。</li>
+<li>对模糊音的支持，还是有很多人分不清前鼻音和后鼻音，加上很多地方的语言多 N、L 之类分不清楚，前者跟上面的解决方案一样，后者就只能多设置一条路径了。</li>
+<li>一些简单的纠错方案，主要是常见的韵母部分顺序错误，以及手机上相邻按键的误触等，只好多设置一条路径了。</li>
+<li>根据用户的输入记录修改对应的候选词权重，最好要做到生僻字一次性移到第一页的候选词列表中，也要当心用户错误选词使某些词词频太高。</li>
+<li>对用户个性化词典的导入导出功能，这个就简单多了。</li>
+</ol>
+<p>以上就是我自己的一点粗浅观点，我自己也只是根据业务需求实现了一部分，还没有真的写一个完整版出来，不过确实考虑用 Rust 实现一个玩玩。</p>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;rustpin-xie-jian-cha-qi&#x2F;">‹ 拼写检查器</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;txing&#x2F;">T 型路线 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>

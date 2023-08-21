@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+Cyanide - 填坑一个 Java 项目
+</title>
+
+    <link rel="stylesheet" href="https://blog.mapotofu.org/style.css">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS"
+        href="https://blog.mapotofu.org/atom.xml">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters:[
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false}]});"></script>
+    
+
+    
+<meta name="google-site-verification" content="OEmuX--u8eJZ_sTIR-hUG85I8snl3z0En6PspWN-OJQ" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="mobile-navbar">
+            <div class="mobile-header">
+                <a href="/" class="title">Cyanide</a>
+            </div>
+            <div class="mobile-navbar-icon icon-out" id="mobile-nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-menu-list">
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                        Categories
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                        Archive
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                        About
+                    </a>
+                </li>
+                
+                <li class="mobile-menu-item">
+                    <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                        Projects
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <header>
+            <div class="title">
+                <a href="https:&#x2F;&#x2F;blog.mapotofu.org">Cyanide</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;archive">
+                            Archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="gradient">
+
+        <main>
+            <div class="content">
+                
+
+
+<article class="post">
+    <div class="post-title">
+        <a href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;refactor-java-project&#x2F;">填坑一个 Java 项目</a>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">
+            📅 2018-12-08
+        </span>
+        <span class="post-reading-time">
+            ⌛ 5 min
+        </span>
+        
+        <div class="post-category">
+            
+            <a href="https://blog.mapotofu.org/categories/design-pattern/">
+                Design Pattern
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/technology/">
+                Technology
+            </a>
+            
+            <a href="https://blog.mapotofu.org/categories/programming-language/">
+                Programming Language
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="post-content">
+        <p>重构是不可能重构的，这辈子都不可能重构的……</p>
+<p>好吧，我自己写的垃圾代码我自己重构……</p>
+<p>什么！？你要我去修改别人的垃圾代码？！</p>
+<span id="continue-reading"></span>
+<p>不得不说，改别人写得非常非常烂的代码真的是一种极大的折磨，更残酷的是要用一种自己没怎么接触过的语言来写，更更残酷的是这种语言的包管理也非常混乱。</p>
+<p>上一次接触 Java 还是在我大学的时候，不过也只写过一些零碎的代码，没有做过像模像样的工程。这么久过去了，突然接手一个 N 年前的 Java 项目，代码一团糟，完全就是外行写的，真的很头疼。项目里面各种冗余文件，Jar 包也有一堆，只能看出来用的 Eclipse 这种古老的工具，具体编译方式不详。</p>
+<p>鉴于 gRPC 的 demo 是用 Gradle 来管理的，顺便就学了一下。老实说，仅仅 gRPC 部分还好，虽然文档不怎么样，很多细节完全不谈，多数地方靠自己猜测……难就难在怎么玩转 Java 项目，解决各种编译的依赖问题。</p>
+<p>这个时候就只能靠搜索引擎来解决了。Java 的出错栈看的我精神恍惚，定位问题很困难，多数时候只能依靠自己以往的工程经验来分析。一个 <code>build.gradle</code> 文件折磨了好久，Gradle 也有各种版本的配置方式，搞在一起就更混乱了，时间上也很紧迫，只能暴力测试了。</p>
+<p>后面修改代码的时候，才发现不知道他们怎么运行这个项目的，问了一下原来是编译成 Jar 包然后放到指定目录跑……好吧，我又去查了下 Gradle 怎么把一堆依赖编译进一个 Jar 包里面。修改完代码后，才发现还得把项目原有的依赖也搞进来，这下不得不好好了解下 Gradle 了，没法太偷懒。</p>
+<p>最后花了一周的时间来做，确实很慢，不过要不断试错确实也就这样了。</p>
+<p>总结一下，面对这种陌生的语言和包管理方式，在严重依赖试错的情况下，一定要保持清醒，从上至下进行分析。就算反馈很模糊，也能从整体逻辑上定位问题。</p>
+<p>另外，这种毫无规范、设计可言的代码，真的非常恶心。原来真的有人能写一个几百行的函数出来，即使里面有很大一部分是重复代码也不拿出来写个函数；原来真的有人能从下标 0 写到下标 31；原来真的有人分不清 HashSet 和 HashTable；原来真的有人能不依赖循环一行一行添加数据……</p>
+<p>为了防止这种情况再次发生，设置一定的代码规范并且依靠 CI 来自动检查是很有必要的。可以设置一个过渡期，这之后都要严格执行，否则代码维护起来成本太高了。</p>
+<p>另外，要我说就是面试卡的太松了。再逼我，以后直接全上 Rust，你们改吧，没有坚实的 CS 基础我看你怎么写 Rust。我就不信能写 Rust 的人还会写出这种垃圾代码。</p>
+
+    </div>
+
+    <div class="post-before-footer">
+        
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+    </div>
+
+    <div class="post-footer">
+        
+            
+            <div class="post-nav">
+                
+                <a class="previous" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;deeplearningnlp&#x2F;">‹ NLP with Deep Learning</a>
+                
+                
+                <a class="next" href="https:&#x2F;&#x2F;blog.mapotofu.org&#x2F;blogs&#x2F;2018review&#x2F;">2018 回顾 ›</a>
+                
+                
+                
+            </div>
+            
+        
+    </div>
+</article>
+
+            </div>
+        </main>
+
+        
+        
+    </div>
+
+    
+    <script src="https://blog.mapotofu.org/script.js"></script>
+    
+</body>
+
+</html>
