@@ -167,16 +167,12 @@ SIMD is like a hammer, now I need to find more nails in the code.
 
 - rewrite the `binarize_vector` function with AVX2 in [commit f114fc1](https://github.com/kemingy/rabitq/commit/f114fc1ec58686596ade0df02a96fcf04b0bf828) improves the QPS by **32%** for GIST.
 
-Compared to the original C++ version, this implementation is also branchless.
+~~Compared to the original C++ version, this implementation is also branchless.~~ When enabling `opt-level=3`, this can be optimied by the compiler. See the [assembly](https://godbolt.org/z/hjP5qjabz).
 
 ```diff
 - let shift = if (i / 32) % 2 == 0 { 32 } else { 0 };
 + let shift = ((i >> 5) & 1) << 5;
 ```
-
-See the [assembly](https://godbolt.org/z/YbP5vW34q) for the difference.
-
-Well, going branchless doesn't make the overall performance much better since the `binarize_vector` function is called only once for each query. But it's a good learning opportunity.
 
 ### Scalar quantization
 
@@ -252,7 +248,7 @@ I have to admit that if I used `faer` from the beginning, I could avoid lots of 
 
 I thought `popcnt` already solved the binary dot product, but the [FlameGraph](https://share.firefox.dev/3Yk3Ok8) shows that `count_ones()` only takes 7% of the `binary_dot_product`. Although the AVX512 has the `vpopcntq` instruction, I would prefer to use the AVX2 simulation since it's more common.
 
-[This](https://github.com/komrad36/popcount/blob/master/popcnt.h) is a good reference for the `popcnt` implementation with AVX2. The [commit edabd4a](https://github.com/kemingy/rabitq/commit/edabd4a64c5b8ea2637b5332105638edf16afa7c) re-implement this in Rust which improves the QPS by **11%** for GIST.
+[This](https://github.com/komrad36/popcount/blob/master/popcnt.h) is a good reference for the `popcnt` implementation with AVX2. The [commit edabd4a](https://github.com/kemingy/rabitq/commit/edabd4a64c5b8ea2637b5332105638edf16afa7c) re-implement this in Rust which improves the QPS by **11%** for GIST. This trick only works when the vector has more than 256 dimensions, which means 256 bits for the binary representation.
 
 ### Inline
 
@@ -310,7 +306,8 @@ Switching to [jemalloc](https://github.com/tikv/jemallocator) or [mimalloc](http
 
 - SIMD is awesome when it's used properly
 - IO is also important, especially for the large datasets
-- Do more research when choosing the right library
+
+The current performance is the same as the C++ version for dataset GIST. While I use more SIMD, the C++ version uses const generics.
 
 ## References
 
