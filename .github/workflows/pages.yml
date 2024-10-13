@@ -11,31 +11,41 @@ concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+    env:
+      ZOLA_VERSION: 0.17.2
     steps:
     - uses: actions/checkout@v4
       with:
-        submodules: true
+        submodules: recursive
     - name: Setup Pages
       uses: actions/configure-pages@v5
+      id: pages
     - name: build pages
       run: |
-        sudo apt install -y wget git
+        sudo apt install -y wget
         wget -q -O - \
-        "https://github.com/getzola/zola/releases/download/v0.17.2/zola-v0.17.2-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin
-        zola build
+        "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin
+        zola build --base-url "${{ steps.pages.outputs.base_url }}"
         cd public && touch .nojekyll
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        # Upload entire repository
         path: 'public'
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    steps:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
