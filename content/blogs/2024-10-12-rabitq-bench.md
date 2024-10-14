@@ -169,10 +169,14 @@ SIMD is like a hammer, now I need to find more nails in the code.
 
 ~~Compared to the original C++ version, this implementation is also branchless.~~ When enabling `opt-level=3`, this can be optimied by the compiler. See the [assembly](https://godbolt.org/z/hjP5qjabz).
 
+> @andrewaylett pointed out that `opt-level=3` can optimize this
+
 ```diff
 - let shift = if (i / 32) % 2 == 0 { 32 } else { 0 };
-+ let shift = ((i >> 5) & 1) << 5;
++ let shift = ((i >> 5) & 1) << 5;  // opposite version because I store the binary in u64 with different endian from the C++ version
 ```
+
+> @NovaX first pointed out that it's equivalent to `i & 32`, which is more readable.
 
 ### Scalar quantization
 
