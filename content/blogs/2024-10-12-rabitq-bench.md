@@ -80,7 +80,7 @@ Note that too many metrics/logging/traces can also affect the performance. So be
 
 ### Resources
 
-During the benchmark, I noticed that the end-to-end QPS is extremely unstable. I could get a **15%** improvement or deterioration the nex day morning without recompiling the code. Then I found that the CPUs are not completely idle as I have VSCode + Rust Analyzer, it seems they don't consume much CPU but they do affect the benchmark results heavily. Even though I'm using [Intel Core i7-13700K](https://www.intel.com/content/www/us/en/products/sku/230500/intel-core-i713700k-processor-30m-cache-up-to-5-40-ghz/specifications.html), which has 8 performance cores and 8 efficient cores, also the program is single-threaded.
+During the benchmark, I noticed that the end-to-end QPS is extremely unstable. I could get a **15%** improvement or deterioration the next day morning without recompiling the code. Then I found that the CPUs are not completely idle as I have VSCode + Rust Analyzer, it seems they don't consume much CPU but they do affect the benchmark results heavily. Even though I'm using [Intel Core i7-13700K](https://www.intel.com/content/www/us/en/products/sku/230500/intel-core-i713700k-processor-30m-cache-up-to-5-40-ghz/specifications.html), which has 8 performance cores and 8 efficient cores, also the program is single-threaded.
 
 I use [`taskset`](https://www.man7.org/linux/man-pages/man1/taskset.1.html) to bind the process to a specific CPU. This way it won't be affected by mixed cores scheduling.
 
@@ -90,11 +90,11 @@ Cloud VMs may not be affected by the CPU temperature, but the cloud providers ma
 
 ## Step by Step Improvement
 
-### Start with an naive implementation
+### Start with a naive implementation
 
-My [first release](https://github.com/kemingy/rabitq/tree/dbfd54bd5d739b0729dc28e6fbd8d5413b019561) implemented the RaBitQ algorithm based on an algebra library called [nalgebra](https://docs.rs/nalgebra). The main reason is that I need to use the QR decomposition to obtain the orthogonal matrix, which is the key step in the RaBitQ algorithm. Also, a mature linear algebra library provides many useful functions for manipulating the matrix and vectors, making it easier for me to implement the algorithm. Imagine that implementing an algorithm involving matrix multiplication, projection and decomposition in Python without `numpy`, it's a nightmare.
+My [first release](https://github.com/kemingy/rabitq/tree/dbfd54bd5d739b0729dc28e6fbd8d5413b019561) implemented the RaBitQ algorithm based on an algebra library called [nalgebra](https://docs.rs/nalgebra). The main reason is that I need to use the QR decomposition to obtain the orthogonal matrix, which is the key step in the RaBitQ algorithm. Also, a mature linear algebra library provides many useful functions for manipulating the matrix and vectors, making it easier for me to implement the algorithm. Imagine implementing an algorithm involving matrix multiplication, projection and decomposition in Python without `numpy`, it's a nightmare.
 
-I thought that the performance should be good since `nalgebra` is optimized for such kind of scenarios. But the benchmark shows that is much slower than I expected. I guess reimplementing it in `numpy` would be much faster :(
+I thought that the performance should be good since `nalgebra` is optimized for such kind of scenarios. But the benchmark shows that it is much slower than I expected. I guess reimplementing it in `numpy` would be much faster :(
 
 According to the [profiling](https://share.firefox.dev/3AwiVNR), there are lots of `f32::clone()` calls. It takes about 33% of the total time, or 44% if you focus on the `query_one` function. This reminds me that I can preallocate the memory for some vectors and reuse it in the iteration, a very common trick. So instead of using `(x - y).norm_squared()`, I need to pre-declare another vector that stores the result of `(x - y)`, which ends up being `x.sub_to(y, &mut z); z.norm_squared()`. See the [commit 23f9aff](https://github.com/kemingy/rabitq/commit/23f9aff4c8b3303c0a03ac9a7472ada8cc915a3b).
 
@@ -167,7 +167,7 @@ SIMD is like a hammer, now I need to find more nails in the code.
 
 - rewrite the `binarize_vector` function with AVX2 in [commit f114fc1](https://github.com/kemingy/rabitq/commit/f114fc1ec58686596ade0df02a96fcf04b0bf828) improves the QPS by **32%** for GIST.
 
-~~Compared to the original C++ version, this implementation is also branchless.~~ When enabling `opt-level=3`, this can be optimied by the compiler. See the [assembly](https://godbolt.org/z/hjP5qjabz).
+~~Compared to the original C++ version, this implementation is also branchless.~~ When enabling `opt-level=3`, this can be optimized by the compiler. See the [assembly](https://godbolt.org/z/hjP5qjabz).
 
 > @andrewaylett pointed out that `opt-level=3` can optimize this
 
@@ -262,7 +262,7 @@ The [#[inline]](https://doc.rust-lang.org/reference/attributes/codegen.html#the-
 
 I need to add some background information here.
 
-The current implementation is based on the IVF algorithm, which will uses [*k*-means](https://en.wikipedia.org/wiki/K-means_clustering) to cluster the vectors and stores the centroids in memory. The query vector is only compared to the clusters with smaller `l2_squared_distance(query, centroid)`.
+The current implementation is based on the IVF algorithm, which will use [*k*-means](https://en.wikipedia.org/wiki/K-means_clustering) to cluster the vectors and store the centroids in memory. The query vector is only compared to the clusters with smaller `l2_squared_distance(query, centroid)`.
 
 There is a parameter called `n_probe` that controls how many nearest clusters will be probed. A large `n_probe` will increase the recall but decrease the QPS.
 
