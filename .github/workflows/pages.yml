@@ -2,9 +2,9 @@ name: pages
 
 on:
   push:
-    branches: [ blog ]
+    branches: [blog]
   pull_request:
-    branches: [ blog ]
+    branches: [blog]
   workflow_dispatch:
 
 concurrency:
@@ -20,25 +20,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ZOLA_VERSION: 0.17.2
+      ZOLA_VERSION: v0.20.0
+      GH_TOKEN: ${{ github.token }}
     steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: recursive
-    - name: Setup Pages
-      uses: actions/configure-pages@v5
-      id: pages
-    - name: build pages
-      run: |
-        sudo apt install -y wget
-        wget -q -O - \
-        "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin
-        zola build --base-url "${{ steps.pages.outputs.base_url }}"
-        cd public && touch .nojekyll
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: 'public'
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        id: pages
+      - name: build pages
+        run: |
+          gh release download $ZOLA_VERSION --repo getzola/zola -p '*x86_64-unknown-linux*' -O- | tar -xz -C /tmp && mv /tmp/zola /usr/local/bin
+          zola build --base-url "${{ steps.pages.outputs.base_url }}"
+          cd public && touch .nojekyll
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "public"
   deploy:
     runs-on: ubuntu-latest
     environment:
@@ -46,6 +45,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     steps:
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

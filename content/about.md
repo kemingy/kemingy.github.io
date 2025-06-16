@@ -6,9 +6,9 @@ template = "blank.html"
 
 悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。
 
-* [GitHub](https://github.com/kemingy)
-* [Email](mailto:kemingy94@gmail.com)
-* [RSS](/atom.xml)
+* 📦 [GitHub](https://github.com/kemingy)
+* 📧 [Email](mailto:kemingy94@gmail.com)
+* 📢 [RSS](/atom.xml)
 
 ## Recommend Blogs
 
@@ -24,7 +24,7 @@ template = "blank.html"
 | Tech @ Cliqz | [https://0x65.dev/](https://0x65.dev/) |
 | Yoshua Wuyts | [https://blog.yoshuawuyts.com/](https://blog.yoshuawuyts.com/) |
 | Intermediate Representation | [https://ice1000.org/](https://ice1000.org/) |
-| \<antirez\> | [http://antirez.com/](http://antirez.com/) |
+| \<antirez\> | [https://antirez.com](https://antirez.com) |
 | Hi, DIYgod | [https://diygod.me/](https://diygod.me/) |
 | 面向信仰编程 | [https://draveness.me/](https://draveness.me/) |
 | Gee Law’s Blog | [https://geelaw.blog/](https://geelaw.blog/) |
