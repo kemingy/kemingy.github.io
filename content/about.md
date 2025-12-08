@@ -25,7 +25,6 @@ template = "blank.html"
 | Yoshua Wuyts | [https://blog.yoshuawuyts.com/](https://blog.yoshuawuyts.com/) |
 | Intermediate Representation | [https://ice1000.org/](https://ice1000.org/) |
 | \<antirez\> | [https://antirez.com](https://antirez.com) |
-| Hi, DIYgod | [https://diygod.me/](https://diygod.me/) |
 | 面向信仰编程 | [https://draveness.me/](https://draveness.me/) |
 | Gee Law’s Blog | [https://geelaw.blog/](https://geelaw.blog/) |
 | amos loves to tinker | [https://fasterthanli.me/](https://fasterthanli.me/) |
@@ -39,3 +38,4 @@ template = "blank.html"
 | Frost's blog | [https://frostming.com/](https://frostming.com/) |
 | drdr.xp Blog | [https://drmingdrmer.github.io](https://drmingdrmer.github.io) |
 | njs blog | [https://vorpus.org/blog](https://vorpus.org/blog) |
+| Yihong gitblog| [https://blog.yihong0618.me/](https://blog.yihong0618.me/) |
